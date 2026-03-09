@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,10 +11,42 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-    />
+
+    <style>
+      /* Classic: Roboto via system/CDN fallback */
+      @font-face {
+        font-family: "Press Start 2P";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("%PUBLIC_URL%/fonts/PressStart2P-Regular.woff2")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("%PUBLIC_URL%/fonts/PlayfairDisplay-Regular.woff2")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Playfair Display";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url("%PUBLIC_URL%/fonts/PlayfairDisplay-Italic.woff2")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Quicksand";
+        font-style: normal;
+        font-weight: 400 500;
+        font-display: swap;
+        src: url("%PUBLIC_URL%/fonts/Quicksand-Regular.woff2") format("woff2");
+      }
+    </style>
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,6 +57,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Cocktail Browser</title>
+
+    <!-- Admin theme configuration: change activeTheme to switch themes.
+         Available themes: classic | c64 | negroni | blossom -->
+    <script>
+      window.__APP_CONFIG__ = { activeTheme: "classic" };
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -5,12 +5,6 @@ import defaultAliases from "../data/ingredientAliases.json";
 
 import * as actionTypes from "../actionTypes";
 
-// Normalise a bar item: plain strings become {ingredient, source:"manual"}
-function migrateBarItem(item) {
-  if (typeof item === "string") return { ingredient: item, source: "manual" };
-  return item;
-}
-
 const defaultState = {
   db: {
     cocktails: [],
@@ -29,8 +23,6 @@ const defaultState = {
   bar: [],
   favourites: [],
   settings: {
-    theme: "light",
-    color: "indigo",
     browserMode: "card",
     units: "cl",
     pride: false,
@@ -66,11 +58,6 @@ const initialState = produce(
       },
     };
 
-    // Migrate any legacy plain-string bar entries to object shape
-    if (Array.isArray(draft.bar)) {
-      draft.bar = draft.bar.map(migrateBarItem);
-    }
-
     // Robot slice is never persisted — always starts fresh
     draft.robot = defaultState.robot;
   },
@@ -103,37 +90,6 @@ export default (state = initialState, action) =>
         break;
       case actionTypes.CLOSE_FILTER_DIALOG:
         draft.filterOptions.activeDialog = null;
-        break;
-      case actionTypes.SET_BAR:
-        // Payload is a string[] from IngredientPicker -- convert to objects,
-        // but preserve any existing robot-sourced entries
-        {
-          const robotEntries = draft.bar.filter(
-            (item) => item && item.source === "robot",
-          );
-          const manualEntries = action.payload.map((name) => {
-            const existing = draft.bar.find(
-              (item) =>
-                item && item.source !== "robot" && item.ingredient === name,
-            );
-            return existing || { ingredient: name, source: "manual" };
-          });
-          draft.bar = [...manualEntries, ...robotEntries];
-        }
-        break;
-      case actionTypes.ADD_TO_BAR:
-        {
-          const name =
-            typeof action.payload === "string"
-              ? action.payload
-              : action.payload.ingredient;
-          const alreadyInBar = draft.bar.some(
-            (item) => item && item.ingredient === name,
-          );
-          if (!alreadyInBar) {
-            draft.bar.push({ ingredient: name, source: "manual" });
-          }
-        }
         break;
       case actionTypes.TOGGLE_PRIDE:
         draft.settings.pride = !draft.settings.pride;
@@ -191,14 +147,8 @@ export default (state = initialState, action) =>
         draft.robot.activeJobId = action.payload;
         break;
       case actionTypes.ROBOT_BAR_SYNCED:
-        {
-          // Replace all robot-sourced bar entries with the new set
-          const nonRobotEntries = draft.bar.filter(
-            (item) => !item || item.source !== "robot",
-          );
-          draft.bar = [...nonRobotEntries, ...action.payload.barEntries];
-          draft.robot.unresolvedLiquids = action.payload.unresolvedLiquids;
-        }
+        draft.bar = action.payload.barEntries;
+        draft.robot.unresolvedLiquids = action.payload.unresolvedLiquids;
         break;
       default:
     }

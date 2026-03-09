@@ -9,7 +9,7 @@ import {
   CardContent,
   CardActions,
   CardActionArea,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import CocktailActions from "./CocktailActions";
 import GlassIcon from "./GlassIcon";
@@ -22,39 +22,40 @@ import Ingredient from "./IngredientDetail";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
-const styles = theme => ({
+const styles = (theme) => ({
   ingredientList: {
-    paddingLeft: theme.spacing(2)
+    paddingLeft: theme.spacing(2),
   },
   card: {
-    width: theme.spacing(40),
+    width: theme.custom ? theme.custom.cardWidth : theme.spacing(40),
+    maxWidth: "100%",
     margin: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   cardMain: {
-    flexGrow: 10
+    flexGrow: 10,
   },
   actions: {
     alignSelf: "flex-end",
-    flexGrow: 1
+    flexGrow: 1,
   },
   title: {
     fontSize: 20,
     marginTop: 0,
-    marginBottom: 0
+    marginBottom: 0,
   },
   subHeader: {
     fontSize: 14,
-    fontStyle: "italic"
+    fontStyle: "italic",
   },
   category: {
-    fontSize: 12
+    fontSize: 12,
   },
   prep: {
-    fontStyle: "italic"
-  }
+    fontStyle: "italic",
+  },
 });
 
 const CocktailCard = ({
@@ -63,7 +64,7 @@ const CocktailCard = ({
   allGlasses,
   favourite,
   favourites,
-  updateFavourites
+  updateFavourites,
 }) => {
   if (!cocktail) return null;
 
@@ -134,14 +135,14 @@ const CocktailCard = ({
 const mapStateToProps = (state, ownProps) => ({
   favourite: isFavouriteSelector(state, ownProps),
   favourites: state.favourites,
-  allGlasses: allGlassesSelector(state)
+  allGlasses: allGlassesSelector(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFavourites: bindActionCreators(updateFavourites, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  updateFavourites: bindActionCreators(updateFavourites, dispatch),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(withStyles(styles)(CocktailCard));
