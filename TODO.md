@@ -2,6 +2,20 @@
 
 following good practice from https://github.com/todomd/todo.md
 
+## In Progress
+
+### hal-robot-integration
+
+- [ ] Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow #testing
+- [ ] Manual smoke test: dispense a cocktail end-to-end (pre-mix → robot progress → post-mix) #testing
+- [ ] Verify `barOnly` filter shows only cocktails the robot can make after sync #testing
+- [ ] Verify app with no robot URL configured shows no robot UI anywhere #testing
+
+### update-dependencies
+
+- [ ] Test that a git commit triggers the pre-commit hook #testing
+- [ ] Smoke-test the app in browser: browse cocktails, open detail page, visit My Bar and Settings #testing
+
 ## Backlog
 
 - [x] Add unit tests for Redux selectors in `src/selectors/` #testing

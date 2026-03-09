@@ -17,7 +17,7 @@
 1. Document relevant changes in `CLAUDE.md` and `openspec/config.yaml`
 1. Update `TODO.md` to reflect the changes
 1. Document changes in CHANGELOG.md in the format of @https://keepachangelog.com/en/1.1.0/
-1. `git commit` with descriptive message
+1. Use `/commit-push-pr` to commit, push, and open a PR
 
 ---
 

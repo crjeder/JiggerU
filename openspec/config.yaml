@@ -139,7 +139,7 @@ session:
     - Work on exactly ONE task
   end:
     - Update README.md if relevant (follow makeareadme.com best practices)
-    - git commit with descriptive message
+    - Use /commit-push-pr to commit, push, and open a PR
     - Update claude-progress.txt
     - Document relevant changes in CLAUDE.md and openspec/config.yaml
     - Update TODO.md to reflect changes
