@@ -13,6 +13,7 @@ const allCocktailsSelector = (state) => state.db.cocktails;
 export const allGlassesSelector = (state) => state.db.glasses;
 const barSelector = (state) => state.bar;
 const favouritesSelector = (state) => state.favourites;
+const substitutionsSelector = (state) => state.db.substitutions;
 
 const currentSlugFromUrlSelector = (_, props) =>
   get(props, "match.params.slug");
@@ -61,12 +62,14 @@ export const filteredCocktailsSelector = createSelector(
 export const makeableCocktailsSelector = createSelector(
   allCocktailsSelector,
   barSelector,
-  (cocktails, bar) =>
+  substitutionsSelector,
+  (cocktails, bar, substitutions) =>
     applyFilter(cocktails, {
       rule: "makeableFrom",
       ingredients: bar.map((item) =>
         typeof item === "string" ? item : item.type || item.ingredient,
       ),
+      substitutions: substitutions || {},
     }),
 );
 

@@ -16,6 +16,7 @@ const defaultState = {
     cocktails: [],
     ingredients: [],
     glasses: [],
+    substitutions: {},
   },
   filterOptions: {
     activeFilters: [],
@@ -90,6 +91,9 @@ export default (state = initialState, action) =>
         break;
       case actionTypes.LOAD_GLASSES:
         draft.db.glasses = action.payload;
+        break;
+      case actionTypes.LOAD_SUBSTITUTIONS:
+        draft.db.substitutions = action.payload;
         break;
       case actionTypes.UPDATE_FAVOURITES:
         draft.favourites = action.payload;

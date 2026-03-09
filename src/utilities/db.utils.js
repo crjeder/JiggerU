@@ -3,9 +3,12 @@ import {
   fetchIngredients,
   fetchGlasses
 } from "../services/cocktail.service";
-import { loadCocktails, loadIngredients, loadGlasses } from "../actions";
+import { loadCocktails, loadIngredients, loadGlasses, loadSubstitutions } from "../actions";
+import substitutionsData from "../data/substitutions.json";
 
 export async function loadDatabase(store) {
+  store.dispatch(loadSubstitutions(substitutionsData));
+
   const glasses = await fetchGlasses();
   store.dispatch(loadGlasses(glasses));
 

@@ -14,6 +14,10 @@ export function loadGlasses(payload) {
   return { type: actionTypes.LOAD_GLASSES, payload };
 }
 
+export function loadSubstitutions(payload) {
+  return { type: actionTypes.LOAD_SUBSTITUTIONS, payload };
+}
+
 export function updateFilter(payload) {
   return { type: actionTypes.UPDATE_FILTER, payload };
 }

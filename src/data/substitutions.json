@@ -1,0 +1,315 @@
+{
+  "Gin": [
+    "Gordon's Gin",
+    "Bombay Sapphire",
+    "Tanqueray",
+    "Hendrick's Gin",
+    "Beefeater",
+    "Sipsmith London Dry",
+    "The Botanist",
+    "Monkey 47",
+    "Bloom London Dry Gin",
+    "Kaiza 5",
+    "Plymouth Gin",
+    "Broker's Gin"
+  ],
+  "Vodka": [
+    "Grey Goose",
+    "Absolut",
+    "Absolut Vodka",
+    "Smirnoff",
+    "Belvedere",
+    "Ketel One",
+    "Stolichnaya",
+    "Tito's Handmade Vodka",
+    "Ciroc",
+    "Russian Standard"
+  ],
+  "Citron Vodka": [
+    "Absolut Citron",
+    "Stolichnaya Citros",
+    "Smirnoff Citrus"
+  ],
+  "White rum": [
+    "Bacardi White",
+    "Bacardi Carta Blanca",
+    "Havana Club 3yr",
+    "Havana Club Blanco",
+    "Appleton White",
+    "Mount Gay Silver",
+    "Wray & Nephew White Overproof"
+  ],
+  "Dark rum": [
+    "Havana Club 7yr",
+    "Appleton Estate",
+    "Mount Gay Black Barrel",
+    "Gosling's Black Seal",
+    "Kraken Black Spiced Rum",
+    "Captain Morgan Dark",
+    "Bacardi Carta Negra",
+    "Ron Zacapa 23"
+  ],
+  "Tequila": [
+    "Patron Silver",
+    "Jose Cuervo Tradicional",
+    "Don Julio Blanco",
+    "Herradura Silver",
+    "Espolon Blanco",
+    "Olmeca Altos Plata",
+    "1800 Silver"
+  ],
+  "Cognac": [
+    "Hennessy VS",
+    "Martell VS",
+    "Courvoisier VS",
+    "Remy Martin VSOP",
+    "Hennessy VSOP",
+    "Martell VSOP"
+  ],
+  "Whiskey": [
+    "Jameson",
+    "Jack Daniel's",
+    "Jim Beam",
+    "Maker's Mark",
+    "Wild Turkey",
+    "Buffalo Trace",
+    "Bulleit Bourbon",
+    "Woodford Reserve",
+    "Glenfiddich 12",
+    "Monkey Shoulder"
+  ],
+  "Calvados": [
+    "Boulard VSOP",
+    "Dupont Reserve",
+    "Lemorton Domfrontais"
+  ],
+  "Pisco": [
+    "Capel Especial",
+    "Campo de Encanto",
+    "Barsol Quebranta"
+  ],
+  "Cachaca": [
+    "Leblon",
+    "Sagatiba",
+    "Ypioca"
+  ],
+  "Absinthe": [
+    "Pernod Absinthe",
+    "Lucid Absinthe",
+    "Kübler Absinthe",
+    "Duplais Swiss Absinthe"
+  ],
+  "Campari": [
+    "Aperol"
+  ],
+  "Aperol": [
+    "Campari"
+  ],
+  "Triple Sec": [
+    "Cointreau",
+    "Grand Marnier",
+    "Bols Triple Sec",
+    "DeKuyper Triple Sec"
+  ],
+  "Coffee liqueur": [
+    "Kahlúa",
+    "Tia Maria",
+    "Bols Coffee Liqueur"
+  ],
+  "Cream liqueur": [
+    "Baileys Irish Cream",
+    "Carolans Irish Cream"
+  ],
+  "Apricot brandy": [
+    "Bols Apricot Brandy",
+    "Marie Brizard Apricot"
+  ],
+  "Cherry liqueur": [
+    "Heering Cherry Liqueur",
+    "Luxardo Maraschino",
+    "Bols Cherry"
+  ],
+  "Peach schnapps": [
+    "DeKuyper Peach Schnapps",
+    "Archers Peach Schnapps",
+    "Bols Peach"
+  ],
+  "Raspberry liqueur": [
+    "Chambord",
+    "Bols Raspberry",
+    "DeKuyper Razzmatazz"
+  ],
+  "Blackberry liqueur": [
+    "Bols Blackberry",
+    "Mure Blackberry Liqueur"
+  ],
+  "Créme de Cassis": [
+    "Bols Cassis",
+    "Mathieu Teisseire Cassis",
+    "Gabriel Boudier Cassis"
+  ],
+  "Créme de Cacao": [
+    "Bols Cacao",
+    "DeKuyper Creme de Cacao"
+  ],
+  "Créme de Menthe": [
+    "Bols Menthe",
+    "DeKuyper Creme de Menthe"
+  ],
+  "Crème de violette": [
+    "Bennier Violette",
+    "Rothman & Winter Crème de Violette"
+  ],
+  "Galliano": [
+    "Galliano L'Autentico"
+  ],
+  "DiSaronno": [
+    "Disaronno Originale",
+    "Amaretto di Saronno"
+  ],
+  "Drambuie": [
+    "Drambuie Liqueur"
+  ],
+  "DOM Bénédictine": [
+    "Bénédictine D.O.M."
+  ],
+  "Lillet Blonde": [
+    "Lillet Blanc",
+    "Cocchi Americano",
+    "Kina L'Avion d'Or"
+  ],
+  "Vermouth": [
+    "Martini Bianco",
+    "Martini Rosso",
+    "Martini Extra Dry",
+    "Noilly Prat Extra Dry",
+    "Noilly Prat Original Dry",
+    "Cinzano Bianco",
+    "Cinzano Extra Dry",
+    "Dolin Blanc",
+    "Dolin Dry"
+  ],
+  "Prosecco": [
+    "Cava",
+    "Sparkling Wine",
+    "Champagne"
+  ],
+  "Champagne": [
+    "Prosecco",
+    "Cava",
+    "Sparkling Wine"
+  ],
+  "Sparkling Wine": [
+    "Prosecco",
+    "Cava",
+    "Champagne"
+  ],
+  "Dry White Wine": [
+    "Sauvignon Blanc",
+    "Pinot Grigio",
+    "Albariño"
+  ],
+  "Red Port": [
+    "Taylor's Ruby Port",
+    "Graham's Ruby Port",
+    "Sandeman Ruby Port"
+  ],
+  "Lemon juice": [
+    "Fresh lemon juice",
+    "Lime juice"
+  ],
+  "Lime juice": [
+    "Fresh lime juice",
+    "Lemon juice"
+  ],
+  "Orange juice": [
+    "Fresh orange juice"
+  ],
+  "Grapefruit juice": [
+    "Fresh grapefruit juice"
+  ],
+  "Cranberry juice": [
+    "Ocean Spray Cranberry",
+    "Cranberry cocktail"
+  ],
+  "Pineapple juice": [
+    "Fresh pineapple juice"
+  ],
+  "Tomato juice": [
+    "V8 Vegetable Juice"
+  ],
+  "Coconut milk": [
+    "Coconut cream",
+    "Malibu Coconut"
+  ],
+  "Peach puree": [
+    "Peach nectar",
+    "Canned peach in syrup (blended)"
+  ],
+  "Syrup": [
+    "Simple syrup",
+    "Sugar syrup",
+    "Gomme syrup",
+    "Monin Syrup"
+  ],
+  "Raspberry syrup": [
+    "Monin Raspberry",
+    "Grenadine (raspberry-based)"
+  ],
+  "Agave nectar": [
+    "Agave syrup",
+    "Blue agave nectar"
+  ],
+  "Honey": [
+    "Honey syrup",
+    "Runny honey"
+  ],
+  "Sugar": [
+    "Caster sugar",
+    "White sugar",
+    "Simple syrup"
+  ],
+  "Cream": [
+    "Double cream",
+    "Heavy cream",
+    "Whipping cream"
+  ],
+  "Cola": [
+    "Coca-Cola",
+    "Pepsi",
+    "Diet Coke",
+    "Fever-Tree Cola"
+  ],
+  "Ginger beer": [
+    "Fever-Tree Ginger Beer",
+    "Bundaberg Ginger Beer",
+    "Fentimans Ginger Beer",
+    "Reed's Ginger Beer"
+  ],
+  "Ginger Ale": [
+    "Canada Dry Ginger Ale",
+    "Fever-Tree Ginger Ale",
+    "Schweppes Ginger Ale"
+  ],
+  "Soda water": [
+    "Club soda",
+    "Sparkling water",
+    "Fever-Tree Soda Water",
+    "San Pellegrino"
+  ],
+  "Angostura bitters": [
+    "Angostura Aromatic Bitters"
+  ],
+  "Orange bitters": [
+    "Angostura Orange Bitters",
+    "Regan's Orange Bitters",
+    "Fee Brothers Orange Bitters"
+  ],
+  "Peach bitters": [
+    "Fee Brothers Peach Bitters",
+    "The Bitter Truth Peach Bitters"
+  ],
+  "Peychaud's bitters": [
+    "Peychaud's Aromatic Cocktail Bitters"
+  ]
+}

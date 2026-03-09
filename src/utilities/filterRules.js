@@ -20,12 +20,25 @@ export function mustHaveTruthyProperty(cocktail, { property }) {
   return !!cocktail[property.toString()];
 }
 
+// Expand bar items by reverse-looking up each item in the substitutions map.
+// e.g. "Gordon's Gin" → adds "Gin" because substitutions["Gin"] includes it.
+function expandWithSubstitutions(barIngredients, substitutions) {
+  const expanded = new Set(barIngredients);
+  for (const barItem of barIngredients) {
+    for (const [generic, brands] of Object.entries(substitutions)) {
+      if (brands.includes(barItem)) expanded.add(generic);
+    }
+  }
+  return [...expanded];
+}
+
 // cocktail will be returned if it includes all of the ingredients
 // in the filter - NONE can be missing.
-export function makeableFrom(cocktail, { ingredients }) {
+export function makeableFrom(cocktail, { ingredients, substitutions = {} }) {
   const cocktailIngredients = getIngredientKeys(cocktail);
   if (ingredients.length === 0) return false;
-  return arrayContainsArray(ingredients, cocktailIngredients);
+  const expanded = expandWithSubstitutions(ingredients, substitutions);
+  return arrayContainsArray(expanded, cocktailIngredients);
 }
 
 // cocktail will be returned if it includes all of the
