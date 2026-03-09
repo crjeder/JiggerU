@@ -1,10 +1,11 @@
 # TODO
+
 following good practice from https://github.com/todomd/todo.md
 
 ## Backlog
 
-- [ ] Add unit tests for Redux selectors in `src/selectors/` #testing
-- [ ] Add unit tests for action creators in `src/actions.js` #testing
+- [x] Add unit tests for Redux selectors in `src/selectors/` #testing
+- [x] Add unit tests for action creators in `src/actions.js` #testing
 - [ ] Upgrade from React 16 to React 18 (functional components already in use) #refactor
 - [ ] Upgrade Material UI from v4 to v5 #refactor
 - [ ] Upgrade react-router-dom from v5 to v6 #refactor

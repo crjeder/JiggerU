@@ -1,5 +1,22 @@
 # Claude Progress
 
+## 2026-03-09 — Session: Add unit tests for actions and selectors
+
+### Task Completed
+- Created `src/actions.spec.js` with 23 unit tests covering all action creators and `enrichCocktail` thunk
+- Created `src/selectors/selectors.spec.js` with 18 unit tests covering all exported selectors
+- All 63 tests pass across 12 test suites
+
+### Files Changed
+- src/actions.spec.js (created)
+- src/selectors/selectors.spec.js (created)
+- TODO.md (marked testing tasks done)
+- CHANGELOG.md (updated Unreleased section)
+- claude-progress.txt (updated)
+
+### Branch
+master
+
 ## 2026-03-09 — Session: Add CHANGELOG.md
 
 ### Task Completed
