@@ -1,0 +1,45 @@
+- generic [ref=e2]:
+    - banner [ref=e3]:
+        - generic [ref=e4]:
+            - button "Cocktail Browser" [ref=e6] [cursor=pointer]:
+                - generic [ref=e7]:
+                    - img [ref=e8]
+                    - heading "Cocktail Browser" [level=1] [ref=e10]
+            - button "Browse" [ref=e11] [cursor=pointer]:
+                - generic [ref=e12]:
+                    - img [ref=e13]
+                    - paragraph [ref=e15]: Browse
+            - button "Bar" [ref=e16] [cursor=pointer]:
+                - generic [ref=e17]:
+                    - img [ref=e18]
+                    - paragraph [ref=e20]: Bar
+            - button "Settings" [ref=e21] [cursor=pointer]:
+                - generic [ref=e22]:
+                    - img [ref=e23]
+                    - paragraph [ref=e25]: Settings
+            - 'generic "Robot: disconnected" [ref=e26]'
+    - generic [ref=e29]:
+        - heading "Americano" [level=1] [ref=e30]
+        - generic [ref=e31]:
+            - generic [ref=e33]: Before Dinner Cocktail
+            - generic [ref=e35]: Old Fashioned
+            - generic [ref=e37]: Half an orange slice
+            - generic [ref=e39]: Non-vegan
+        - generic [ref=e40]:
+            - list [ref=e41]:
+                - listitem [ref=e42]:
+                    - generic [ref=e43]:
+                        - text: 3 cl
+                        - strong [ref=e44] [cursor=pointer]: Campari
+                - listitem [ref=e45]:
+                    - generic [ref=e46]:
+                        - text: 3 cl
+                        - strong [ref=e47] [cursor=pointer]: Red vermouth
+                - listitem [ref=e48]:
+                    - generic [ref=e49]:
+                        - text: A splash
+                        - strong [ref=e50] [cursor=pointer]: Soda water
+            - paragraph [ref=e51]: Build into old fashioned glass filled with ice cubes. Add a splash of soda water.
+        - generic [ref=e52]:
+            - button "Make it!" [disabled]:
+                - generic: Make it!

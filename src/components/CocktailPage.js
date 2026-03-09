@@ -2,23 +2,23 @@ import React from "react";
 import useScrollTop from "../hooks/useScrollTop";
 import useEnrichCocktail from "../hooks/useEnrichCocktail";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import { Fade, Box, Grid } from "@material-ui/core";
-import { currentCocktailSelector } from "../selectors";
 import { makeStyles } from "@material-ui/core/styles";
 import CocktailDetail from "./CocktailPage/CocktailDetail";
 import CocktailVariantList from "./CocktailPage/CocktailVariantList";
 
 const fullHeight = "92vh";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cocktailDetail: {
     overflow: "auto",
     [theme.breakpoints.up("sm")]: {
-      height: fullHeight
-    }
+      height: fullHeight,
+    },
   },
   cocktailDetailContent: {
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
   },
   cocktailImage: {
     ...theme.mixins.toolbar,
@@ -26,16 +26,18 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeatY: "no-repeat",
     backgroundSize: "cover",
     [theme.breakpoints.up("xs")]: {
-      height: fullHeight
-    }
+      height: fullHeight,
+    },
   },
   mobileImage: {
     height: "20vh",
-    backgroundPosition: "center"
-  }
+    backgroundPosition: "center",
+  },
 }));
 
-export const CocktailPage = ({ cocktail }) => {
+export const CocktailPage = ({ allCocktails }) => {
+  const { slug } = useParams();
+  const cocktail = allCocktails.find((c) => c.slug === slug);
   const classes = useStyles();
   useScrollTop();
   useEnrichCocktail(cocktail);
@@ -66,7 +68,7 @@ export const CocktailPage = ({ cocktail }) => {
             <div
               style={
                 image && {
-                  backgroundImage: `url(${image})`
+                  backgroundImage: `url(${image})`,
                 }
               }
               className={classes.cocktailImage}
@@ -78,8 +80,8 @@ export const CocktailPage = ({ cocktail }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  cocktail: currentCocktailSelector(state, ownProps)
+const mapStateToProps = (state) => ({
+  allCocktails: state.db.cocktails,
 });
 
 export default connect(mapStateToProps)(CocktailPage);

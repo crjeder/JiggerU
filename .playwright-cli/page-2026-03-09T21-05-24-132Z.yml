@@ -1,0 +1,124 @@
+- generic [ref=e2]:
+    - banner [ref=e3]:
+        - generic [ref=e4]:
+            - button "Cocktail Browser" [ref=e6] [cursor=pointer]:
+                - generic [ref=e7]:
+                    - img [ref=e8]
+                    - heading "Cocktail Browser" [level=1] [ref=e10]
+            - button "Browse" [ref=e11] [cursor=pointer]:
+                - generic [ref=e12]:
+                    - img [ref=e13]
+                    - paragraph [ref=e15]: Browse
+            - button "Bar" [ref=e16] [cursor=pointer]:
+                - generic [ref=e17]:
+                    - img [ref=e18]
+                    - paragraph [ref=e20]: Bar
+            - button "Settings" [ref=e21] [cursor=pointer]:
+                - generic [ref=e22]:
+                    - img [ref=e23]
+                    - paragraph [ref=e25]: Settings
+            - 'generic "Robot: disconnected" [ref=e185]'
+    - generic [ref=e27]:
+        - heading "Settings" [level=2] [ref=e28]
+        - generic [ref=e29]: Color
+        - radiogroup "Color" [ref=e30]:
+            - generic [ref=e31] [cursor=pointer]:
+                - generic [ref=e33]:
+                    - radio "Indigo" [checked] [ref=e34]
+                    - generic [ref=e35]:
+                        - img [ref=e36]
+                        - img [ref=e38]
+                - generic [ref=e40]: Indigo
+            - generic [ref=e41] [cursor=pointer]:
+                - generic [ref=e43]:
+                    - radio "Red" [ref=e44]
+                    - img [ref=e46]
+                - generic [ref=e48]: Red
+            - generic [ref=e49] [cursor=pointer]:
+                - generic [ref=e51]:
+                    - radio "Teal" [ref=e52]
+                    - img [ref=e54]
+                - generic [ref=e56]: Teal
+            - generic [ref=e57] [cursor=pointer]:
+                - generic [ref=e59]:
+                    - radio "Brown" [ref=e60]
+                    - img [ref=e62]
+                - generic [ref=e64]: Brown
+            - generic [ref=e65] [cursor=pointer]:
+                - generic [ref=e67]:
+                    - radio "Pink" [ref=e68]
+                    - img [ref=e70]
+                - generic [ref=e72]: Pink
+            - generic [ref=e73] [cursor=pointer]:
+                - generic [ref=e75]:
+                    - radio "Purple" [ref=e76]
+                    - img [ref=e78]
+                - generic [ref=e80]: Purple
+        - generic [ref=e81]: Browser mode
+        - radiogroup "BrowserMode" [ref=e82]:
+            - generic [ref=e83] [cursor=pointer]:
+                - generic [ref=e85]:
+                    - radio "Card" [checked] [ref=e86]
+                    - generic [ref=e87]:
+                        - img [ref=e88]
+                        - img [ref=e90]
+                - generic [ref=e92]: Card
+            - generic [ref=e93] [cursor=pointer]:
+                - generic [ref=e95]:
+                    - radio "Table" [ref=e96]
+                    - img [ref=e98]
+                - generic [ref=e100]: Table
+        - generic [ref=e101]: Theme
+        - radiogroup "Theme" [ref=e102]:
+            - generic [ref=e103] [cursor=pointer]:
+                - generic [ref=e105]:
+                    - radio "Light" [checked] [ref=e106]
+                    - generic [ref=e107]:
+                        - img [ref=e108]
+                        - img [ref=e110]
+                - generic [ref=e112]: Light
+            - generic [ref=e113] [cursor=pointer]:
+                - generic [ref=e115]:
+                    - radio "Dark" [ref=e116]
+                    - img [ref=e118]
+                - generic [ref=e120]: Dark
+        - generic [ref=e121]: Units
+        - radiogroup "Units" [ref=e122]:
+            - generic [ref=e123] [cursor=pointer]:
+                - generic [ref=e125]:
+                    - radio "cl" [checked] [ref=e126]
+                    - generic [ref=e127]:
+                        - img [ref=e128]
+                        - img [ref=e130]
+                - generic [ref=e132]: cl
+            - generic [ref=e133] [cursor=pointer]:
+                - generic [ref=e135]:
+                    - radio "ml" [ref=e136]
+                    - img [ref=e138]
+                - generic [ref=e140]: ml
+            - generic [ref=e141] [cursor=pointer]:
+                - generic [ref=e143]:
+                    - radio "oz" [ref=e144]
+                    - img [ref=e146]
+                - generic [ref=e148]: oz
+            - generic [ref=e149] [cursor=pointer]:
+                - generic [ref=e151]:
+                    - radio "parts" [ref=e152]
+                    - img [ref=e154]
+                - generic [ref=e156]: parts
+        - generic [ref=e157]: Pro-mode
+        - generic [ref=e158] [cursor=pointer]:
+            - checkbox "Use Bartender Lingo" [ref=e162]
+            - generic [ref=e165]: Use Bartender Lingo
+        - generic [ref=e166]: Pride!
+        - generic [ref=e167] [cursor=pointer]:
+            - checkbox "Fly the colours" [ref=e171]
+            - generic [ref=e174]: Fly the colours
+        - separator [ref=e175]
+        - generic [ref=e176]: Robot (CocktailBot HAL)
+        - generic [ref=e177]:
+            - generic [ref=e178]: Robot URL
+            - textbox "http://robot.local" [ref=e180]: http://localhost:9999
+        - generic [ref=e181]:
+            - generic [ref=e182]: Bearer Token
+            - textbox [active] [ref=e184]

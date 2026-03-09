@@ -1,0 +1,33 @@
+[    1105ms] [WARNING] An input selector returned a different result when passed same arguments.
+This means your output selector will likely run more frequently than intended.
+Avoid returning a new reference inside your input selector, e.g.
+`createSelector([state => state.todos.map(todo => todo.id)], todoIds => todoIds.length)` {arguments: Arguments(1), firstInputs: Array(2), secondInputs: Array(2), stack: Error
+    at Object.runInputStabilityCheck [as run…p://localhost:3000/static/js/bundle.js:108934:18)} @ http://localhost:3000/static/js/bundle.js:109710
+[    1147ms] [ERROR] Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s 
+    at a
+    at LinkWithRef (http://localhost:3000/static/js/bundle.js:94334:7)
+    at ButtonBase (http://localhost:3000/static/js/bundle.js:9499:22)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29737:31)
+    at Button (http://localhost:3000/static/js/bundle.js:9277:24)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29737:31)
+    at div
+    at div
+    at Toolbar (http://localhost:3000/static/js/bundle.js:24391:23)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29737:31)
+    at header
+    at Paper (http://localhost:3000/static/js/bundle.js:20000:23)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29737:31)
+    at AppBar (http://localhost:3000/static/js/bundle.js:8573:23)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29737:31)
+    at Topbar (http://localhost:3000/static/js/bundle.js:6061:3)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29737:31)
+    at ConnectFunction (http://localhost:3000/static/js/bundle.js:108868:103)
+    at Router (http://localhost:3000/static/js/bundle.js:96315:15)
+    at BrowserRouter (http://localhost:3000/static/js/bundle.js:94216:5)
+    at ThemeProvider (http://localhost:3000/static/js/bundle.js:28832:24)
+    at Theme (http://localhost:3000/static/js/bundle.js:7631:3)
+    at ConnectFunction (http://localhost:3000/static/js/bundle.js:108868:103)
+    at App (http://localhost:3000/static/js/bundle.js:387:72)
+    at Provider (http://localhost:3000/static/js/bundle.js:109019:5) @ http://localhost:3000/static/js/bundle.js:66520
+[    1178ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:3000/static/js/bundle.js:96063
+[    1178ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:3000/static/js/bundle.js:96063

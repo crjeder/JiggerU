@@ -3,9 +3,8 @@ import renderer from "react-test-renderer";
 import { CocktailPage } from "./CocktailPage";
 import store from "../store";
 import { Provider } from "react-redux";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
 import { noop } from "lodash";
-import cocktails from "../data/cocktails.json";
 import { loadDatabase } from "../utilities/db.utils";
 
 beforeAll(async () => {
@@ -24,14 +23,20 @@ afterAll(() => {
 });
 
 it("does not explode when rendered", async () => {
-  const cocktail = store.getState().db.cocktails[0];
+  const allCocktails = store.getState().db.cocktails;
+  const cocktail = allCocktails[0];
 
   const tree = renderer.create(
     <Provider store={store}>
-      <MemoryRouter>
-        <CocktailPage cocktail={cocktail} enrichCocktail={noop} />
+      <MemoryRouter initialEntries={[`/cocktails/${cocktail.slug}`]}>
+        <Routes>
+          <Route
+            path="/cocktails/:slug"
+            element={<CocktailPage allCocktails={allCocktails} />}
+          />
+        </Routes>
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 
   expect(tree).toMatchSnapshot();

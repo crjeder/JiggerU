@@ -6,23 +6,23 @@ following good practice from https://github.com/todomd/todo.md
 
 ### hal-robot-integration
 
-- [ ] Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow #testing
-- [ ] Manual smoke test: dispense a cocktail end-to-end (pre-mix → robot progress → post-mix) #testing
-- [ ] Verify `barOnly` filter shows only cocktails the robot can make after sync #testing
-- [ ] Verify app with no robot URL configured shows no robot UI anywhere #testing
+- [x] Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow UI #testing
+- [ ] Manual smoke test: dispense a cocktail end-to-end (pre-mix → robot progress → post-mix) — requires live robot hardware #testing
+- [ ] Verify `barOnly` filter shows only cocktails the robot can make after sync — can be automated via mocked robot API responses #testing
+- [x] Verify app with no robot URL configured shows no robot UI anywhere #testing
 
 ### update-dependencies
 
-- [ ] Test that a git commit triggers the pre-commit hook #testing
-- [ ] Smoke-test the app in browser: browse cocktails, open detail page, visit My Bar and Settings #testing
+- [x] Test that a git commit triggers the pre-commit hook #testing
+- [x] Smoke-test the app in browser: browse cocktails, open detail page, visit My Bar and Settings #testing
 
 ## Backlog
 
 - [x] Add unit tests for Redux selectors in `src/selectors/` #testing
 - [x] Add unit tests for action creators in `src/actions.js` #testing
-- [ ] Upgrade from React 16 to React 18 (functional components already in use) #refactor
+- [x] Upgrade from React 16 to React 18 (functional components already in use) #refactor
 - [ ] Upgrade Material UI from v4 to v5 #refactor
-- [ ] Upgrade react-router-dom from v5 to v6 #refactor
+- [x] Upgrade react-router-dom from v5 to v6 #refactor
 - [ ] Add search by cocktail name functionality #feature
 - [ ] Add "shuffle" / random cocktail button #feature
 - [ ] Improve accessibility (ARIA labels, keyboard navigation) #a11y
@@ -30,7 +30,6 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Add cocktail rating / personal notes feature #feature
 - [ ] Expand non-IBA cocktail list beyond current extras #data
 - [ ] Add ingredient substitution suggestions #feature
-- [ ] Add print-friendly cocktail recipe view #feature
 
 ## Done ✓
 

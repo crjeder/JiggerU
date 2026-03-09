@@ -1,0 +1,51 @@
+[     360ms] [ERROR] Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node%s 
+    at a
+    at LinkWithRef (http://localhost:3000/static/js/bundle.js:94338:7)
+    at ButtonBase (http://localhost:3000/static/js/bundle.js:9503:22)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29741:31)
+    at Button (http://localhost:3000/static/js/bundle.js:9281:24)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29741:31)
+    at div
+    at div
+    at Toolbar (http://localhost:3000/static/js/bundle.js:24395:23)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29741:31)
+    at header
+    at Paper (http://localhost:3000/static/js/bundle.js:20004:23)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29741:31)
+    at AppBar (http://localhost:3000/static/js/bundle.js:8577:23)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29741:31)
+    at Topbar (http://localhost:3000/static/js/bundle.js:6065:3)
+    at WithStyles (http://localhost:3000/static/js/bundle.js:29741:31)
+    at ConnectFunction (http://localhost:3000/static/js/bundle.js:108872:103)
+    at Router (http://localhost:3000/static/js/bundle.js:96319:15)
+    at BrowserRouter (http://localhost:3000/static/js/bundle.js:94220:5)
+    at ThemeProvider (http://localhost:3000/static/js/bundle.js:28836:24)
+    at Theme (http://localhost:3000/static/js/bundle.js:7635:3)
+    at ConnectFunction (http://localhost:3000/static/js/bundle.js:108872:103)
+    at App (http://localhost:3000/static/js/bundle.js:387:72)
+    at Provider (http://localhost:3000/static/js/bundle.js:109023:5) @ http://localhost:3000/static/js/bundle.js:66524
+[     362ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:3000/static/js/bundle.js:96067
+[     362ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:3000/static/js/bundle.js:96067
+[    2692ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[    6056ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[   10408ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[   16759ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[   27107ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[   45434ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[   77762ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  110144ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  142480ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  174831ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  207166ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  239517ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  271864ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  304206ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  336520ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  368853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  401189ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  433524ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  465874ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  498209ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  530544ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  562880ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
+[  595226ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:9999/v1/events:0
