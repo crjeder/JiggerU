@@ -3,8 +3,6 @@ following good practice from https://github.com/todomd/todo.md
 
 ## Backlog
 
-- [ ] Add CHANGELOG.md following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format #docs
-- [ ] Create claude-progress.txt to track session progress #docs
 - [ ] Add unit tests for Redux selectors in `src/selectors/` #testing
 - [ ] Add unit tests for action creators in `src/actions.js` #testing
 - [ ] Upgrade from React 16 to React 18 (functional components already in use) #refactor
@@ -19,10 +17,6 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Add ingredient substitution suggestions #feature
 - [ ] Add print-friendly cocktail recipe view #feature
 
-## In Progress
-
-- [ ] Create TODO.md following todo.md best practices #docs
-
 ## Done ✓
 
 - [x] Filter by ingredient, category, glass, vegan, makeable
@@ -36,3 +30,6 @@ following good practice from https://github.com/todomd/todo.md
 - [x] Robot bar integration (CocktailBotHAL)
 - [x] Hide button labels on mobile viewports
 - [x] Persisted settings across sessions
+- [x] Create TODO.md following todo.md best practices #docs
+- [x] Add CHANGELOG.md following Keep a Changelog format #docs
+- [x] Create claude-progress.txt to track session progress #docs

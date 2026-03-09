@@ -1,0 +1,17 @@
+# Claude Progress
+
+## 2026-03-09 — Session: Add CHANGELOG.md
+
+### Task Completed
+- Created CHANGELOG.md following Keep a Changelog v1.1.0 format
+- Reconstructed history from git log spanning 2019–2026
+- Grouped changes into logical version milestones (v0.0.3 through v0.1.0 + Unreleased)
+- Added comparison links to GitHub for each version
+
+### Files Changed
+- CHANGELOG.md (created)
+- TODO.md (updated — marked CHANGELOG task moved to Done)
+- claude-progress.txt (created)
+
+### Branch
+claude/add-changelog-CWV1B
