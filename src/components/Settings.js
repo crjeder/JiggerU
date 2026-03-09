@@ -19,9 +19,7 @@ import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
 import { updateSettings, togglePride, toggleLingo } from "../actions";
 import { connect } from "react-redux";
-import { colors } from "../theme";
 import capitalize from "lodash/capitalize";
-import keys from "lodash/keys";
 
 const styles = (theme) => ({
   content: {
@@ -51,6 +49,11 @@ const Settings = ({
   const aliases = settings.robot ? settings.robot.ingredientAliases || {} : {};
   const typeOptions = Object.keys(aliases).sort();
 
+  const guessType = (liquidName) => {
+    const lower = liquidName.toLowerCase();
+    return typeOptions.find((t) => lower.includes(t.toLowerCase())) || "";
+  };
+
   const handleRobotSettingChange = (field) => (e) => {
     updateSettings({
       robot: { ...settings.robot, [field]: e.target.value },
@@ -76,30 +79,6 @@ const Settings = ({
         </Typography>
 
         <FormLabel className={classes.formLabel} component="legend">
-          Color
-        </FormLabel>
-        <RadioGroup
-          row
-          aria-label="Color"
-          name="color"
-          value={settings.color}
-          onChange={(event) => {
-            updateSettings({ color: event.target.value });
-          }}
-        >
-          {keys(colors).map((color) => {
-            return (
-              <FormControlLabel
-                value={color}
-                key={color}
-                control={<Radio />}
-                label={capitalize(color)}
-              />
-            );
-          })}
-        </RadioGroup>
-
-        <FormLabel className={classes.formLabel} component="legend">
           Browser mode
         </FormLabel>
         <RadioGroup
@@ -118,30 +97,6 @@ const Settings = ({
                 key={browserMode}
                 control={<Radio />}
                 label={capitalize(browserMode)}
-              />
-            );
-          })}
-        </RadioGroup>
-
-        <FormLabel className={classes.formLabel} component="legend">
-          Theme
-        </FormLabel>
-        <RadioGroup
-          row
-          aria-label="Theme"
-          name="theme"
-          value={settings.theme}
-          onChange={(event) => {
-            updateSettings({ theme: event.target.value });
-          }}
-        >
-          {["light", "dark"].map((theme) => {
-            return (
-              <FormControlLabel
-                value={theme}
-                key={theme}
-                control={<Radio />}
-                label={capitalize(theme)}
               />
             );
           })}
@@ -246,7 +201,7 @@ const Settings = ({
                   select
                   label="Type"
                   style={{ minWidth: 200 }}
-                  defaultValue=""
+                  defaultValue={guessType(liquid.name)}
                   onChange={(e) =>
                     handleAssignType(liquid.name, e.target.value)
                   }

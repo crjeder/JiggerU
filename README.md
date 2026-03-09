@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/mikeyhogarth/cocktails.svg)](https://github.com/mikeyhogarth/cocktails/blob/master/LICENSE)
 
-![Screenshot](/public/Screenshot.png?raw=true)
+![Theme collage — Classic, C64, Negroni, Blossom](/public/Screenshot.png?raw=true)
 
 This provides a user interface for browsing and filtering the [IBA cocktails list](https://en.wikipedia.org/wiki/List_of_IBA_official_cocktails) (and a couple of other popular drinks). Features include;
 
@@ -12,7 +12,7 @@ This provides a user interface for browsing and filtering the [IBA cocktails lis
 - Ability to "favourite" cocktails
 - Integration with [TheCocktailDB](https://www.thecocktaildb.com/) for enrichment/cocktail images
 - Persistence (local browser storage only)
-- Configurable color schemes
+- **Curated visual themes** — Classic, C64, Negroni, and Blossom (admin-configurable, no rebuild required)
 - See measurements in either parts, ml, cl or oz
 - Pro-mode! Have measurements replaced with 'bartender lingo' such as 'Jigger' and 'Pony'
 - Installable on smart devices (via PWA/Add To Home Screen)
