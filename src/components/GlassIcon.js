@@ -1,5 +1,5 @@
 import React from "react";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import SvgIcon from "@mui/material/SvgIcon";
 import { ReactComponent as Martini } from "../images/glasses/Martini.svg";
 
 // Glass SVGs
@@ -34,7 +34,7 @@ const glassSvgLookup = {
   hurricane: Hurricane,
   shot: Shot,
   "hot-drink": HotDrink,
-  "white-wine": WhiteWine
+  "white-wine": WhiteWine,
 };
 
 const GlassIcon = ({ glass = "martini", ...otherProps }) => {

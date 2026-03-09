@@ -1,26 +1,13 @@
 import React from "react";
-import { Fab } from "@material-ui/core";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import { withStyles } from "@material-ui/core/styles";
+import { Fab, Slide } from "@mui/material";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import useScroll from "../hooks/useScroll";
-import Slide from "@material-ui/core/Slide";
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-const styles = theme => ({
-  scrollTopButton: {
-    position: "fixed",
-    bottom: theme.spacing(),
-    right: theme.spacing()
-  },
-  hidden: {
-    display: "none"
-  }
-});
-
-const ScrollTopButton = ({ classes }) => {
+const ScrollTopButton = () => {
   const scrollPos = useScroll();
   const visible = scrollPos > 100;
 
@@ -30,7 +17,11 @@ const ScrollTopButton = ({ classes }) => {
         onClick={scrollToTop}
         color="secondary"
         aria-label="Return to top"
-        className={classes.scrollTopButton}
+        sx={{
+          position: "fixed",
+          bottom: (theme) => theme.spacing(),
+          right: (theme) => theme.spacing(),
+        }}
       >
         <ArrowUpwardIcon />
       </Fab>
@@ -38,4 +29,4 @@ const ScrollTopButton = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(ScrollTopButton);
+export default ScrollTopButton;

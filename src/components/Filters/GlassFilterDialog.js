@@ -10,8 +10,8 @@ import {
   FormLabel,
   FormControl,
   FormControlLabel,
-  Checkbox
-} from "@material-ui/core";
+  Checkbox,
+} from "@mui/material";
 
 import { allGlassesSelector } from "../../selectors";
 import { updateFilter } from "../../actions";
@@ -32,7 +32,7 @@ const GlassFilter = ({ glasses, allGlasses, updateFilter }) => {
                     checked={glasses.includes(glassKey)}
                     onChange={() =>
                       updateFilter({
-                        glasses: removeOrAddItemFromArray(glassKey, glasses)
+                        glasses: removeOrAddItemFromArray(glassKey, glasses),
                       })
                     }
                     value="checkedB"
@@ -54,16 +54,13 @@ const GlassFilter = ({ glasses, allGlasses, updateFilter }) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   glasses: state.filterOptions.glasses,
-  allGlasses: allGlassesSelector(state)
+  allGlasses: allGlassesSelector(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFilter: bindActionCreators(updateFilter, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  updateFilter: bindActionCreators(updateFilter, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GlassFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(GlassFilter);

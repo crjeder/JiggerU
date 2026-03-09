@@ -5,64 +5,34 @@ import {
   Typography,
   Button,
   Tooltip,
-} from "@material-ui/core";
+  Hidden,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
 import GlassIcon from "./GlassIcon";
-import DrinkIcon from "@material-ui/icons/LocalDrink";
-import SearchIcon from "@material-ui/icons/Search";
-import SettingsIcon from "@material-ui/icons/Settings";
-import Hidden from "@material-ui/core/Hidden";
-import { withStyles } from "@material-ui/core/styles";
+import DrinkIcon from "@mui/icons-material/LocalDrink";
+import SearchIcon from "@mui/icons-material/Search";
+import SettingsIcon from "@mui/icons-material/Settings";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  mainTitle: {
-    color: "white",
-    fontSize: 20,
-    textTransform: "capitalize",
-    marginLeft: theme.spacing(1),
-  },
-  menuButtonText: {
-    color: "white",
-    fontSize: 14,
-  },
-  textBackground: {
-    marginLeft: theme.spacing(0.5),
-    padding: theme.spacing(0.5, 1),
-  },
-  robotDot: {
-    width: 10,
-    height: 10,
-    borderRadius: "50%",
-    display: "inline-block",
-    marginLeft: 8,
-    verticalAlign: "middle",
-  },
-  /** Pride specific styles */
-  prideBackground: {
-    background: `linear-gradient(to bottom,
-        #e70000 0,
-        #e70000 16%,
-        #ff8c00 16%,
-        #ff8c00 32%,
-        #ffd400 32%,
-        #ffd400 48%,
-        #00811f 48%,
-        #00811f 66%,
-        #0044ff 66%,
-        #0044ff 86%,
-        #760089 86%) no-repeat`,
-  },
-  prideTextBackground: {
-    backgroundColor: "rgba(0, 0, 0, 0.25)",
-  },
-});
+const prideBackground = `linear-gradient(to bottom,
+    #e70000 0,
+    #e70000 16%,
+    #ff8c00 16%,
+    #ff8c00 32%,
+    #ffd400 32%,
+    #ffd400 48%,
+    #00811f 48%,
+    #00811f 66%,
+    #0044ff 66%,
+    #0044ff 86%,
+    #760089 86%) no-repeat`;
 
-const Topbar = ({ pride, classes, robotUrl, robotConnected, robotState }) => {
-  const backgroundClass = pride ? classes.prideBackground : null;
+const Topbar = ({ pride, robotUrl, robotConnected, robotState }) => {
+  const backgroundSx = pride ? { background: prideBackground } : {};
+  const textBackgroundSx = pride
+    ? { ml: 0.5, p: "4px 8px", backgroundColor: "rgba(0, 0, 0, 0.25)" }
+    : { ml: 0.5, p: "4px 8px" };
 
   const robotDotColor = (() => {
     if (!robotUrl) return null;
@@ -80,65 +50,78 @@ const Topbar = ({ pride, classes, robotUrl, robotConnected, robotState }) => {
     const s = robotState && robotState.state;
     return s ? `Robot: ${s.replace(/_/g, " ")}` : "Robot: connecting...";
   })();
-  const textBackgroundClass = [
-    classes.textBackground,
-    pride ? classes.prideTextBackground : null,
-  ].join(" ");
 
   return (
-    <AppBar position="sticky" className={backgroundClass}>
+    <AppBar position="sticky" sx={backgroundSx}>
       <Toolbar>
-        <div className={classes.root}>
-          <Button
-            className={textBackgroundClass}
-            component={Link}
-            to="/cocktails"
-            color="inherit"
-          >
-            <GlassIcon type="martini" />
-            <Typography className={classes.mainTitle} component="h1">
-              <Hidden xsDown>Cocktail Browser</Hidden>
-            </Typography>
-          </Button>
-        </div>
         <Button
-          className={textBackgroundClass}
+          sx={{ flexGrow: 1, ...textBackgroundSx }}
+          component={Link}
+          to="/cocktails"
+          color="inherit"
+        >
+          <GlassIcon type="martini" />
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: 20,
+              textTransform: "capitalize",
+              ml: 1,
+            }}
+            component="h1"
+          >
+            <Hidden smDown>Cocktail Browser</Hidden>
+          </Typography>
+        </Button>
+        <Button
+          sx={textBackgroundSx}
           component={Link}
           to="/cocktails"
           color="inherit"
         >
           <SearchIcon />
-          <Hidden xsDown>
-            <Typography className={classes.menuButtonText}>Browse</Typography>
+          <Hidden smDown>
+            <Typography sx={{ color: "white", fontSize: 14 }}>
+              Browse
+            </Typography>
           </Hidden>
         </Button>
         <Button
-          className={textBackgroundClass}
+          sx={textBackgroundSx}
           component={Link}
           to="/my-bar"
           color="inherit"
         >
           <DrinkIcon />
-          <Hidden xsDown>
-            <Typography className={classes.menuButtonText}>Bar</Typography>
+          <Hidden smDown>
+            <Typography sx={{ color: "white", fontSize: 14 }}>Bar</Typography>
           </Hidden>
         </Button>
         <Button
-          className={textBackgroundClass}
+          sx={textBackgroundSx}
           component={Link}
           to="/settings"
           color="inherit"
         >
           <SettingsIcon />
-          <Hidden xsDown>
-            <Typography className={classes.menuButtonText}>Settings</Typography>
+          <Hidden smDown>
+            <Typography sx={{ color: "white", fontSize: 14 }}>
+              Settings
+            </Typography>
           </Hidden>
         </Button>
         {robotDotColor && (
           <Tooltip title={robotDotLabel}>
             <span
-              className={classes.robotDot}
-              style={{ backgroundColor: robotDotColor }}
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                display: "inline-block",
+                marginLeft: 8,
+                verticalAlign: "middle",
+                backgroundColor: robotDotColor,
+              }}
             />
           </Tooltip>
         )}
@@ -154,4 +137,4 @@ const mapStateToProps = (state) => ({
   robotState: state.robot.robotState,
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(Topbar));
+export default connect(mapStateToProps)(Topbar);

@@ -9,25 +9,13 @@ import {
   TableRow,
   TableCell,
   IconButton,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import AddIcon from "@material-ui/icons/Add";
-import { withStyles } from "@material-ui/core/styles";
+import AddIcon from "@mui/icons-material/Add";
 import { bindActionCreators } from "redux";
 import { addToBar } from "../../actions";
 
-const styles = (theme) => ({
-  title: {
-    fontSize: 25,
-    margin: theme.spacing(1, 0),
-  },
-
-  cocktailNameContainer: {
-    display: "flex",
-  },
-});
-
-const PopularIngredients = ({ allCocktails, bar, addToBar, classes }) => {
+const PopularIngredients = ({ allCocktails, bar, addToBar }) => {
   const counts = countIngredients(allCocktails)
     .filter((i) => {
       return !bar.some(
@@ -39,13 +27,13 @@ const PopularIngredients = ({ allCocktails, bar, addToBar, classes }) => {
 
   return (
     <div>
-      <Typography variant="h3" className={classes.title} gutterBottom>
+      <Typography variant="h3" sx={{ fontSize: 25, m: "8px 0" }} gutterBottom>
         Popular Ingredients
       </Typography>
       <Typography component="p" paragraph>
         These are popular ingredients not currently in your bar.
       </Typography>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell>Ingredient</TableCell>
@@ -55,11 +43,7 @@ const PopularIngredients = ({ allCocktails, bar, addToBar, classes }) => {
         <TableBody>
           {counts.map((row) => (
             <TableRow key={row.name}>
-              <TableCell
-                className={classes.cocktailNameContainer}
-                component="th"
-                scope="row"
-              >
+              <TableCell sx={{ display: "flex" }} component="th" scope="row">
                 <div>
                   <span>{row.name}</span>
                   <IconButton
@@ -89,7 +73,4 @@ const mapDispatchToProps = (dispatch) => ({
   addToBar: bindActionCreators(addToBar, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withStyles(styles)(PopularIngredients));
+export default connect(mapStateToProps, mapDispatchToProps)(PopularIngredients);

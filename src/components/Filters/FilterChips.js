@@ -1,23 +1,16 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { withStyles } from "@material-ui/core/styles";
-import { Chip } from "@material-ui/core";
+import { Chip } from "@mui/material";
 import { removeOrAddItemFromArray } from "../../utilities/util";
 import { updateFilter, activateFilterDialog } from "../../actions";
-
-const styles = theme => ({
-  chip: {
-    margin: theme.spacing(1)
-  }
-});
 
 const chipContent = {
   favouritesOnly: () => "Favourites",
   veganOnly: () => "Vegan",
   ibaOnly: () => "IBA",
   barOnly: () => "Makeable from Bar",
-  byIngredient: filterOptions => {
+  byIngredient: (filterOptions) => {
     if (!filterOptions.ingredients.length) {
       return "Ingredients: all";
     }
@@ -26,30 +19,25 @@ const chipContent = {
     }):
       ${filterOptions.ingredients.join(", ")}`;
   },
-  byGlass: filterOptions => {
+  byGlass: (filterOptions) => {
     return `Glasses: ${
       filterOptions.glasses.length ? filterOptions.glasses.join(", ") : "all"
     }`;
   },
-  byCategory: filterOptions => {
+  byCategory: (filterOptions) => {
     return `Categories: ${
       filterOptions.categories.length
         ? filterOptions.categories.join(", ")
         : "all"
     }`;
-  }
+  },
 };
 
-const FilterChips = ({
-  classes,
-  activateFilterDialog,
-  updateFilter,
-  filterOptions
-}) => {
+const FilterChips = ({ activateFilterDialog, updateFilter, filterOptions }) => {
   const { activeFilters } = filterOptions;
   return (
     <>
-      {activeFilters.map(activeFilter => {
+      {activeFilters.map((activeFilter) => {
         return (
           <Chip
             key={activeFilter}
@@ -59,11 +47,11 @@ const FilterChips = ({
               updateFilter({
                 activeFilters: removeOrAddItemFromArray(
                   activeFilter,
-                  activeFilters
-                )
+                  activeFilters,
+                ),
               })
             }
-            className={classes.chip}
+            sx={{ m: 1 }}
           />
         );
       })}
@@ -71,16 +59,13 @@ const FilterChips = ({
   );
 };
 
-const mapStateToProps = state => ({
-  filterOptions: state.filterOptions
+const mapStateToProps = (state) => ({
+  filterOptions: state.filterOptions,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   updateFilter: bindActionCreators(updateFilter, dispatch),
-  activateFilterDialog: bindActionCreators(activateFilterDialog, dispatch)
+  activateFilterDialog: bindActionCreators(activateFilterDialog, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(FilterChips));
+export default connect(mapStateToProps, mapDispatchToProps)(FilterChips);

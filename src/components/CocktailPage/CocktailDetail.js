@@ -1,35 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import DispenseWorkflow from "./DispenseWorkflow";
-import { Typography, Paper, Button } from "@material-ui/core";
+import { Typography, Paper, Button } from "@mui/material";
 import { allGlassesSelector } from "../../selectors";
 import IngredientDetail from "../IngredientDetail";
 import Definition from "./Definition";
-import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 
-const styles = (theme) => ({
-  definitions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(5),
-  },
-  cocktailDetailPaper: {
-    padding: theme.spacing(2),
-  },
-  cocktailTitle: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "3rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "4rem",
-    },
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "5rem",
-    },
-  },
-});
-
-const CocktailPage = ({ cocktail, allGlasses, classes }) => {
+const CocktailPage = ({ cocktail, allGlasses }) => {
   const [showDispense, setShowDispense] = useState(false);
   const robotUrl = useSelector(
     (state) => state.settings.robot && state.settings.robot.url,
@@ -71,11 +49,18 @@ const CocktailPage = ({ cocktail, allGlasses, classes }) => {
 
   return (
     <>
-      <Typography className={classes.cocktailTitle} variant="h1">
+      <Typography
+        sx={{
+          xs: { fontSize: "3rem" },
+          md: { fontSize: "4rem" },
+          lg: { fontSize: "5rem" },
+        }}
+        variant="h1"
+      >
         {name}
       </Typography>
 
-      <div className={classes.definitions}>
+      <div sx={{ mt: 1, mb: 5 }}>
         <Definition title="Category" description={category} />
         <Definition
           title="Glass"
@@ -91,7 +76,7 @@ const CocktailPage = ({ cocktail, allGlasses, classes }) => {
           />
         )}
       </div>
-      <Paper className={classes.cocktailDetailPaper}>
+      <Paper sx={{ p: 2 }}>
         <Typography component="ul" gutterBottom>
           <>
             {ingredients.map((ingredient, idx) => {
@@ -141,4 +126,4 @@ const mapStateToProps = (state) => ({
   allGlasses: allGlassesSelector(state),
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(CocktailPage));
+export default connect(mapStateToProps)(CocktailPage);
