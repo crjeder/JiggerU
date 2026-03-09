@@ -1,14 +1,14 @@
 import React from "react";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import indigo from "@material-ui/core/colors/indigo";
-import red from "@material-ui/core/colors/red";
-import teal from "@material-ui/core/colors/teal";
-import brown from "@material-ui/core/colors/brown";
-import pink from "@material-ui/core/colors/pink";
-import cyan from "@material-ui/core/colors/cyan";
-import deepPurple from "@material-ui/core/colors/deepPurple";
+import indigo from "@mui/material/colors/indigo";
+import red from "@mui/material/colors/red";
+import teal from "@mui/material/colors/teal";
+import brown from "@mui/material/colors/brown";
+import pink from "@mui/material/colors/pink";
+import cyan from "@mui/material/colors/cyan";
+import deepPurple from "@mui/material/colors/deepPurple";
 
 import { connect } from "react-redux";
 
@@ -18,35 +18,32 @@ export const colors = {
   teal,
   brown,
   pink,
-  purple: deepPurple
+  purple: deepPurple,
 };
 
 /**
  * override theme defaults here.
  */
-function createTheme(color, theme) {
-  return createMuiTheme({
+function buildTheme(color, theme) {
+  return createTheme({
     palette: {
       primary: colors[`${color}`],
       secondary: theme === "light" ? pink : cyan,
-      type: theme
+      mode: theme,
     },
-    typography: {
-      useNextVariants: true
-    }
   });
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   color: state.settings.color,
-  theme: state.settings.theme
+  theme: state.settings.theme,
 });
 
 const Theme = ({ color, theme, children }) => (
-  <MuiThemeProvider theme={createTheme(color, theme)}>
+  <ThemeProvider theme={buildTheme(color, theme)}>
     <CssBaseline />
     {children}
-  </MuiThemeProvider>
+  </ThemeProvider>
 );
 
 export default connect(mapStateToProps)(Theme);
