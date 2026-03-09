@@ -36,7 +36,7 @@ export const CocktailPage = ({ allCocktails }) => {
         <Grid
           sx={{
             overflow: "auto",
-            sm: { height: fullHeight },
+            height: { sm: fullHeight },
           }}
           item
           md={6}
@@ -49,7 +49,7 @@ export const CocktailPage = ({ allCocktails }) => {
         </Grid>
         <Grid item md={6} xs={false}>
           <Fade in={!!image}>
-            <div
+            <Box
               style={
                 image && {
                   backgroundImage: `url(${image})`,
@@ -60,7 +60,7 @@ export const CocktailPage = ({ allCocktails }) => {
                 backgroundColor: theme.palette.grey[400],
                 backgroundRepeatY: "no-repeat",
                 backgroundSize: "cover",
-                xs: { height: fullHeight },
+                height: { xs: fullHeight },
               })}
             />
           </Fade>

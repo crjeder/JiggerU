@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Paper, Grid } from "@mui/material";
+import { Typography, Paper, Grid, Box } from "@mui/material";
 import PopularIngredients from "./Bar/PopularIngredients";
 import CocktailGauge from "./Bar/CocktailGauge";
 import MakeableCocktails from "./Bar/MakeableCocktails";
@@ -15,7 +15,7 @@ const Bar = ({ bar, setBar }) => {
     .map((item) => (typeof item === "string" ? item : item.ingredient));
 
   return (
-    <div sx={{ justifyContent: "center" }}>
+    <Box sx={{ justifyContent: "center", px: 2 }}>
       <Paper sx={{ p: "8px 16px" }}>
         <Typography variant="h2" gutterBottom>
           Your Bar
@@ -45,7 +45,7 @@ const Bar = ({ bar, setBar }) => {
           </Grid>
         </Grid>
       </Paper>
-    </div>
+    </Box>
   );
 };
 

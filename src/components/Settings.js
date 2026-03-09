@@ -12,6 +12,7 @@ import {
   MenuItem,
   Divider,
   Chip,
+  Box,
 } from "@mui/material";
 
 import { bindActionCreators } from "redux";
@@ -48,7 +49,7 @@ const Settings = ({ settings, updateSettings, togglePride, toggleLingo }) => {
   };
 
   return (
-    <div sx={{ justifyContent: "center" }}>
+    <Box sx={{ justifyContent: "center", px: 2 }}>
       <Paper sx={{ mb: 1, p: "8px 16px" }}>
         <Typography variant="h2" gutterBottom>
           Settings
@@ -241,7 +242,7 @@ const Settings = ({ settings, updateSettings, togglePride, toggleLingo }) => {
           </>
         )}
       </Paper>
-    </div>
+    </Box>
   );
 };
 

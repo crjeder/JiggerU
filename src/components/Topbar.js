@@ -5,9 +5,8 @@ import {
   Typography,
   Button,
   Tooltip,
-  Hidden,
+  Box,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import GlassIcon from "./GlassIcon";
 import DrinkIcon from "@mui/icons-material/LocalDrink";
 import SearchIcon from "@mui/icons-material/Search";
@@ -67,10 +66,11 @@ const Topbar = ({ pride, robotUrl, robotConnected, robotState }) => {
               fontSize: 20,
               textTransform: "capitalize",
               ml: 1,
+              display: { xs: "none", sm: "block" },
             }}
             component="h1"
           >
-            <Hidden smDown>Cocktail Browser</Hidden>
+            Cocktail Browser
           </Typography>
         </Button>
         <Button
@@ -80,11 +80,11 @@ const Topbar = ({ pride, robotUrl, robotConnected, robotState }) => {
           color="inherit"
         >
           <SearchIcon />
-          <Hidden smDown>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Typography sx={{ color: "white", fontSize: 14 }}>
               Browse
             </Typography>
-          </Hidden>
+          </Box>
         </Button>
         <Button
           sx={textBackgroundSx}
@@ -93,9 +93,9 @@ const Topbar = ({ pride, robotUrl, robotConnected, robotState }) => {
           color="inherit"
         >
           <DrinkIcon />
-          <Hidden smDown>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Typography sx={{ color: "white", fontSize: 14 }}>Bar</Typography>
-          </Hidden>
+          </Box>
         </Button>
         <Button
           sx={textBackgroundSx}
@@ -104,11 +104,11 @@ const Topbar = ({ pride, robotUrl, robotConnected, robotState }) => {
           color="inherit"
         >
           <SettingsIcon />
-          <Hidden smDown>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Typography sx={{ color: "white", fontSize: 14 }}>
               Settings
             </Typography>
-          </Hidden>
+          </Box>
         </Button>
         {robotDotColor && (
           <Tooltip title={robotDotLabel}>

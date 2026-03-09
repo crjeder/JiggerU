@@ -7,6 +7,7 @@ import {
   MenuItem,
   TextField,
   InputAdornment,
+  Box,
 } from "@mui/material";
 import { getRules } from "../filterConfig";
 import { removeOrAddItemFromArray } from "../utilities/util";
@@ -106,22 +107,20 @@ const CocktailFilter = ({
 
       <FilterDialog />
 
-      <div
-        style={{
-          padding: 4,
+      <Box
+        sx={{
+          padding: "4px",
           fontWeight: "bold",
           clear: "both",
           textAlign: "center",
           textTransform: "uppercase",
-        }}
-        sx={{
           backgroundColor: "secondary.main",
           color: (theme) =>
             theme.palette.getContrastText(theme.palette.secondary.light),
         }}
       >
         Showing {pluralize("cocktail", filteredCocktails.length, true)}
-      </div>
+      </Box>
     </Paper>
   );
 };

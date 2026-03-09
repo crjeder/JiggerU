@@ -19,12 +19,10 @@ const IngredientDetail = ({ item, units, useLingo, allIngredients }) => {
       {item.unit === "cl"
         ? createMeasurementString(item.amount, units, useLingo)
         : item.amount}{" "}
-      <Tooltip
-        sx={{ cursor: "pointer" }}
-        title={compact(toolTipContent).join(", ")}
-        placement="top"
-      >
-        <strong>{item.label || item.ingredient}</strong>
+      <Tooltip title={compact(toolTipContent).join(", ")} placement="top">
+        <strong style={{ cursor: "pointer" }}>
+          {item.label || item.ingredient}
+        </strong>
       </Tooltip>
     </span>
   );

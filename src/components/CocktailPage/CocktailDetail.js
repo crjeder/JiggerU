@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import DispenseWorkflow from "./DispenseWorkflow";
-import { Typography, Paper, Button } from "@mui/material";
+import { Typography, Paper, Button, Box } from "@mui/material";
 import { allGlassesSelector } from "../../selectors";
 import IngredientDetail from "../IngredientDetail";
 import Definition from "./Definition";
@@ -51,16 +51,14 @@ const CocktailPage = ({ cocktail, allGlasses }) => {
     <>
       <Typography
         sx={{
-          xs: { fontSize: "3rem" },
-          md: { fontSize: "4rem" },
-          lg: { fontSize: "5rem" },
+          fontSize: { xs: "3rem", md: "4rem", lg: "5rem" },
         }}
         variant="h1"
       >
         {name}
       </Typography>
 
-      <div sx={{ mt: 1, mb: 5 }}>
+      <Box sx={{ mt: 1, mb: 5 }}>
         <Definition title="Category" description={category} />
         <Definition
           title="Glass"
@@ -75,7 +73,7 @@ const CocktailPage = ({ cocktail, allGlasses }) => {
             description={enrichment.ibaCategory}
           />
         )}
-      </div>
+      </Box>
       <Paper sx={{ p: 2 }}>
         <Typography component="ul" gutterBottom>
           <>

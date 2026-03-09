@@ -1,14 +1,14 @@
 import React from "react";
 import CocktailCard from "./CocktailCard";
-import { ImageList } from "@mui/material";
+import { Box } from "@mui/material";
 
 const CardView = ({ displayedCocktails }) => {
   return (
-    <ImageList sx={{ justifyContent: "center" }}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
       {displayedCocktails.map((cocktail) => (
         <CocktailCard key={cocktail.name} cocktail={cocktail} />
       ))}
-    </ImageList>
+    </Box>
   );
 };
 

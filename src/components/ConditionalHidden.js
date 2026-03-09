@@ -1,9 +1,9 @@
 import React from "react";
-import { Hidden } from "@mui/material";
+import { Box } from "@mui/material";
 
 const ConditionalHidden = ({ hideOnXS, children }) => {
   if (!hideOnXS) return children;
-  return <Hidden smDown>{children}</Hidden>;
+  return <Box sx={{ display: { xs: "none", sm: "block" } }}>{children}</Box>;
 };
 
 export default ConditionalHidden;
