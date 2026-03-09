@@ -14,7 +14,8 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Add offline fallback page for PWA #pwa
 - [ ] Add cocktail rating / personal notes feature #feature
 - [ ] Expand non-IBA cocktail list beyond current extras #data
-- [ ] Add ingredient substitution suggestions #feature
+- [ ] Add ingredient substitution suggestions: curated map of brand names (e.g. "Gordon's Gin") to generic recipe ingredients (e.g. "Gin") so robot-synced bar items match makeable cocktails #feature
+- [ ] Add vegan ingredient substitution suggestions (e.g. egg white → aquafaba) #feature #vegan
 - [ ] Add print-friendly cocktail recipe view #feature
 
 ## Done ✓
