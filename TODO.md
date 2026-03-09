@@ -1,4 +1,5 @@
 # TODO
+following good practice from https://github.com/todomd/todo.md
 
 ## Backlog
 
@@ -24,8 +25,6 @@
 
 ## Done ✓
 
-- [x] Browse all 77 IBA cocktails plus non-IBA extras
-- [x] Maintain "My Bar" ingredient inventory (localStorage)
 - [x] Filter by ingredient, category, glass, vegan, makeable
 - [x] Favourite cocktails
 - [x] Integration with TheCocktailDB for images
@@ -33,7 +32,6 @@
 - [x] Measurement units (parts / ml / cl / oz)
 - [x] Pro bartender mode (jigger/pony lingo)
 - [x] PWA support / installable on smart devices
-- [x] QR code on cocktail detail page for sharing
 - [x] Table view for cocktail list
 - [x] Robot bar integration (CocktailBotHAL)
 - [x] Hide button labels on mobile viewports
