@@ -11,6 +11,12 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Confirm Settings page no longer shows color picker or light/dark controls #testing
 - [ ] Verify fonts load offline (install as PWA, go offline, confirm fonts render) #testing
 
+### upgrade-mui-v4-to-v5
+
+- [ ] Run `npm test -- -u` to regenerate snapshots with MUI v5 class names #testing
+- [ ] Visual verify in browser: cocktail list, cocktail detail, settings, my bar, filter panel #testing
+- [ ] Check browser console for MUI deprecation warnings #testing
+
 ### hal-robot-integration
 
 - [x] Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow UI #testing
@@ -28,14 +34,14 @@ following good practice from https://github.com/todomd/todo.md
 - [x] Add unit tests for Redux selectors in `src/selectors/` #testing
 - [x] Add unit tests for action creators in `src/actions.js` #testing
 - [x] Upgrade from React 16 to React 18 (functional components already in use) #refactor
-- [ ] Upgrade Material UI from v4 to v5 #refactor
+- [x] Upgrade Material UI from v4 to v5 #refactor
 - [x] Upgrade react-router-dom from v5 to v6 #refactor
 - [ ] Add search by cocktail name functionality #feature
 - [ ] Add "shuffle" / random cocktail button #feature
 - [ ] Improve accessibility (ARIA labels, keyboard navigation) #a11y
 - [ ] Add offline fallback page for PWA #pwa
 - [ ] Add cocktail rating / personal notes feature #feature
-- [ ] Expand non-IBA cocktail list beyond current extras #data
+- [x] Expand non-IBA cocktail list beyond current extras #data
 - [ ] Custom cocktails UI — add/edit non-IBA cocktails (schema already supports `iba: false`) #feature
 - [ ] Ambiguity resolution — when multiple bar items share the same type and recipe uses a generic ingredient name, determine which physical bottle the robot pours #robot
 - [ ] Per-cocktail brand override — allow configuring "treat Momentum Gin as generic Gin" for a specific cocktail #robot

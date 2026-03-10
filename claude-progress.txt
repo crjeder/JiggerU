@@ -1,5 +1,25 @@
 # Claude Progress
 
+## 2026-03-10 — Session: Add Gin Basil Smash recipe
+
+### Task Completed
+- Added Gin Basil Smash to `src/data/cocktails.json` (category: All Day Cocktail, glass: old-fashioned, iba: false)
+- Used "Momentum Holy Basil Gin" as label on the Gin ingredient
+- Added Basil to `src/data/ingredients.json` (abv: 0, taste: null)
+- All 63 tests pass
+
+### Files Changed
+- src/data/cocktails.json (new entry)
+- src/data/ingredients.json (Basil added)
+- CHANGELOG.md (updated Unreleased section)
+- TODO.md (marked "Expand non-IBA cocktail list" done)
+- claude-progress.txt (updated)
+
+### Branch
+master
+
+
+
 ## 2026-03-09 — Session: Add unit tests for actions and selectors
 
 ### Task Completed

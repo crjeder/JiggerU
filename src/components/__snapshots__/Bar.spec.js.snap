@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not explode when rendered 1`] = `
+<div
+  className="MuiBox-root css-1p9mvzu"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-dait56-MuiPaper-root"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+    >
+      Robot Bar
+    </h2>
+    <p
+      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-120mgm7-MuiTypography-root"
+    >
+      No ingredients loaded. Connect a robot to populate the bar.
+    </p>
+    <div
+      className="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
+      >
+        <div>
+          <h3
+            className="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-o26qqb-MuiTypography-root"
+          >
+            Makeable Cocktails
+          </h3>
+          <p
+            className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+          >
+            These are the cocktails you can make...
+          </p>
+          <ul
+            className="MuiList-root MuiList-padding css-17g52xa-MuiList-root"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
+      >
+        <div>
+          <h3
+            className="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-o26qqb-MuiTypography-root"
+          >
+            Cocktail Gauge
+          </h3>
+          <p
+            className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+          >
+            How many cocktails can you make with what's in your bar?
+          </p>
+          <svg
+            className="CircularProgressbar "
+            data-test-id="CircularProgressbar"
+            viewBox="0 0 100 100"
+          >
+            <path
+              className="CircularProgressbar-trail"
+              d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+              fillOpacity={0}
+              strokeWidth={8}
+              style={
+                Object {
+                  "stroke": "#fafafa",
+                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                  "strokeDashoffset": "0px",
+                }
+              }
+            />
+            <path
+              className="CircularProgressbar-path"
+              d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+              fillOpacity={0}
+              strokeWidth={8}
+              style={
+                Object {
+                  "stroke": "#1976d2",
+                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                  "strokeDashoffset": "289.02652413026095px",
+                }
+              }
+            />
+            <text
+              className="CircularProgressbar-text"
+              style={
+                Object {
+                  "fill": "#1976d2",
+                }
+              }
+              x={50}
+              y={50}
+            >
+              0
+            </text>
+          </svg>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1fyyp8j-MuiGrid-root"
+      >
+        <div>
+          <h3
+            className="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-o26qqb-MuiTypography-root"
+          >
+            Popular Ingredients
+          </h3>
+          <p
+            className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+          >
+            These are popular ingredients not currently in your bar.
+          </p>
+          <table
+            className="MuiTable-root css-rqglhn-MuiTable-root"
+            role={null}
+          >
+            <thead
+              className="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+              role={null}
+            >
+              <tr
+                className="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+                role={null}
+              >
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                  scope="col"
+                >
+                  Ingredient
+                </th>
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1azl6jz-MuiTableCell-root"
+                  scope="col"
+                >
+                  Appearances
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              className="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              role={null}
+            >
+              <tr
+                className="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                role={null}
+              >
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  scope="row"
+                >
+                  Gin
+                </th>
+                <td
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+                >
+                  22
+                </td>
+              </tr>
+              <tr
+                className="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                role={null}
+              >
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  scope="row"
+                >
+                  Syrup
+                </th>
+                <td
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+                >
+                  21
+                </td>
+              </tr>
+              <tr
+                className="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                role={null}
+              >
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  scope="row"
+                >
+                  Lemon juice
+                </th>
+                <td
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+                >
+                  19
+                </td>
+              </tr>
+              <tr
+                className="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                role={null}
+              >
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  scope="row"
+                >
+                  Lime juice
+                </th>
+                <td
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+                >
+                  17
+                </td>
+              </tr>
+              <tr
+                className="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                role={null}
+              >
+                <th
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  scope="row"
+                >
+                  Vodka
+                </th>
+                <td
+                  aria-sort={null}
+                  className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+                >
+                  16
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
