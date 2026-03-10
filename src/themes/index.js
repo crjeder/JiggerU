@@ -1,9 +1,9 @@
 import classic from "./classic/theme";
 import c64 from "./c64/theme";
-import negroni from "./negroni/theme";
+import speakeasy from "./speakeasy/theme";
 import blossom from "./blossom/theme";
 
-const themes = { classic, c64, negroni, blossom };
+const themes = { classic, c64, speakeasy, blossom };
 
 export function getTheme() {
   const config = window.__APP_CONFIG__ || {};
