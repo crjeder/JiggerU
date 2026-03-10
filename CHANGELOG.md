@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- "Mix it!" button at the bottom of each cocktail card, opening the dispense workflow directly from the browse view; button text is theme-configurable (`theme.custom.mixButtonLabel`), e.g. c64 shows "RUN"
 - CHANGELOG.md following Keep a Changelog format
 - TODO.md following todo.md best practices
 - CLAUDE.md project guide for AI-assisted development

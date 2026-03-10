@@ -1,5 +1,23 @@
 # Claude Progress
 
+## 2026-03-10 — Session: Add "Mix it!" button to cocktail card
+
+### Task Completed
+- Added `mixButtonLabel` to `theme.custom` in all 4 theme files (classic: "Mix it!", c64: "RUN", negroni: "Mix it!", blossom: "Mix it!")
+- Wired `CocktailCard.js` with robot-readiness selectors, `DispenseWorkflow` import, `canDispense` logic, and `CardActions` footer
+- Button is only rendered when robot is connected, idle, and the cocktail has at least one dispensable ingredient
+- Button text reads from `theme.custom?.mixButtonLabel ?? "Mix it!"` via `useTheme()`
+- All 65 tests pass; snapshots unchanged (button hidden by default in test store)
+
+### Files Changed
+- src/components/CocktailCard.js
+- src/themes/classic/theme.js, c64/theme.js, negroni/theme.js, blossom/theme.js
+- CHANGELOG.md, TODO.md, claude-progress.txt
+- openspec/changes/card-mix-button/ (new change + all artifacts)
+
+### Branch
+feat/card-mix-button (new)
+
 ## 2026-03-10 — Session: Remove favourites logic and Learn More button
 
 ### Task Completed

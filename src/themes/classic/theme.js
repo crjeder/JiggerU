@@ -16,5 +16,6 @@ export default createTheme({
   },
   custom: {
     cardWidth: 320,
+    mixButtonLabel: "Mix it!",
   },
 });
