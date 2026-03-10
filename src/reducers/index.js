@@ -21,6 +21,7 @@ const defaultState = {
     glasses: [],
   },
   bar: [],
+  manualBar: [],
   favourites: [],
   settings: {
     browserMode: "card",
@@ -149,6 +150,9 @@ export default (state = initialState, action) =>
       case actionTypes.ROBOT_BAR_SYNCED:
         draft.bar = action.payload.barEntries;
         draft.robot.unresolvedLiquids = action.payload.unresolvedLiquids;
+        break;
+      case actionTypes.MANUAL_INGREDIENTS_LOADED:
+        draft.manualBar = action.payload;
         break;
       default:
     }

@@ -11,7 +11,14 @@ import {
 // rather than accessing state directly?
 const allCocktailsSelector = (state) => state.db.cocktails;
 export const allGlassesSelector = (state) => state.db.glasses;
-const barSelector = (state) => state.bar;
+const barSelector = createSelector(
+  (state) => state.bar,
+  (state) => state.manualBar,
+  (bar, manualBar) => [
+    ...bar,
+    ...manualBar.map((i) => ({ ingredient: i, type: i })),
+  ],
+);
 const favouritesSelector = (state) => state.favourites;
 
 const currentSlugFromUrlSelector = (_, props) =>

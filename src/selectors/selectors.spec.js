@@ -58,6 +58,7 @@ function makeState(overrides = {}) {
       nameFilter: null,
     },
     bar: [],
+    manualBar: [],
     favourites: [],
     settings: {
       theme: "light",
@@ -210,6 +211,38 @@ describe("makeableCocktailsSelector", () => {
       [item.type, item.ingredient].filter(Boolean),
     );
     expect(ingredients).not.toContain("Momentum Gin");
+  });
+
+  it("includes manual bar ingredients in makeable computation", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      manualBar: ["Sugar syrup"],
+    });
+    const result = makeableCocktailsSelector(state);
+    // Daiquiri needs White rum, Lime juice, Sugar syrup — not makeable (no rum)
+    // Gimlet needs Gin, Lime juice — makeable
+    expect(result).toHaveLength(1);
+    expect(result[0].name).toBe("Gimlet");
+  });
+
+  it("makes cocktail available when missing ingredient is in manualBar", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "White rum", type: "White rum" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      manualBar: ["Sugar syrup"],
+    });
+    const result = makeableCocktailsSelector(state);
+    expect(result.map((c) => c.name)).toContain("Daiquiri");
+  });
+
+  it("returns empty when bar and manualBar are both empty", () => {
+    const state = makeState({ bar: [], manualBar: [] });
+    expect(makeableCocktailsSelector(state)).toEqual([]);
   });
 });
 
