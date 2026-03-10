@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Chip } from "@mui/material";
 import { removeOrAddItemFromArray } from "../../utilities/util";
 import { updateFilter, activateFilterDialog } from "../../actions";
+import { effectiveActiveFiltersSelector } from "../../selectors";
 
 const chipContent = {
   veganOnly: () => "Vegan",
@@ -32,23 +33,32 @@ const chipContent = {
   },
 };
 
-const FilterChips = ({ activateFilterDialog, updateFilter, filterOptions }) => {
-  const { activeFilters } = filterOptions;
+const FilterChips = ({
+  activateFilterDialog,
+  updateFilter,
+  filterOptions,
+  activeFilters,
+  robotConnected,
+}) => {
   return (
     <>
       {activeFilters.map((activeFilter) => {
+        const locked = robotConnected && activeFilter === "barOnly";
         return (
           <Chip
             key={activeFilter}
             label={chipContent[activeFilter.toString()](filterOptions)}
             onClick={() => activateFilterDialog(activeFilter)}
-            onDelete={() =>
-              updateFilter({
-                activeFilters: removeOrAddItemFromArray(
-                  activeFilter,
-                  activeFilters,
-                ),
-              })
+            onDelete={
+              locked
+                ? undefined
+                : () =>
+                    updateFilter({
+                      activeFilters: removeOrAddItemFromArray(
+                        activeFilter,
+                        activeFilters,
+                      ),
+                    })
             }
             sx={{ m: 1 }}
           />
@@ -60,6 +70,8 @@ const FilterChips = ({ activateFilterDialog, updateFilter, filterOptions }) => {
 
 const mapStateToProps = (state) => ({
   filterOptions: state.filterOptions,
+  activeFilters: effectiveActiveFiltersSelector(state),
+  robotConnected: state.robot && state.robot.connected,
 });
 
 const mapDispatchToProps = (dispatch) => ({

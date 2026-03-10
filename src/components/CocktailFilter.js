@@ -26,6 +26,7 @@ const CocktailFilter = ({
   filterOptions: { activeFilters, nameFilter },
   updateFilter,
   activateFilterDialog,
+  robotConnected,
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -74,35 +75,39 @@ const CocktailFilter = ({
         }}
       />
 
-      <Button
-        sx={{ float: "right", m: 1 }}
-        aria-controls="simple-menu"
-        aria-haspopup="true"
-        onClick={openFilterMenu}
-      >
-        <FilterListIcon />
-        Add Filter
-      </Button>
+      {!robotConnected && (
+        <>
+          <Button
+            sx={{ float: "right", m: 1 }}
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={openFilterMenu}
+          >
+            <FilterListIcon />
+            Add Filter
+          </Button>
 
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={closeFilterMenu}
-      >
-        {getRules().map((menuOption, idx) => {
-          return (
-            <MenuItem
-              disabled={activeFilters.includes(menuOption)}
-              key={idx}
-              onClick={() => addFilter(menuOption)}
-            >
-              {labelFor(menuOption)}
-            </MenuItem>
-          );
-        })}
-      </Menu>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={closeFilterMenu}
+          >
+            {getRules().map((menuOption, idx) => {
+              return (
+                <MenuItem
+                  disabled={activeFilters.includes(menuOption)}
+                  key={idx}
+                  onClick={() => addFilter(menuOption)}
+                >
+                  {labelFor(menuOption)}
+                </MenuItem>
+              );
+            })}
+          </Menu>
+        </>
+      )}
       <FilterChips />
 
       <FilterDialog />
@@ -128,6 +133,7 @@ const CocktailFilter = ({
 const mapStateToProps = (state) => ({
   filterOptions: state.filterOptions,
   filteredCocktails: filteredCocktailsSelector(state),
+  robotConnected: state.robot && state.robot.connected,
 });
 
 const mapDispatchToProps = (dispatch) => ({

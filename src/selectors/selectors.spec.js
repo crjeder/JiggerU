@@ -4,6 +4,7 @@ import {
   filteredCocktailsSelector,
   makeableCocktailsSelector,
   allCategoriesSelector,
+  effectiveActiveFiltersSelector,
 } from "./index";
 
 const mockCocktails = [
@@ -215,6 +216,68 @@ describe("makeableCocktailsSelector", () => {
   it("returns empty when bar and manualBar are both empty", () => {
     const state = makeState({ bar: [], manualBar: [] });
     expect(makeableCocktailsSelector(state)).toEqual([]);
+  });
+});
+
+describe("effectiveActiveFiltersSelector", () => {
+  it("returns stored activeFilters when robot is not connected", () => {
+    const state = makeState({ robot: { connected: false } });
+    expect(effectiveActiveFiltersSelector(state)).toEqual([]);
+  });
+
+  it("returns stored activeFilters unchanged when robot is absent from state", () => {
+    const state = makeState();
+    expect(effectiveActiveFiltersSelector(state)).toEqual([]);
+  });
+
+  it("injects barOnly when robot is connected and barOnly not in activeFilters", () => {
+    const state = makeState({ robot: { connected: true } });
+    expect(effectiveActiveFiltersSelector(state)).toEqual(["barOnly"]);
+  });
+
+  it("does not duplicate barOnly when robot is connected and barOnly already present", () => {
+    const state = makeState({
+      filterOptions: {
+        activeFilters: ["barOnly"],
+        activeDialog: null,
+        ingredients: [],
+        ingredientsRule: "mustInclude",
+        barOnly: false,
+        categories: [],
+        glasses: [],
+        nameFilter: null,
+      },
+      robot: { connected: true },
+    });
+    expect(effectiveActiveFiltersSelector(state)).toEqual(["barOnly"]);
+  });
+
+  it("enforces barOnly filter on cocktail list when robot is connected", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      robot: { connected: true },
+    });
+    const result = filteredCocktailsSelector(state);
+    expect(result.map((c) => c.name)).toEqual(["Gimlet"]);
+  });
+
+  it("lifts barOnly enforcement when robot disconnects", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      robot: { connected: false },
+    });
+    const result = filteredCocktailsSelector(state);
+    expect(result.map((c) => c.name)).toEqual([
+      "Daiquiri",
+      "Gimlet",
+      "Negroni",
+    ]);
   });
 });
 

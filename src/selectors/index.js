@@ -34,9 +34,33 @@ const currentSlugSelector = createSelector(
   (urlSlug, cocktailPropSlug) => urlSlug || cocktailPropSlug,
 );
 
+// effectiveActiveFiltersSelector
+// Returns activeFilters with 'barOnly' injected when robot is connected,
+// without mutating stored filter state.
+export const effectiveActiveFiltersSelector = createSelector(
+  (state) => state.filterOptions.activeFilters,
+  (state) => state.robot && state.robot.connected,
+  (activeFilters, robotConnected) =>
+    robotConnected && !activeFilters.includes("barOnly")
+      ? [...activeFilters, "barOnly"]
+      : activeFilters,
+);
+
 // filtersSelector
-// Derives the currently applied filters
-const filtersSelector = (state) => filtersFromUserOptions(state);
+// Derives the currently applied filters using the effective active filters
+// (which may include robot-enforced barOnly).
+const filtersSelector = createSelector(
+  (state) => state,
+  effectiveActiveFiltersSelector,
+  (state, effectiveActiveFilters) =>
+    filtersFromUserOptions({
+      ...state,
+      filterOptions: {
+        ...state.filterOptions,
+        activeFilters: effectiveActiveFilters,
+      },
+    }),
+);
 
 export const currentCocktailSelector = createSelector(
   allCocktailsSelector,
