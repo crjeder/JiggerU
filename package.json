@@ -31,6 +31,7 @@
     "react-test-renderer": "^18.2.0"
   },
   "scripts": {
+    "dev:robot": "node scripts/dev-robot.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
