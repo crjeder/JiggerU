@@ -6,71 +6,37 @@ import {
   Menu,
   MenuItem,
   TextField,
-  InputAdornment
-} from "@material-ui/core";
+  InputAdornment,
+  Box,
+} from "@mui/material";
 import { getRules } from "../filterConfig";
 import { removeOrAddItemFromArray } from "../utilities/util";
 import { labelFor } from "../filterConfig";
 import { FilterChips, FilterDialog } from "./Filters";
-import { withStyles } from "@material-ui/core/styles";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { updateFilter, activateFilterDialog } from "../actions";
-import FilterListIcon from "@material-ui/icons/FilterList";
-import SearchIcon from "@material-ui/icons/Search";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import SearchIcon from "@mui/icons-material/Search";
 import { filteredCocktailsSelector } from "../selectors";
 import pluralize from "pluralize";
-const styles = theme => ({
-  filters: {
-    padding: theme.spacing(1, 0, 0, 0)
-  },
-  cocktailsCount: {
-    textTransform: "upperCase"
-  },
-  filterButton: {
-    float: "right",
-    margin: theme.spacing(1)
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500]
-  },
-  cocktailCountContainer: {
-    padding: theme.spacing(0.5),
-    fontWeight: "bold",
-    clear: "both",
-    textAlign: "center",
-    textTransform: "uppercase",
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.getContrastText(theme.palette.secondary.light)
-  },
-  searchField: {
-    marginTop: 0,
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 300
-  }
-});
 
 const CocktailFilter = ({
   filteredCocktails,
   filterOptions: { activeFilters, nameFilter },
   updateFilter,
   activateFilterDialog,
-  classes
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const updateNameFilter = useMemo(
     () =>
-      debounce(searchText => {
+      debounce((searchText) => {
         updateFilter({
-          nameFilter: searchText
+          nameFilter: searchText,
         });
       }, 100),
-    [updateFilter]
+    [updateFilter],
   );
 
   function openFilterMenu(event) {
@@ -83,33 +49,33 @@ const CocktailFilter = ({
 
   function addFilter(filter) {
     updateFilter({
-      activeFilters: removeOrAddItemFromArray(filter, activeFilters)
+      activeFilters: removeOrAddItemFromArray(filter, activeFilters),
     });
     activateFilterDialog(filter);
     closeFilterMenu();
   }
 
   return (
-    <Paper square={true} elevation={24} className={classes.filters}>
+    <Paper square={true} elevation={24} sx={{ p: "8px 0 0 0" }}>
       <TextField
         label="Filter by name"
         type="search"
         defaultValue={nameFilter}
         placeholder="Start typing cocktail name..."
-        className={classes.searchField}
+        sx={{ mt: 0, ml: 1, mr: 1, width: 300 }}
         margin="normal"
-        onChange={e => updateNameFilter(e.target.value)}
+        onChange={(e) => updateNameFilter(e.target.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon />
             </InputAdornment>
-          )
+          ),
         }}
       />
 
       <Button
-        className={classes.filterButton}
+        sx={{ float: "right", m: 1 }}
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={openFilterMenu}
@@ -141,24 +107,32 @@ const CocktailFilter = ({
 
       <FilterDialog />
 
-      <div className={classes.cocktailCountContainer}>
+      <Box
+        sx={{
+          padding: "4px",
+          fontWeight: "bold",
+          clear: "both",
+          textAlign: "center",
+          textTransform: "uppercase",
+          backgroundColor: "secondary.main",
+          color: (theme) =>
+            theme.palette.getContrastText(theme.palette.secondary.light),
+        }}
+      >
         Showing {pluralize("cocktail", filteredCocktails.length, true)}
-      </div>
+      </Box>
     </Paper>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   filterOptions: state.filterOptions,
-  filteredCocktails: filteredCocktailsSelector(state)
+  filteredCocktails: filteredCocktailsSelector(state),
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   updateFilter: bindActionCreators(updateFilter, dispatch),
-  activateFilterDialog: bindActionCreators(activateFilterDialog, dispatch)
+  activateFilterDialog: bindActionCreators(activateFilterDialog, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(CocktailFilter));
+export default connect(mapStateToProps, mapDispatchToProps)(CocktailFilter);

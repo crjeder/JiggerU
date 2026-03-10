@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 const amber = {
   main: "#C07030",
@@ -14,11 +14,11 @@ const cream = {
   contrastText: "#3A2010",
 };
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     primary: amber,
     secondary: cream,
-    type: "dark",
+    mode: "dark",
     background: {
       default: "#1A0E05",
       paper: "#2A1A0A",
@@ -29,7 +29,6 @@ export default createMuiTheme({
     },
   },
   typography: {
-    useNextVariants: true,
     fontFamily: '"Playfair Display", Georgia, serif',
     h1: { fontWeight: 400, letterSpacing: "0.02em" },
     h2: { fontWeight: 400, letterSpacing: "0.02em" },
@@ -40,10 +39,12 @@ export default createMuiTheme({
   shape: {
     borderRadius: 4,
   },
-  overrides: {
+  components: {
     MuiCard: {
-      root: {
-        boxShadow: "0 4px 20px rgba(192, 112, 48, 0.2)",
+      styleOverrides: {
+        root: {
+          boxShadow: "0 4px 20px rgba(192, 112, 48, 0.2)",
+        },
       },
     },
   },

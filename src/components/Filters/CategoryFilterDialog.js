@@ -8,8 +8,8 @@ import {
   FormLabel,
   FormControl,
   FormControlLabel,
-  Checkbox
-} from "@material-ui/core";
+  Checkbox,
+} from "@mui/material";
 
 import { allCategoriesSelector } from "../../selectors";
 import { updateFilter } from "../../actions";
@@ -21,7 +21,7 @@ const CategoryFilter = ({ categories, allCategories, updateFilter }) => {
       <FormControl component="fieldset">
         <FormLabel component="legend">Category</FormLabel>
         <FormGroup row>
-          {allCategories.map(category => {
+          {allCategories.map((category) => {
             return (
               <FormControlLabel
                 key={category}
@@ -32,8 +32,8 @@ const CategoryFilter = ({ categories, allCategories, updateFilter }) => {
                       updateFilter({
                         categories: removeOrAddItemFromArray(
                           category,
-                          categories
-                        )
+                          categories,
+                        ),
                       })
                     }
                     value="checkedB"
@@ -50,16 +50,13 @@ const CategoryFilter = ({ categories, allCategories, updateFilter }) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   categories: state.filterOptions.categories,
-  allCategories: allCategoriesSelector(state)
+  allCategories: allCategoriesSelector(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFilter: bindActionCreators(updateFilter, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  updateFilter: bindActionCreators(updateFilter, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CategoryFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter);

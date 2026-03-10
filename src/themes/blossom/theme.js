@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 const sakuraPink = {
   main: "#E8A0BF",
@@ -14,11 +14,11 @@ const sageGreen = {
   contrastText: "#1A2A18",
 };
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     primary: sakuraPink,
     secondary: sageGreen,
-    type: "light",
+    mode: "light",
     background: {
       default: "#FDF6F0",
       paper: "#FFFFFF",
@@ -29,7 +29,6 @@ export default createMuiTheme({
     },
   },
   typography: {
-    useNextVariants: true,
     fontFamily: '"Quicksand", "Helvetica", sans-serif',
     fontWeightMedium: 500,
     h1: { fontWeight: 500, letterSpacing: "0.01em" },
@@ -41,15 +40,19 @@ export default createMuiTheme({
   shape: {
     borderRadius: 20,
   },
-  overrides: {
+  components: {
     MuiCard: {
-      root: {
-        boxShadow: "0 4px 20px rgba(232, 160, 191, 0.25)",
+      styleOverrides: {
+        root: {
+          boxShadow: "0 4px 20px rgba(232, 160, 191, 0.25)",
+        },
       },
     },
     MuiButton: {
-      root: {
-        borderRadius: 20,
+      styleOverrides: {
+        root: {
+          borderRadius: 20,
+        },
       },
     },
   },

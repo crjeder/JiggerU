@@ -1,5 +1,4 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
 
 import {
   Typography,
@@ -13,7 +12,8 @@ import {
   MenuItem,
   Divider,
   Chip,
-} from "@material-ui/core";
+  Box,
+} from "@mui/material";
 
 import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,27 +21,7 @@ import { updateSettings, togglePride, toggleLingo } from "../actions";
 import { connect } from "react-redux";
 import capitalize from "lodash/capitalize";
 
-const styles = (theme) => ({
-  content: {
-    marginBottom: theme.spacing(1),
-    padding: theme.spacing(1, 2),
-  },
-  root: {
-    ...theme.mixins.gutters,
-    justifyContent: "center",
-  },
-  formLabel: {
-    marginTop: theme.spacing(2),
-  },
-});
-
-const Settings = ({
-  classes,
-  settings,
-  updateSettings,
-  togglePride,
-  toggleLingo,
-}) => {
+const Settings = ({ settings, updateSettings, togglePride, toggleLingo }) => {
   const dispatch = useDispatch();
   const unresolvedLiquids = useSelector(
     (state) => state.robot.unresolvedLiquids,
@@ -72,13 +52,13 @@ const Settings = ({
   };
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.content}>
+    <Box sx={{ justifyContent: "center", px: 2 }}>
+      <Paper sx={{ mb: 1, p: "8px 16px" }}>
         <Typography variant="h2" gutterBottom>
           Settings
         </Typography>
 
-        <FormLabel className={classes.formLabel} component="legend">
+        <FormLabel sx={{ mt: 2 }} component="legend">
           Browser mode
         </FormLabel>
         <RadioGroup
@@ -102,7 +82,7 @@ const Settings = ({
           })}
         </RadioGroup>
 
-        <FormLabel className={classes.formLabel} component="legend">
+        <FormLabel sx={{ mt: 2 }} component="legend">
           Units
         </FormLabel>
         <RadioGroup
@@ -126,7 +106,7 @@ const Settings = ({
           })}
         </RadioGroup>
 
-        <FormLabel className={classes.formLabel} component="legend">
+        <FormLabel sx={{ mt: 2 }} component="legend">
           Pro-mode
         </FormLabel>
         <FormControlLabel
@@ -142,7 +122,7 @@ const Settings = ({
           label={<Typography component="span">Use Bartender Lingo</Typography>}
         />
 
-        <FormLabel className={classes.formLabel} component="legend">
+        <FormLabel sx={{ mt: 2 }} component="legend">
           Pride!
         </FormLabel>
 
@@ -161,7 +141,7 @@ const Settings = ({
 
         <Divider style={{ margin: "16px 0" }} />
 
-        <FormLabel className={classes.formLabel} component="legend">
+        <FormLabel sx={{ mt: 2 }} component="legend">
           Robot (CocktailBot HAL)
         </FormLabel>
         <TextField
@@ -183,7 +163,7 @@ const Settings = ({
 
         {unresolvedLiquids.length > 0 && (
           <>
-            <FormLabel className={classes.formLabel} component="legend">
+            <FormLabel sx={{ mt: 2 }} component="legend">
               Unrecognised robot liquids — assign a type
             </FormLabel>
             {unresolvedLiquids.map((liquid) => (
@@ -217,7 +197,7 @@ const Settings = ({
           </>
         )}
       </Paper>
-    </div>
+    </Box>
   );
 };
 
@@ -231,7 +211,4 @@ const mapDispatchToProps = (dispatch) => ({
   toggleLingo: bindActionCreators(toggleLingo, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withStyles(styles)(Settings));
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

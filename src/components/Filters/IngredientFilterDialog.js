@@ -8,8 +8,8 @@ import {
   RadioGroup,
   FormControl,
   FormControlLabel,
-  Button
-} from "@material-ui/core";
+  Button,
+} from "@mui/material";
 
 import IngredientPicker from "../IngredientPicker";
 import { updateFilter } from "../../actions";
@@ -17,7 +17,7 @@ import { updateFilter } from "../../actions";
 const GlassFilter = ({
   ingredientsRule,
   selectedIngredients,
-  updateFilter
+  updateFilter,
 }) => {
   return (
     <DialogContent>
@@ -26,7 +26,7 @@ const GlassFilter = ({
           value="mustInclude"
           control={<Radio />}
           label="Each cocktail must Include all of the following..."
-          onClick={e =>
+          onClick={(e) =>
             ingredientsRule !== "mustInclude" &&
             updateFilter({ ingredientsRule: "mustInclude" })
           }
@@ -35,7 +35,7 @@ const GlassFilter = ({
           value="canInclude"
           control={<Radio />}
           label="Show me cocktails that include any of the following..."
-          onClick={e =>
+          onClick={(e) =>
             ingredientsRule !== "canInclude" &&
             updateFilter({ ingredientsRule: "canInclude" })
           }
@@ -45,7 +45,7 @@ const GlassFilter = ({
       <FormControl component="fieldset">
         <IngredientPicker
           selectedIngredients={selectedIngredients}
-          onIngredientsChange={selectedIngredients => {
+          onIngredientsChange={(selectedIngredients) => {
             updateFilter({ ingredients: selectedIngredients });
           }}
         />
@@ -62,16 +62,13 @@ const GlassFilter = ({
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   selectedIngredients: state.filterOptions.ingredients,
-  ingredientsRule: state.filterOptions.ingredientsRule
+  ingredientsRule: state.filterOptions.ingredientsRule,
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFilter: bindActionCreators(updateFilter, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  updateFilter: bindActionCreators(updateFilter, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GlassFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(GlassFilter);

@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test -- -u --watchAll=false)",
+      "Bash(npm test -- --watchAll=false --testPathPattern=\"Bar.spec\")",
+      "Bash(npm test -- --watchAll=false)",
+      "Bash(node -e \":*)",
+      "Bash(curl -s \"https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120 Safari/537.36\")",
+      "Bash(curl -s \"https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120 Safari/537.36\")",
+      "Bash(npm test -- --watchAll=false -u)",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/theme-preview.html)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(cmd.exe /c \"gh --version\")",
+      "Bash(npm run build)",
+      "Bash(node -e \"const glob = require\\(''glob''\\); const matches = glob.sync\\(''src/**/*.spec.js''\\); console.log\\(matches\\);\")",
+      "Bash(npx react-scripts test --watchAll=false --roots \"d:/JiggerU/.worktrees/upgrade-mui-v4-to-v5/src\")",
+      "Bash(npx react-scripts test --watchAll=false --clearCache)",
+      "Bash(npx react-scripts test --watchAll=false)",
+      "Bash(node -e \"const rscripts = require\\(''./node_modules/react-scripts/scripts/utils/createJestConfig.js''\\); const config = rscripts\\(''D:/JiggerU/.worktrees/upgrade-mui-v4-to-v5''\\); console.log\\(JSON.stringify\\({roots: config.roots, testMatch: config.testMatch}, null, 2\\)\\);\")",
+      "Bash(gh pr:*)",
+      "Bash(where gh)",
+      "Bash(winget list GitHub.cli)"
+    ]
+  }
+}

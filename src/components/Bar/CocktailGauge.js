@@ -1,39 +1,29 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
-import { withTheme, withStyles } from "@material-ui/core/styles";
+import { Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { connect } from "react-redux";
 import { CircularProgressbar } from "react-circular-progressbar";
 import { makeableCocktailsSelector } from "../../selectors";
 import "react-circular-progressbar/dist/styles.css";
 
-const styles = theme => ({
-  title: {
-    fontSize: 25,
-    margin: theme.spacing(1, 0)
-  },
-  progressBar: {
-    padding: theme.spacing(0.5),
-    fontFamily: "Roboto"
-  }
-});
-
-const CocktailGauge = ({ allCocktails, makeableCocktails, classes, theme }) => {
+const CocktailGauge = ({ allCocktails, makeableCocktails }) => {
+  const theme = useTheme();
   const progressBarStyles = {
     path: {
       // Path color
-      stroke: theme.palette.primary.main
+      stroke: theme.palette.primary.main,
     },
     trail: {
-      stroke: theme.palette.grey[50]
+      stroke: theme.palette.grey[50],
     },
     text: {
-      fill: theme.palette.primary.main
-    }
+      fill: theme.palette.primary.main,
+    },
   };
 
   return (
     <div>
-      <Typography variant="h3" className={classes.title} gutterBottom>
+      <Typography variant="h3" sx={{ fontSize: 25, m: "8px 0" }} gutterBottom>
         Cocktail Gauge
       </Typography>
       <Typography component="p" paragraph>
@@ -42,7 +32,7 @@ const CocktailGauge = ({ allCocktails, makeableCocktails, classes, theme }) => {
 
       <CircularProgressbar
         styles={progressBarStyles}
-        className={classes.progressBar}
+        style={{ padding: 4, fontFamily: "Roboto" }}
         value={makeableCocktails.length}
         maxValue={allCocktails.length}
         text={makeableCocktails.length || "0"}
@@ -51,11 +41,9 @@ const CocktailGauge = ({ allCocktails, makeableCocktails, classes, theme }) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   allCocktails: state.db.cocktails,
-  makeableCocktails: makeableCocktailsSelector(state)
+  makeableCocktails: makeableCocktailsSelector(state),
 });
 
-export default connect(mapStateToProps)(
-  withTheme(withStyles(styles)(CocktailGauge))
-);
+export default connect(mapStateToProps)(CocktailGauge);

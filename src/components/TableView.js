@@ -1,6 +1,5 @@
 import React from "react";
 import capitalize from "lodash/capitalize";
-import { withStyles } from "@material-ui/core/styles";
 import ConditionalHidden from "./ConditionalHidden";
 import CocktailActions from "./CocktailActions";
 import {
@@ -9,33 +8,25 @@ import {
   TableContainer,
   TableCell,
   TableBody,
-  Table
-} from "@material-ui/core";
+  Table,
+} from "@mui/material";
 import CocktailAvatar from "./CocktailAvatar";
 
-const styles = () => {
-  return {
-    root: {
-      width: "100%"
-    }
-  };
-};
-
-const TableView = ({ classes, displayedCocktails }) => {
+const TableView = ({ displayedCocktails }) => {
   const columns = [
     {
-      name: "name"
+      name: "name",
     },
-    { name: "category", hideOnXS: true }
+    { name: "category", hideOnXS: true },
   ];
 
   return (
-    <TableContainer className={classes.container}>
+    <TableContainer sx={{ width: "100%" }}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>Appearance</TableCell>
-            {columns.map(column => (
+            {columns.map((column) => (
               <ConditionalHidden key={column.name} hideOnXS={column.hideOnXS}>
                 <TableCell>{capitalize(column.name)}</TableCell>
               </ConditionalHidden>
@@ -44,12 +35,12 @@ const TableView = ({ classes, displayedCocktails }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {displayedCocktails.map(cocktail => (
+          {displayedCocktails.map((cocktail) => (
             <TableRow hover tabIndex={-1} key={cocktail.name}>
               <TableCell>
                 <CocktailAvatar cocktail={cocktail} />
               </TableCell>
-              {columns.map(column => {
+              {columns.map((column) => {
                 return (
                   <ConditionalHidden
                     key={column.name}
@@ -70,4 +61,4 @@ const TableView = ({ classes, displayedCocktails }) => {
   );
 };
 
-export default withStyles(styles)(TableView);
+export default TableView;

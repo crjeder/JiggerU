@@ -1,15 +1,8 @@
 import React from "react";
-import { Typography, List, Divider, Paper } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import { Typography, List, Divider, Paper } from "@mui/material";
 import CocktailVariant from "./CocktailVariant";
 
-const styles = theme => ({
-  divider: {
-    margin: theme.spacing(3, 0)
-  }
-});
-
-const CocktailVariantList = ({ cocktail, classes }) => {
+const CocktailVariantList = ({ cocktail }) => {
   const { enrichment, enriched } = cocktail;
 
   if (!enriched || !enrichment.variants || !enrichment.variants.length)
@@ -17,14 +10,14 @@ const CocktailVariantList = ({ cocktail, classes }) => {
 
   return (
     <>
-      <Divider className={classes.divider} />
+      <Divider sx={{ m: "24px 0" }} />
 
       <Typography variant="h5" gutterBottom>
         Variants
       </Typography>
 
       <Paper>
-        <List className={classes.list}>
+        <List>
           {enrichment.variants.map((variant, idx) => {
             return (
               <React.Fragment key={variant.name}>
@@ -39,4 +32,4 @@ const CocktailVariantList = ({ cocktail, classes }) => {
   );
 };
 
-export default withStyles(styles)(CocktailVariantList);
+export default CocktailVariantList;

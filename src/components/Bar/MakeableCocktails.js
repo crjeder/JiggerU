@@ -1,32 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withStyles } from "@material-ui/core/styles";
-import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
+import { Typography, List, ListItem, ListItemText } from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeableCocktailsSelector } from "../../selectors";
 
-const styles = theme => ({
-  title: {
-    fontSize: 25,
-    margin: theme.spacing(1, 0)
-  },
-  list: {
-    maxHeight: "20rem",
-    overflowY: "scroll"
-  }
-});
-
-const MakeableCocktails = ({ makeableCocktails, classes }) => {
+const MakeableCocktails = ({ makeableCocktails }) => {
   return (
     <div>
-      <Typography variant="h3" className={classes.title} gutterBottom>
+      <Typography variant="h3" sx={{ fontSize: 25, m: "8px 0" }} gutterBottom>
         Makeable Cocktails
       </Typography>
       <Typography component="p" paragraph>
         These are the cocktails you can make...
       </Typography>
-      <List className={classes.list}>
-        {makeableCocktails.map(cocktail => (
+      <List sx={{ maxHeight: "20rem", overflowY: "scroll" }}>
+        {makeableCocktails.map((cocktail) => (
           <ListItem
             button
             key={cocktail.name}
@@ -41,8 +29,8 @@ const MakeableCocktails = ({ makeableCocktails, classes }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  makeableCocktails: makeableCocktailsSelector(state)
+const mapStateToProps = (state) => ({
+  makeableCocktails: makeableCocktailsSelector(state),
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(MakeableCocktails));
+export default connect(mapStateToProps)(MakeableCocktails);

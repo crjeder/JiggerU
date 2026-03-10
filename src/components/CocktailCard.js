@@ -10,57 +10,19 @@ import {
   CardActions,
   CardActionArea,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import CocktailActions from "./CocktailActions";
 import GlassIcon from "./GlassIcon";
-import VeganIcon from "@material-ui/icons/FilterVintage";
+import VeganIcon from "@mui/icons-material/FilterVintage";
 
-import Redo from "@material-ui/icons/Redo";
+import Redo from "@mui/icons-material/Redo";
 
-import { withStyles } from "@material-ui/core/styles";
 import Ingredient from "./IngredientDetail";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
-const styles = (theme) => ({
-  ingredientList: {
-    paddingLeft: theme.spacing(2),
-  },
-  card: {
-    width: theme.custom ? theme.custom.cardWidth : theme.spacing(40),
-    maxWidth: "100%",
-    margin: theme.spacing(1),
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-  },
-  cardMain: {
-    flexGrow: 10,
-  },
-  actions: {
-    alignSelf: "flex-end",
-    flexGrow: 1,
-  },
-  title: {
-    fontSize: 20,
-    marginTop: 0,
-    marginBottom: 0,
-  },
-  subHeader: {
-    fontSize: 14,
-    fontStyle: "italic",
-  },
-  category: {
-    fontSize: 12,
-  },
-  prep: {
-    fontStyle: "italic",
-  },
-});
-
 const CocktailCard = ({
   cocktail,
-  classes,
   allGlasses,
   favourite,
   favourites,
@@ -69,21 +31,35 @@ const CocktailCard = ({
   if (!cocktail) return null;
 
   return (
-    <Card className={classes.card}>
+    <Card
+      sx={{
+        width: (theme) => theme.custom?.cardWidth || theme.spacing(40),
+        m: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+      }}
+    >
       <CardActionArea
-        className={classes.cardMain}
+        sx={{ flexGrow: 10 }}
         component={Link}
         to={`/cocktails/${cocktail.slug}`}
       >
         <CardHeader
-          title={<h1 className={classes.title}>{cocktail.name}</h1>}
+          title={
+            <h1 style={{ fontSize: 20, marginTop: 0, marginBottom: 0 }}>
+              {cocktail.name}
+            </h1>
+          }
           avatar={<CocktailAvatar cocktail={cocktail} />}
           subheader={
-            <span className={classes.subHeader}>{cocktail.category}</span>
+            <span style={{ fontSize: 14, fontStyle: "italic" }}>
+              {cocktail.category}
+            </span>
           }
         />
-        <CardContent className={classes.cardContent}>
-          <ul className={classes.ingredientList}>
+        <CardContent>
+          <ul style={{ paddingLeft: 16 }}>
             {cocktail.ingredients.map((item, idx) => (
               <li key={idx}>
                 <Typography>
@@ -125,7 +101,7 @@ const CocktailCard = ({
         </CardContent>
       </CardActionArea>
 
-      <CardActions className={classes.actions}>
+      <CardActions sx={{ alignSelf: "flex-end", flexGrow: 1 }}>
         <CocktailActions cocktail={cocktail} />
       </CardActions>
     </Card>
@@ -142,7 +118,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateFavourites: bindActionCreators(updateFavourites, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withStyles(styles)(CocktailCard));
+export default connect(mapStateToProps, mapDispatchToProps)(CocktailCard);

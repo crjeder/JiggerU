@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@mui/material";
 import GlassIcon from "./GlassIcon";
 
 export const CocktailAvatar = ({ cocktail }) => {
@@ -8,7 +8,7 @@ export const CocktailAvatar = ({ cocktail }) => {
       style={
         cocktail.colors && {
           backgroundColor: cocktail.colors[0],
-          background: `linear-gradient(${cocktail.colors.join(",")})`
+          background: `linear-gradient(${cocktail.colors.join(",")})`,
         }
       }
       aria-label="Recipe"

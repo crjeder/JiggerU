@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 const cobaltBlue = {
   main: "#4040A0",
@@ -14,11 +14,11 @@ const paleBlue = {
   contrastText: "#000033",
 };
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     primary: cobaltBlue,
     secondary: paleBlue,
-    type: "dark",
+    mode: "dark",
     background: {
       default: "#000033",
       paper: "#000066",
@@ -29,7 +29,6 @@ export default createMuiTheme({
     },
   },
   typography: {
-    useNextVariants: true,
     fontFamily: '"Press Start 2P", monospace',
     fontSize: 10,
     h1: { fontSize: "1.2rem", letterSpacing: "0.05em" },
@@ -46,24 +45,30 @@ export default createMuiTheme({
     borderRadius: 0,
   },
   shadows: Array(25).fill("none"),
-  overrides: {
+  components: {
     MuiCard: {
-      root: {
-        border: "2px solid #7B89D4",
+      styleOverrides: {
+        root: {
+          border: "2px solid #7B89D4",
+        },
       },
     },
     MuiButton: {
-      root: {
-        textTransform: "uppercase",
-        borderRadius: 0,
-      },
-      outlined: {
-        border: "2px solid #7B89D4",
+      styleOverrides: {
+        root: {
+          textTransform: "uppercase",
+          borderRadius: 0,
+        },
+        outlined: {
+          border: "2px solid #7B89D4",
+        },
       },
     },
     MuiAppBar: {
-      root: {
-        borderBottom: "2px solid #7B89D4",
+      styleOverrides: {
+        root: {
+          borderBottom: "2px solid #7B89D4",
+        },
       },
     },
   },

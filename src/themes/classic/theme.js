@@ -1,15 +1,14 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import indigo from "@material-ui/core/colors/indigo";
-import teal from "@material-ui/core/colors/teal";
+import { createTheme } from "@mui/material/styles";
+import indigo from "@mui/material/colors/indigo";
+import teal from "@mui/material/colors/teal";
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     primary: indigo,
     secondary: teal,
-    type: "light",
+    mode: "light",
   },
   typography: {
-    useNextVariants: true,
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   },
   shape: {

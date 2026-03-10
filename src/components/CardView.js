@@ -1,24 +1,15 @@
 import React from "react";
 import CocktailCard from "./CocktailCard";
-import { GridList } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import { Box } from "@mui/material";
 
-const styles = () => {
-  return {
-    gridList: {
-      justifyContent: "center"
-    }
-  };
-};
-
-const CardView = ({ classes, displayedCocktails }) => {
+const CardView = ({ displayedCocktails }) => {
   return (
-    <GridList className={classes.gridList}>
-      {displayedCocktails.map(cocktail => (
+    <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+      {displayedCocktails.map((cocktail) => (
         <CocktailCard key={cocktail.name} cocktail={cocktail} />
       ))}
-    </GridList>
+    </Box>
   );
 };
 
-export default withStyles(styles)(CardView);
+export default CardView;

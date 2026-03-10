@@ -1,6 +1,5 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Typography, Paper, Grid } from "@material-ui/core";
+import { Typography, Paper, Grid, Box } from "@mui/material";
 import PopularIngredients from "./Bar/PopularIngredients";
 import CocktailGauge from "./Bar/CocktailGauge";
 import MakeableCocktails from "./Bar/MakeableCocktails";
@@ -9,25 +8,15 @@ import { bindActionCreators } from "redux";
 import { setBar } from "../actions";
 import { connect } from "react-redux";
 
-const styles = (theme) => ({
-  explanation: {
-    padding: theme.spacing(1, 2),
-  },
-  root: {
-    ...theme.mixins.gutters,
-    justifyContent: "center",
-  },
-});
-
-const Bar = ({ classes, bar, setBar }) => {
+const Bar = ({ bar, setBar }) => {
   // Derive string names for IngredientPicker (works with string[] only)
   const selectedNames = bar
     .filter((item) => item && item.source !== "robot")
     .map((item) => (typeof item === "string" ? item : item.ingredient));
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.explanation}>
+    <Box sx={{ justifyContent: "center", px: 2 }}>
+      <Paper sx={{ p: "8px 16px" }}>
         <Typography variant="h2" gutterBottom>
           Your Bar
         </Typography>
@@ -44,7 +33,7 @@ const Bar = ({ classes, bar, setBar }) => {
         />
         <br />
 
-        <Grid container className={classes.root}>
+        <Grid container sx={{ justifyContent: "center" }}>
           <Grid item md={3} xs={12}>
             <MakeableCocktails />
           </Grid>
@@ -56,7 +45,7 @@ const Bar = ({ classes, bar, setBar }) => {
           </Grid>
         </Grid>
       </Paper>
-    </div>
+    </Box>
   );
 };
 
@@ -69,7 +58,4 @@ const mapDispatchToProps = (dispatch) => ({
   setBar: bindActionCreators(setBar, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withStyles(styles)(Bar));
+export default connect(mapStateToProps, mapDispatchToProps)(Bar);

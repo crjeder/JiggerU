@@ -1,37 +1,21 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import InfiniteScroll from "react-infinite-scroller";
-import { Typography, Paper, Fade } from "@material-ui/core";
+import { Typography, Paper, Fade } from "@mui/material";
 import CardView from "./CardView";
 import TableView from "./TableView";
-import { withStyles } from "@material-ui/core/styles";
-import BadMood from "@material-ui/icons/MoodBad";
-
-const styles = theme => {
-  return {
-    content: {
-      padding: theme.spacing(1)
-    },
-    noResults: {
-      textAlign: "center",
-      padding: theme.spacing(1)
-    },
-    noResutlsIcon: {
-      fontSize: "10rem"
-    }
-  };
-};
+import BadMood from "@mui/icons-material/MoodBad";
 
 const PER_PAGE = 9;
 
-const CocktailList = ({ browserMode, classes, cocktails = [] }) => {
+const CocktailList = ({ browserMode, cocktails = [] }) => {
   const [page, setPage] = useState(0);
 
   const displayedCocktails = cocktails.slice(0, PER_PAGE + page * PER_PAGE);
   const View = browserMode === "card" ? CardView : TableView;
   return (
     <div>
-      <div className={classes.content}>
+      <div style={{ padding: 8 }}>
         {displayedCocktails.length > 0 && (
           <Fade in={displayedCocktails.length > 0}>
             <InfiniteScroll
@@ -44,8 +28,8 @@ const CocktailList = ({ browserMode, classes, cocktails = [] }) => {
         )}
 
         {!cocktails.length && (
-          <Paper className={classes.noResults}>
-            <BadMood className={classes.noResutlsIcon} />
+          <Paper sx={{ textAlign: "center", p: 1 }}>
+            <BadMood sx={{ fontSize: "10rem" }} />
             <Typography gutterBottom>No results</Typography>
           </Paper>
         )}
@@ -54,8 +38,8 @@ const CocktailList = ({ browserMode, classes, cocktails = [] }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  browserMode: state.settings.browserMode
+const mapStateToProps = (state) => ({
+  browserMode: state.settings.browserMode,
 });
 
-export default withStyles(styles)(connect(mapStateToProps)(CocktailList));
+export default connect(mapStateToProps)(CocktailList);

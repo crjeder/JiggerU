@@ -15,7 +15,7 @@ import {
   List,
   ListItem,
   ListItemText,
-} from "@material-ui/core";
+} from "@mui/material";
 import { robotJobUpdated } from "../../actions";
 
 function resolveDispensableIngredients(cocktail, robotConfig, bar) {

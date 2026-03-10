@@ -1,27 +1,14 @@
 import React, { useState } from "react";
-import { Chip, TextField, InputAdornment } from "@material-ui/core";
+import { Chip, TextField, InputAdornment } from "@mui/material";
 import { removeOrAddItemFromArray } from "../utilities/util";
 import map from "lodash/map";
-import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
-import SearchIcon from "@material-ui/icons/Search";
-
-const styles = theme => ({
-  chip: {
-    margin: theme.spacing() / 2
-  },
-  searchField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 300
-  }
-});
+import SearchIcon from "@mui/icons-material/Search";
 
 const IngredientPicker = ({
   allIngredients,
   selectedIngredients,
   onIngredientsChange,
-  classes
 }) => {
   const [searchTerm, updateSearchTerm] = useState(null);
 
@@ -31,15 +18,15 @@ const IngredientPicker = ({
         id="standard-search"
         label="Filter ingredients"
         type="search"
-        className={classes.searchField}
+        sx={{ ml: 1, mr: 1, width: 300 }}
         margin="normal"
-        onChange={e => updateSearchTerm(e.target.value)}
+        onChange={(e) => updateSearchTerm(e.target.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon />
             </InputAdornment>
-          )
+          ),
         }}
       />
       <br style={{ clear: "both" }} />
@@ -58,13 +45,13 @@ const IngredientPicker = ({
                 ? "primary"
                 : "default"
             }
-            onClick={e => {
+            onClick={(e) => {
               onIngredientsChange(
-                removeOrAddItemFromArray(ingredientName, selectedIngredients)
+                removeOrAddItemFromArray(ingredientName, selectedIngredients),
               );
             }}
             label={ingredientName}
-            className={classes.chip}
+            sx={{ m: 0.5 }}
           />
         );
       })}
@@ -72,8 +59,8 @@ const IngredientPicker = ({
   );
 };
 
-const mapStateToProps = state => ({
-  allIngredients: state.db.ingredients
+const mapStateToProps = (state) => ({
+  allIngredients: state.db.ingredients,
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(IngredientPicker));
+export default connect(mapStateToProps)(IngredientPicker);

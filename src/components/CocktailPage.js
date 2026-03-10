@@ -3,42 +3,15 @@ import useScrollTop from "../hooks/useScrollTop";
 import useEnrichCocktail from "../hooks/useEnrichCocktail";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Fade, Box, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Fade, Box, Grid } from "@mui/material";
 import CocktailDetail from "./CocktailPage/CocktailDetail";
 import CocktailVariantList from "./CocktailPage/CocktailVariantList";
 
 const fullHeight = "92vh";
 
-const useStyles = makeStyles((theme) => ({
-  cocktailDetail: {
-    overflow: "auto",
-    [theme.breakpoints.up("sm")]: {
-      height: fullHeight,
-    },
-  },
-  cocktailDetailContent: {
-    padding: theme.spacing(2),
-  },
-  cocktailImage: {
-    ...theme.mixins.toolbar,
-    backgroundColor: theme.palette.grey[400],
-    backgroundRepeatY: "no-repeat",
-    backgroundSize: "cover",
-    [theme.breakpoints.up("xs")]: {
-      height: fullHeight,
-    },
-  },
-  mobileImage: {
-    height: "20vh",
-    backgroundPosition: "center",
-  },
-}));
-
 export const CocktailPage = ({ allCocktails }) => {
   const { slug } = useParams();
   const cocktail = allCocktails.find((c) => c.slug === slug);
-  const classes = useStyles();
   useScrollTop();
   useEnrichCocktail(cocktail);
 
@@ -51,27 +24,44 @@ export const CocktailPage = ({ allCocktails }) => {
       <Fade in={!!image}>
         <Box
           component="div"
-          className={classes.mobileImage}
-          display={{ xs: "block", md: "none" }}
+          sx={{
+            height: "20vh",
+            backgroundPosition: "center",
+            display: { xs: "block", md: "none" },
+          }}
           style={image && { backgroundImage: `url(${image})` }}
         />
       </Fade>
-      <Grid container className={classes.root}>
-        <Grid className={classes.cocktailDetail} item md={6} xs={12}>
-          <div className={classes.cocktailDetailContent}>
+      <Grid container>
+        <Grid
+          sx={{
+            overflow: "auto",
+            height: { sm: fullHeight },
+          }}
+          item
+          md={6}
+          xs={12}
+        >
+          <div style={{ padding: 16 }}>
             <CocktailDetail cocktail={cocktail} />
             <CocktailVariantList cocktail={cocktail} />
           </div>
         </Grid>
         <Grid item md={6} xs={false}>
           <Fade in={!!image}>
-            <div
+            <Box
               style={
                 image && {
                   backgroundImage: `url(${image})`,
                 }
               }
-              className={classes.cocktailImage}
+              sx={(theme) => ({
+                ...theme.mixins.toolbar,
+                backgroundColor: theme.palette.grey[400],
+                backgroundRepeatY: "no-repeat",
+                backgroundSize: "cover",
+                height: { xs: fullHeight },
+              })}
             />
           </Fade>
         </Grid>

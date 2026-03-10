@@ -5,29 +5,18 @@ import {
   DialogTitle,
   DialogActions,
   IconButton,
-  Button
-} from "@material-ui/core";
+  Button,
+} from "@mui/material";
 
-import { withStyles } from "@material-ui/core/styles";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { updateFilter, closeFilterDialog } from "../../actions";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
 import { dialogFor, labelFor } from "../../filterConfig";
 
-const styles = theme => ({
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500]
-  }
-});
-
 const FilterDialog = ({
-  classes,
   closeFilterDialog,
-  filterOptions: { activeDialog }
+  filterOptions: { activeDialog },
 }) => {
   function handleCloseDialog() {
     closeFilterDialog();
@@ -45,7 +34,12 @@ const FilterDialog = ({
         <DialogTitle id="simple-dialog-title">
           <IconButton
             aria-label="Close"
-            className={classes.closeButton}
+            sx={{
+              position: "absolute",
+              right: (theme) => theme.spacing(1),
+              top: (theme) => theme.spacing(1),
+              color: (theme) => theme.palette.grey[500],
+            }}
             onClick={handleCloseDialog}
           >
             <CloseIcon />
@@ -63,16 +57,13 @@ const FilterDialog = ({
   );
 };
 
-const mapStateToProps = state => ({
-  filterOptions: state.filterOptions
+const mapStateToProps = (state) => ({
+  filterOptions: state.filterOptions,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   updateFilter: bindActionCreators(updateFilter, dispatch),
-  closeFilterDialog: bindActionCreators(closeFilterDialog, dispatch)
+  closeFilterDialog: bindActionCreators(closeFilterDialog, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(FilterDialog));
+export default connect(mapStateToProps, mapDispatchToProps)(FilterDialog);
