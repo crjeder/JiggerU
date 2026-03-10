@@ -8,7 +8,7 @@ following good practice from https://github.com/todomd/todo.md
 
 - [ ] Test each theme (classic, c64, negroni, blossom) in browser: set `activeTheme` in `public/index.html` and verify palette, font, and card width #testing
 - [ ] Test C64 theme on narrow viewport — cards should fill width without horizontal scroll #testing
-- [ ] Confirm Settings page no longer shows color picker or light/dark controls #testing
+- [x] Confirm Settings page no longer shows color picker or light/dark controls #testing
 - [ ] Verify fonts load offline (install as PWA, go offline, confirm fonts render) #testing
 
 ### upgrade-mui-v4-to-v5
@@ -36,15 +36,16 @@ following good practice from https://github.com/todomd/todo.md
 - [x] Upgrade from React 16 to React 18 (functional components already in use) #refactor
 - [x] Upgrade Material UI from v4 to v5 #refactor
 - [x] Upgrade react-router-dom from v5 to v6 #refactor
-- [ ] Add search by cocktail name functionality #feature
+- [x] Add search by cocktail name functionality #feature
 - [ ] Add "shuffle" / random cocktail button #feature
 - [ ] Improve accessibility (ARIA labels, keyboard navigation) #a11y
 - [ ] Add offline fallback page for PWA #pwa
-- [ ] Add cocktail rating / personal notes feature #feature
 - [x] Expand non-IBA cocktail list beyond current extras #data
-- [ ] Custom cocktails UI — add/edit non-IBA cocktails (schema already supports `iba: false`) #feature
 - [ ] Ambiguity resolution — when multiple bar items share the same type and recipe uses a generic ingredient name, determine which physical bottle the robot pours #robot
 - [ ] Per-cocktail brand override — allow configuring "treat Momentum Gin as generic Gin" for a specific cocktail #robot
+- [x] Remove "Favourite" logic. It is not used.
+- [x] Remove "Learn more" button. It does the same thing as a click on the card
+- [ ] Add a "mix it!" button at the bottom of the card. Extra points if the text is configured by the theme (e. g. c64: "run")
 
 ## Done ✓
 

@@ -6,7 +6,6 @@ import { removeOrAddItemFromArray } from "../../utilities/util";
 import { updateFilter, activateFilterDialog } from "../../actions";
 
 const chipContent = {
-  favouritesOnly: () => "Favourites",
   veganOnly: () => "Vegan",
   ibaOnly: () => "IBA",
   barOnly: () => "Makeable from Bar",

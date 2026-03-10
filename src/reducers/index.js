@@ -22,7 +22,6 @@ const defaultState = {
   },
   bar: [],
   manualBar: [],
-  favourites: [],
   settings: {
     browserMode: "card",
     units: "cl",
@@ -78,9 +77,6 @@ export default (state = initialState, action) =>
         break;
       case actionTypes.LOAD_GLASSES:
         draft.db.glasses = action.payload;
-        break;
-      case actionTypes.UPDATE_FAVOURITES:
-        draft.favourites = action.payload;
         break;
       case actionTypes.UPDATE_FILTER:
         draft.filterOptions = { ...draft.filterOptions, ...action.payload };

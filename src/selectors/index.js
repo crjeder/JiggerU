@@ -19,8 +19,6 @@ const barSelector = createSelector(
     ...manualBar.map((i) => ({ ingredient: i, type: i })),
   ],
 );
-const favouritesSelector = (state) => state.favourites;
-
 const currentSlugFromUrlSelector = (_, props) =>
   get(props, "match.params.slug");
 
@@ -34,14 +32,6 @@ const currentSlugSelector = createSelector(
   currentSlugFromUrlSelector,
   currentSlugFromCocktailPropSelector,
   (urlSlug, cocktailPropSlug) => urlSlug || cocktailPropSlug,
-);
-
-// isFavouriteSelector
-// Derives whether the current cocktail is a favourite
-export const isFavouriteSelector = createSelector(
-  favouritesSelector,
-  currentSlugSelector,
-  (favourites, cocktailSlug) => favourites.includes(cocktailSlug),
 );
 
 // filtersSelector
