@@ -6,8 +6,8 @@ following good practice from https://github.com/todomd/todo.md
 
 ### curated-themes
 
-- [ ] Test each theme (classic, c64, negroni, blossom) in browser: set `activeTheme` in `public/index.html` and verify palette, font, and card width #testing
-- [ ] Test C64 theme on narrow viewport — cards should fill width without horizontal scroll #testing
+- [x] Test each theme (classic, c64, negroni, blossom) in browser: set `activeTheme` in `public/index.html` and verify palette, font, and card width #testing
+- [x] Test C64 theme on narrow viewport — cards should fill width without horizontal scroll #testing
 - [x] Confirm Settings page no longer shows color picker or light/dark controls #testing
 - [ ] Verify fonts load offline (install as PWA, go offline, confirm fonts render) #testing
 
@@ -46,11 +46,12 @@ following good practice from https://github.com/todomd/todo.md
 - [x] Remove "Favourite" logic. It is not used.
 - [x] Remove "Learn more" button. It does the same thing as a click on the card
 - [ ] Add a "mix it!" button at the bottom of the card. Extra points if the text is configured by the theme (e. g. c64: "run")
+- [ ] Rename "Negroni" Theme to
 
 ## Done ✓
 
 - [x] Filter by ingredient, category, glass, vegan, makeable
-- [x] Favourite cocktails
+- [x] Favourite cocktails (removed — feature was never surfaced)
 - [x] Integration with TheCocktailDB for images
 - [x] Configurable color schemes
 - [x] Measurement units (parts / ml / cl / oz)

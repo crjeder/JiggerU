@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Gin Basil Smash recipe (with Momentum Holy Basil Gin) to cocktail data
 - Basil to ingredient list
 
+### Removed
+
+- Favourites feature: Redux state, action type, action creator, reducer, selectors, and localStorage persistence — the feature was never surfaced in any filter or view
+- `CocktailActions` component (contained the heart toggle and "Learn More" button)
+- "Learn More" button from cocktail cards and table view — duplicated card-click navigation
+- "Actions" column from table view
+- `favouritesOnly` filter option
+
 ### Changed
 
 - README updated to reflect current scope, features, and contributing guidelines

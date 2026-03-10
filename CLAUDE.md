@@ -32,7 +32,7 @@ Stack: React 16 (functional components + hooks), Redux, Material UI v4, react-ro
 
 - Browse/filter cocktails by ingredient, category, glass, vegan, or "makeable from your bar"
 - "My Bar" — local-storage-backed ingredient inventory
-- Favourites, configurable color schemes, measurement units (parts/ml/cl/oz), pro bartender mode
+- Configurable color schemes, measurement units (parts/ml/cl/oz), pro bartender mode
 - TheCocktailDB enrichment for images
 - PWA / installable
 

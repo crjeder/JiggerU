@@ -3,7 +3,7 @@ project:
   description: >
     A Progressive Web App for browsing and filtering the official IBA cocktail
     list (~80 cocktails). Supports ingredient-based filtering, a personal bar
-    inventory, favourites, configurable measurement units, and TheCocktailDB enrichment.
+    inventory, configurable measurement units, and TheCocktailDB enrichment.
   version: 0.1.0
   license: GPL-3.0-only
   url: https://iba-cocktails.netlify.com/
@@ -82,8 +82,6 @@ features:
       has_dialog: true
     - id: barOnly
       label: Makeable from Bar
-    - id: favouritesOnly
-      label: Favourites only
     - id: veganOnly
       label: Vegan only
     - id: ibaOnly
@@ -137,13 +135,13 @@ session:
     - Read claude-progress.txt
     - Read git log --oneline -10
     - Work on exactly ONE task
-  end:
+  before_commit:
     - Update README.md if relevant (follow makeareadme.com best practices)
-    - Use /commit-push-pr to commit, push, and open a PR
     - Update claude-progress.txt
     - Document relevant changes in CLAUDE.md and openspec/config.yaml
     - Update TODO.md to reflect changes
     - Document changes in CHANGELOG.md
+    - Use /commit-push-pr to commit, push, and open a PR
 
 known_issues:
   - src/components/CocktailPage/CocktailDetail.js renders a hardcoded QR code (vesper.png) for all cocktails; per-cocktail QR codes are not implemented
