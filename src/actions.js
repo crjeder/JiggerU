@@ -18,10 +18,6 @@ export function updateFilter(payload) {
   return { type: actionTypes.UPDATE_FILTER, payload };
 }
 
-export function setBar(payload) {
-  return { type: actionTypes.SET_BAR, payload };
-}
-
 export function activateFilterDialog(payload) {
   return { type: actionTypes.ACTIVATE_FILTER_DIALOG, payload };
 }
@@ -32,10 +28,6 @@ export function closeFilterDialog() {
 
 export function updateFavourites(payload) {
   return { type: actionTypes.UPDATE_FAVOURITES, payload };
-}
-
-export function addToBar(payload) {
-  return { type: actionTypes.ADD_TO_BAR, payload };
 }
 
 export function updateSettings(payload) {

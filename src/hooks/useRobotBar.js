@@ -40,7 +40,6 @@ function useRobotBar() {
             barEntries.push({
               ingredient: liquid.name,
               type,
-              source: "robot",
             });
           } else {
             unresolvedLiquids.push(liquid);

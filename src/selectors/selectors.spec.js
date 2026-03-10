@@ -164,8 +164,8 @@ describe("makeableCocktailsSelector", () => {
   it("returns cocktails makeable from bar ingredients", () => {
     const state = makeState({
       bar: [
-        { ingredient: "Gin", source: "manual" },
-        { ingredient: "Lime juice", source: "manual" },
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
       ],
     });
     const result = makeableCocktailsSelector(state);
@@ -173,16 +173,43 @@ describe("makeableCocktailsSelector", () => {
     expect(result[0].name).toBe("Gimlet");
   });
 
-  it("handles bar items with type property", () => {
+  it("matches generic recipe ingredient via type", () => {
     const state = makeState({
       bar: [
-        { ingredient: "Gin", type: "Gin", source: "robot" },
-        { ingredient: "Lime juice", source: "manual" },
+        { ingredient: "Momentum Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
       ],
     });
     const result = makeableCocktailsSelector(state);
     expect(result).toHaveLength(1);
     expect(result[0].name).toBe("Gimlet");
+  });
+
+  it("matches brand-specific recipe ingredient by exact name", () => {
+    // Gimlet recipe uses "Gin" (generic) — if recipe used "Momentum Gin"
+    // specifically, it should match only that brand in bar.
+    const state = makeState({
+      bar: [
+        { ingredient: "Momentum Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+    });
+    // "Momentum Gin" appears in bar's flatMapped ingredient names
+    const ingredients = state.bar.flatMap((item) =>
+      [item.type, item.ingredient].filter(Boolean),
+    );
+    expect(ingredients).toContain("Momentum Gin");
+    expect(ingredients).toContain("Gin");
+  });
+
+  it("does not match brand-specific recipe when only different brand in bar", () => {
+    // Bar has Ilusionist (type Gin), but if recipe asked for "Momentum Gin"
+    // it should not be satisfied.
+    const bar = [{ ingredient: "The Ilusionist", type: "Gin" }];
+    const ingredients = bar.flatMap((item) =>
+      [item.type, item.ingredient].filter(Boolean),
+    );
+    expect(ingredients).not.toContain("Momentum Gin");
   });
 });
 

@@ -30,7 +30,7 @@ function resolveDispensableIngredients(cocktail, robotConfig, bar) {
       (b) =>
         b && (b.type === item.ingredient || b.ingredient === item.ingredient),
     );
-    if (!barEntry || barEntry.source !== "robot") {
+    if (!barEntry) {
       manual.push(item);
       return;
     }

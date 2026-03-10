@@ -1,37 +1,45 @@
 import React from "react";
-import { Typography, Paper, Grid, Box } from "@mui/material";
-import PopularIngredients from "./Bar/PopularIngredients";
+import {
+  Typography,
+  Paper,
+  Grid,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import CocktailGauge from "./Bar/CocktailGauge";
 import MakeableCocktails from "./Bar/MakeableCocktails";
-import IngredientPicker from "./IngredientPicker";
-import { bindActionCreators } from "redux";
-import { setBar } from "../actions";
+import PopularIngredients from "./Bar/PopularIngredients";
 import { connect } from "react-redux";
 
-const Bar = ({ bar, setBar }) => {
-  // Derive string names for IngredientPicker (works with string[] only)
-  const selectedNames = bar
-    .filter((item) => item && item.source !== "robot")
-    .map((item) => (typeof item === "string" ? item : item.ingredient));
-
+const Bar = ({ bar }) => {
   return (
     <Box sx={{ justifyContent: "center", px: 2 }}>
       <Paper sx={{ p: "8px 16px" }}>
         <Typography variant="h2" gutterBottom>
-          Your Bar
+          Robot Bar
         </Typography>
 
-        <Typography component="p" paragraph>
-          Select the ingredients you have in your bar...
-        </Typography>
-
-        <IngredientPicker
-          selectedIngredients={selectedNames}
-          onIngredientsChange={(selectedIngredients) => {
-            setBar(selectedIngredients);
-          }}
-        />
-        <br />
+        {bar.length === 0 ? (
+          <Typography component="p" paragraph color="textSecondary">
+            No ingredients loaded. Connect a robot to populate the bar.
+          </Typography>
+        ) : (
+          <List dense>
+            {bar.map((item, idx) => (
+              <ListItem key={idx}>
+                <ListItemText
+                  primary={
+                    item.type && item.type !== item.ingredient
+                      ? `${item.ingredient} (${item.type})`
+                      : item.ingredient
+                  }
+                />
+              </ListItem>
+            ))}
+          </List>
+        )}
 
         <Grid container sx={{ justifyContent: "center" }}>
           <Grid item md={3} xs={12}>
@@ -51,11 +59,6 @@ const Bar = ({ bar, setBar }) => {
 
 const mapStateToProps = (state) => ({
   bar: state.bar,
-  allCocktails: state.db.cocktails,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setBar: bindActionCreators(setBar, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Bar);
+export default connect(mapStateToProps)(Bar);

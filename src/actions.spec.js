@@ -39,14 +39,6 @@ describe("simple action creators", () => {
     });
   });
 
-  it("setBar returns correct action", () => {
-    const payload = ["Gin", "Vodka"];
-    expect(actions.setBar(payload)).toEqual({
-      type: actionTypes.SET_BAR,
-      payload,
-    });
-  });
-
   it("activateFilterDialog returns correct action", () => {
     expect(actions.activateFilterDialog("byIngredient")).toEqual({
       type: actionTypes.ACTIVATE_FILTER_DIALOG,
@@ -65,13 +57,6 @@ describe("simple action creators", () => {
     expect(actions.updateFavourites(payload)).toEqual({
       type: actionTypes.UPDATE_FAVOURITES,
       payload,
-    });
-  });
-
-  it("addToBar returns correct action", () => {
-    expect(actions.addToBar("Rum")).toEqual({
-      type: actionTypes.ADD_TO_BAR,
-      payload: "Rum",
     });
   });
 
@@ -129,8 +114,8 @@ describe("robot action creators", () => {
   });
 
   it("robotBarSynced returns correct action", () => {
-    const barEntries = [{ ingredient: "Gin", source: "robot" }];
-    const unresolvedLiquids = ["Mystery liquid"];
+    const barEntries = [{ ingredient: "Gin", type: "Gin" }];
+    const unresolvedLiquids = [{ id: 1, name: "Mystery liquid" }];
     expect(actions.robotBarSynced(barEntries, unresolvedLiquids)).toEqual({
       type: actionTypes.ROBOT_BAR_SYNCED,
       payload: { barEntries, unresolvedLiquids },

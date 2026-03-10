@@ -64,8 +64,10 @@ export const makeableCocktailsSelector = createSelector(
   (cocktails, bar) =>
     applyFilter(cocktails, {
       rule: "makeableFrom",
-      ingredients: bar.map((item) =>
-        typeof item === "string" ? item : item.type || item.ingredient,
+      ingredients: bar.flatMap((item) =>
+        typeof item === "string"
+          ? [item]
+          : [item.type, item.ingredient].filter(Boolean),
       ),
     }),
 );

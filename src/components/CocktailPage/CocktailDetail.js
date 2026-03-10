@@ -18,15 +18,13 @@ const CocktailPage = ({ cocktail, allGlasses }) => {
 
   const robotIdle = robotConnected && robotState && robotState.state === "idle";
 
-  // Check if at least one cocktail ingredient matches a robot-loaded bar entry
-  const hasDispensable = bar.some(
-    (item) =>
-      item &&
-      item.source === "robot" &&
-      cocktail.ingredients.some(
-        (ing) =>
-          ing.ingredient === item.type || ing.ingredient === item.ingredient,
-      ),
+  // Check if at least one cocktail ingredient matches a bar entry
+  const hasDispensable = cocktail.ingredients.some((ing) =>
+    bar.some(
+      (item) =>
+        item &&
+        (ing.ingredient === item.type || ing.ingredient === item.ingredient),
+    ),
   );
 
   const canDispense = !!robotUrl && robotIdle && hasDispensable;

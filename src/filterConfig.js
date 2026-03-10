@@ -67,9 +67,12 @@ const filterConfig = {
     label: "Makeable from Bar",
     buildFilter: (_, { bar }) => ({
       rule: "makeableFrom",
-      // Extract effective ingredient names: type takes priority over ingredient name
-      ingredients: bar.map((item) =>
-        typeof item === "string" ? item : item.type || item.ingredient,
+      // Expose both type and ingredient so generic recipe ingredients match by
+      // type and brand-specific recipe ingredients match by exact name.
+      ingredients: bar.flatMap((item) =>
+        typeof item === "string"
+          ? [item]
+          : [item.type, item.ingredient].filter(Boolean),
       ),
     }),
   },

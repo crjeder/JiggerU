@@ -4,6 +4,13 @@ following good practice from https://github.com/todomd/todo.md
 
 ## In Progress
 
+### curated-themes
+
+- [ ] Test each theme (classic, c64, negroni, blossom) in browser: set `activeTheme` in `public/index.html` and verify palette, font, and card width #testing
+- [ ] Test C64 theme on narrow viewport — cards should fill width without horizontal scroll #testing
+- [ ] Confirm Settings page no longer shows color picker or light/dark controls #testing
+- [ ] Verify fonts load offline (install as PWA, go offline, confirm fonts render) #testing
+
 ### hal-robot-integration
 
 - [x] Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow UI #testing
@@ -29,7 +36,9 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Add offline fallback page for PWA #pwa
 - [ ] Add cocktail rating / personal notes feature #feature
 - [ ] Expand non-IBA cocktail list beyond current extras #data
-- [ ] Add ingredient substitution suggestions #feature
+- [ ] Custom cocktails UI — add/edit non-IBA cocktails (schema already supports `iba: false`) #feature
+- [ ] Ambiguity resolution — when multiple bar items share the same type and recipe uses a generic ingredient name, determine which physical bottle the robot pours #robot
+- [ ] Per-cocktail brand override — allow configuring "treat Momentum Gin as generic Gin" for a specific cocktail #robot
 
 ## Done ✓
 
