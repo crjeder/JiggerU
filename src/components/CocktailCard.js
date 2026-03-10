@@ -1,17 +1,14 @@
 import React from "react";
-import { updateFavourites } from "../actions";
 import { connect } from "react-redux";
-import { isFavouriteSelector, allGlassesSelector } from "../selectors";
+import { allGlassesSelector } from "../selectors";
 import CocktailAvatar from "./CocktailAvatar";
 import {
   Card,
   CardHeader,
   CardContent,
-  CardActions,
   CardActionArea,
   Typography,
 } from "@mui/material";
-import CocktailActions from "./CocktailActions";
 import GlassIcon from "./GlassIcon";
 import VeganIcon from "@mui/icons-material/FilterVintage";
 
@@ -19,15 +16,8 @@ import Redo from "@mui/icons-material/Redo";
 
 import Ingredient from "./IngredientDetail";
 import { Link } from "react-router-dom";
-import { bindActionCreators } from "redux";
 
-const CocktailCard = ({
-  cocktail,
-  allGlasses,
-  favourite,
-  favourites,
-  updateFavourites,
-}) => {
+const CocktailCard = ({ cocktail, allGlasses }) => {
   if (!cocktail) return null;
 
   return (
@@ -100,22 +90,12 @@ const CocktailCard = ({
           )}
         </CardContent>
       </CardActionArea>
-
-      <CardActions sx={{ alignSelf: "flex-end", flexGrow: 1 }}>
-        <CocktailActions cocktail={cocktail} />
-      </CardActions>
     </Card>
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  favourite: isFavouriteSelector(state, ownProps),
-  favourites: state.favourites,
+const mapStateToProps = (state) => ({
   allGlasses: allGlassesSelector(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  updateFavourites: bindActionCreators(updateFavourites, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CocktailCard);
+export default connect(mapStateToProps)(CocktailCard);

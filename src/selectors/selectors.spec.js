@@ -1,6 +1,5 @@
 import {
   allGlassesSelector,
-  isFavouriteSelector,
   currentCocktailSelector,
   filteredCocktailsSelector,
   makeableCocktailsSelector,
@@ -59,7 +58,6 @@ function makeState(overrides = {}) {
     },
     bar: [],
     manualBar: [],
-    favourites: [],
     settings: {
       theme: "light",
       color: "indigo",
@@ -81,32 +79,6 @@ describe("allGlassesSelector", () => {
   it("returns empty array when no glasses loaded", () => {
     const state = makeState({ db: { cocktails: [], glasses: [] } });
     expect(allGlassesSelector(state)).toEqual([]);
-  });
-});
-
-describe("isFavouriteSelector", () => {
-  it("returns true when cocktail slug is in favourites", () => {
-    const state = makeState({ favourites: ["negroni", "gimlet"] });
-    const props = { cocktail: { slug: "negroni" } };
-    expect(isFavouriteSelector(state, props)).toBe(true);
-  });
-
-  it("returns false when cocktail slug is not in favourites", () => {
-    const state = makeState({ favourites: ["gimlet"] });
-    const props = { cocktail: { slug: "negroni" } };
-    expect(isFavouriteSelector(state, props)).toBe(false);
-  });
-
-  it("returns false when favourites list is empty", () => {
-    const state = makeState({ favourites: [] });
-    const props = { cocktail: { slug: "negroni" } };
-    expect(isFavouriteSelector(state, props)).toBe(false);
-  });
-
-  it("resolves slug from URL match params when present", () => {
-    const state = makeState({ favourites: ["daiquiri"] });
-    const props = { match: { params: { slug: "daiquiri" } } };
-    expect(isFavouriteSelector(state, props)).toBe(true);
   });
 });
 

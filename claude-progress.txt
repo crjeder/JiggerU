@@ -1,5 +1,32 @@
 # Claude Progress
 
+## 2026-03-10 — Session: Remove favourites logic and Learn More button
+
+### Task Completed
+- Removed entire Favourites feature: `UPDATE_FAVOURITES` action type, `updateFavourites` action creator, `favourites` reducer state + case, `state.favourites` persistence in store, `favouritesSelector` + `isFavouriteSelector` selectors
+- Deleted `src/components/CocktailActions.js` (contained heart toggle + Learn More button)
+- Removed `CardActions` block from `CocktailCard.js` and cleaned up Redux connection
+- Removed "Actions" column from `TableView.js`
+- Removed `favouritesOnly` filter from `filterConfig.js` and `isFavourite` rule from `filterRules.js`
+- Removed `favouritesOnly` chip label from `FilterChips.js`
+- Removed related tests from `actions.spec.js` and `selectors/selectors.spec.js`
+- Regenerated snapshots; all 65 tests pass
+- Updated `CLAUDE.md` and `openspec/config.yaml` to remove stale favourites references
+- PR #8: https://github.com/crjeder/JiggerU/pull/8
+
+### Files Changed
+- src/actionTypes.js, src/actions.js, src/actions.spec.js
+- src/components/CocktailActions.js (deleted)
+- src/components/CocktailCard.js, TableView.js, Filters/FilterChips.js
+- src/components/__snapshots__/CardView.spec.js.snap, TableView.spec.js.snap
+- src/filterConfig.js, src/reducers/index.js, src/selectors/index.js
+- src/selectors/selectors.spec.js, src/store.js, src/utilities/filterRules.js
+- CLAUDE.md, openspec/config.yaml, TODO.md
+- openspec/changes/archive/2026-03-10-remove-favourites-and-learn-more/ (new)
+
+### Branch
+data/add-gin-basil-smash (PR #8)
+
 ## 2026-03-10 — Session: Add Gin Basil Smash recipe
 
 ### Task Completed

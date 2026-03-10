@@ -26,10 +26,6 @@ export function closeFilterDialog() {
   return { type: actionTypes.CLOSE_FILTER_DIALOG };
 }
 
-export function updateFavourites(payload) {
-  return { type: actionTypes.UPDATE_FAVOURITES, payload };
-}
-
 export function updateSettings(payload) {
   return { type: actionTypes.UPDATE_SETTINGS, payload };
 }

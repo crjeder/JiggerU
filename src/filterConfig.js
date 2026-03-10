@@ -76,13 +76,6 @@ const filterConfig = {
       ),
     }),
   },
-  favouritesOnly: {
-    label: "Favourites only",
-    buildFilter: (_, { favourites }) => ({
-      rule: "isFavourite",
-      favourites,
-    }),
-  },
   veganOnly: {
     label: "Vegan only",
     buildFilter: () => ({
