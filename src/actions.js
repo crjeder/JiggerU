@@ -83,6 +83,10 @@ export function robotJobUpdated(jobId) {
   return { type: actionTypes.ROBOT_JOB_UPDATED, payload: jobId };
 }
 
+export function manualIngredientsLoaded(ingredients) {
+  return { type: actionTypes.MANUAL_INGREDIENTS_LOADED, payload: ingredients };
+}
+
 export function robotBarSynced(barEntries, unresolvedLiquids) {
   return {
     type: actionTypes.ROBOT_BAR_SYNCED,
