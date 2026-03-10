@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLAUDE.md project guide for AI-assisted development
 - Unit tests for all Redux action creators in `src/actions.spec.js` (23 tests)
 - Unit tests for all Redux selectors in `src/selectors/selectors.spec.js` (18 tests)
+- Gin Basil Smash recipe (with Momentum Holy Basil Gin) to cocktail data
+- Basil to ingredient list
 
 ### Changed
 
