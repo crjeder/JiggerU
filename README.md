@@ -23,6 +23,8 @@ This is a small pet-project and a _work in progress_. It is built entirely using
 
 ## Credits
 
+It started as a fork of https://github.com/mikeyhogarth/cocktails now completely detached
+
 Cocktail list and ingredient data was originally seeded from https://github.com/teijo/iba-cocktails
 
 Enrichment and images provided by the amazing [CocktailDB](https://www.thecocktaildb.com/)
