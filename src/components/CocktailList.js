@@ -18,12 +18,14 @@ const CocktailList = ({ browserMode, cocktails = [] }) => {
       <div style={{ padding: 8 }}>
         {displayedCocktails.length > 0 && (
           <Fade in={displayedCocktails.length > 0}>
-            <InfiniteScroll
-              loadMore={setPage}
-              hasMore={displayedCocktails.length < cocktails.length}
-            >
-              <View displayedCocktails={displayedCocktails} />
-            </InfiniteScroll>
+            <div>
+              <InfiniteScroll
+                loadMore={setPage}
+                hasMore={displayedCocktails.length < cocktails.length}
+              >
+                <View displayedCocktails={displayedCocktails} />
+              </InfiniteScroll>
+            </div>
           </Fade>
         )}
 
