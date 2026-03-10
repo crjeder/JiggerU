@@ -45,7 +45,7 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Per-cocktail brand override — allow configuring "treat Momentum Gin as generic Gin" for a specific cocktail #robot
 - [x] Remove "Favourite" logic. It is not used.
 - [x] Remove "Learn more" button. It does the same thing as a click on the card
-- [ ] Add a "mix it!" button at the bottom of the card. Extra points if the text is configured by the theme (e. g. c64: "run")
+- [x] Add a "mix it!" button at the bottom of the card. Extra points if the text is configured by the theme (e. g. c64: "run")
 - [ ] Rename "Negroni" Theme to
 
 ## Done ✓

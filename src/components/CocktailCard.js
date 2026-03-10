@@ -1,5 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { connect, useSelector } from "react-redux";
+import { useTheme } from "@mui/material/styles";
 import { allGlassesSelector } from "../selectors";
 import CocktailAvatar from "./CocktailAvatar";
 import {
@@ -7,7 +8,9 @@ import {
   CardHeader,
   CardContent,
   CardActionArea,
+  CardActions,
   Typography,
+  Button,
 } from "@mui/material";
 import GlassIcon from "./GlassIcon";
 import VeganIcon from "@mui/icons-material/FilterVintage";
@@ -16,8 +19,35 @@ import Redo from "@mui/icons-material/Redo";
 
 import Ingredient from "./IngredientDetail";
 import { Link } from "react-router-dom";
+import DispenseWorkflow from "./CocktailPage/DispenseWorkflow";
 
 const CocktailCard = ({ cocktail, allGlasses }) => {
+  const theme = useTheme();
+  const [showDispense, setShowDispense] = useState(false);
+
+  const robotUrl = useSelector(
+    (state) => state.settings.robot && state.settings.robot.url,
+  );
+  const robotConnected = useSelector((state) => state.robot.connected);
+  const robotState = useSelector((state) => state.robot.robotState);
+  const bar = useSelector((state) => state.bar);
+
+  const robotIdle = robotConnected && robotState && robotState.state === "idle";
+
+  const hasDispensable =
+    cocktail &&
+    cocktail.ingredients.some((ing) =>
+      bar.some(
+        (item) =>
+          item &&
+          (ing.ingredient === item.type || ing.ingredient === item.ingredient),
+      ),
+    );
+
+  const canDispense = !!robotUrl && robotIdle && hasDispensable;
+
+  const mixButtonLabel = theme.custom?.mixButtonLabel ?? "Mix it!";
+
   if (!cocktail) return null;
 
   return (
@@ -90,6 +120,24 @@ const CocktailCard = ({ cocktail, allGlasses }) => {
           )}
         </CardContent>
       </CardActionArea>
+      {canDispense && (
+        <CardActions>
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            onClick={() => setShowDispense(true)}
+          >
+            {mixButtonLabel}
+          </Button>
+        </CardActions>
+      )}
+      {showDispense && (
+        <DispenseWorkflow
+          cocktail={cocktail}
+          onClose={() => setShowDispense(false)}
+        />
+      )}
     </Card>
   );
 };
