@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { robotJobUpdated } from "../../actions";
 
-function resolveDispensableIngredients(cocktail, robotConfig, bar) {
+export function resolveDispensableIngredients(cocktail, robotConfig, bar) {
   if (!robotConfig || !robotConfig.liquids)
     return { dispensable: [], manual: [] };
 
@@ -26,10 +26,12 @@ function resolveDispensableIngredients(cocktail, robotConfig, bar) {
   const manual = [];
 
   cocktail.ingredients.forEach((item) => {
-    const barEntry = bar.find(
-      (b) =>
-        b && (b.type === item.ingredient || b.ingredient === item.ingredient),
-    );
+    const barEntry =
+      (item.label && bar.find((b) => b && b.ingredient === item.label)) ||
+      bar.find(
+        (b) =>
+          b && (b.type === item.ingredient || b.ingredient === item.ingredient),
+      );
     if (!barEntry) {
       manual.push(item);
       return;
