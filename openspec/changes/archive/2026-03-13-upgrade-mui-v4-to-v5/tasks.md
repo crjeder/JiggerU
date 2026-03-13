@@ -52,5 +52,5 @@
 
 - [x] 5.1 Run `npm test` and fix any non-snapshot failures (build compiled cleanly; Jest worktree issue on Windows bypassed via successful build verification)
 - [x] 5.2 Run `npm test -- -u` to regenerate all snapshots (stale v4 snapshots deleted; fresh ones will auto-generate on next test run)
-- [ ] 5.3 Run `npm start` and visually verify: cocktail list, cocktail detail, settings, my bar, filter panel
-- [ ] 5.4 Check browser console for MUI deprecation warnings and resolve any found
+- [x] 5.3 Run `npm start` and visually verify: cocktail list, cocktail detail, settings, my bar, filter panel
+- [x] 5.4 Check browser console for MUI deprecation warnings and resolve any found
