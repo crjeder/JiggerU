@@ -44,17 +44,18 @@ const defaultState = {
 
 const persistedState = loadPersistedState();
 
+const configSettings = (window.__APP_CONFIG__ || {}).settings || {};
+
 const initialState = produce(
   { ...defaultState, ...persistedState },
   (draft) => {
-    // Merge settings deeply so robot sub-object is preserved
+    // Settings are seeded from config.json (via window.__APP_CONFIG__), not localStorage
     draft.settings = {
       ...defaultState.settings,
-      ...draft.settings,
-      ...(persistedState ? persistedState.settings : null),
+      ...configSettings,
       robot: {
         ...defaultState.settings.robot,
-        ...(draft.settings && draft.settings.robot ? draft.settings.robot : {}),
+        ...(configSettings.robot || {}),
       },
     };
 
