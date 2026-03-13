@@ -12,11 +12,6 @@ exports[`does not explode when rendered 1`] = `
     >
       Robot Bar
     </h2>
-    <p
-      className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-120mgm7-MuiTypography-root"
-    >
-      No ingredients loaded. Connect a robot to populate the bar.
-    </p>
     <div
       className="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
     >
@@ -46,67 +41,13 @@ exports[`does not explode when rendered 1`] = `
           <h3
             className="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-o26qqb-MuiTypography-root"
           >
-            Cocktail Gauge
+            Configured Liquids
           </h3>
           <p
-            className="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
           >
-            How many cocktails can you make with what's in your bar?
+            No liquids configured.
           </p>
-          <svg
-            className="CircularProgressbar "
-            data-test-id="CircularProgressbar"
-            viewBox="0 0 100 100"
-          >
-            <path
-              className="CircularProgressbar-trail"
-              d="
-      M 50,50
-      m 0,-46
-      a 46,46 0 1 1 0,92
-      a 46,46 0 1 1 0,-92
-    "
-              fillOpacity={0}
-              strokeWidth={8}
-              style={
-                Object {
-                  "stroke": "#fafafa",
-                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
-                  "strokeDashoffset": "0px",
-                }
-              }
-            />
-            <path
-              className="CircularProgressbar-path"
-              d="
-      M 50,50
-      m 0,-46
-      a 46,46 0 1 1 0,92
-      a 46,46 0 1 1 0,-92
-    "
-              fillOpacity={0}
-              strokeWidth={8}
-              style={
-                Object {
-                  "stroke": "#1976d2",
-                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
-                  "strokeDashoffset": "289.02652413026095px",
-                }
-              }
-            />
-            <text
-              className="CircularProgressbar-text"
-              style={
-                Object {
-                  "fill": "#1976d2",
-                }
-              }
-              x={50}
-              y={50}
-            >
-              0
-            </text>
-          </svg>
         </div>
       </div>
       <div
