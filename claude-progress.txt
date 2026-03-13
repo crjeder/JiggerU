@@ -1,5 +1,22 @@
 # Claude Progress
 
+## 2026-03-13 — Session: Ambiguity resolution (label-first ingredient matching)
+
+### Task Completed
+- Added label-first matching to `resolveDispensableIngredients()` in `DispenseWorkflow.js`: when a recipe ingredient has a `label`, the bar entry whose `ingredient` matches the label is preferred over a generic type match; falls back silently if no match
+- Exported `resolveDispensableIngredients` and added 6 unit tests in `DispenseWorkflow.spec.js`
+- Updated CHANGELOG.md, TODO.md (ambiguity resolution marked done)
+- Created openspec change `ambiguity-resolution` with full artifacts
+
+### Files Changed
+- src/components/CocktailPage/DispenseWorkflow.js
+- src/components/CocktailPage/DispenseWorkflow.spec.js (created)
+- CHANGELOG.md, TODO.md, claude-progress.txt
+- openspec/changes/ambiguity-resolution/ (new change + all artifacts)
+
+### Branch
+feat/card-mix-button
+
 ## 2026-03-10 — Session: Add "Mix it!" button to cocktail card
 
 ### Task Completed
