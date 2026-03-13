@@ -10,7 +10,6 @@ import {
 import GlassIcon from "./GlassIcon";
 import DrinkIcon from "@mui/icons-material/LocalDrink";
 import SearchIcon from "@mui/icons-material/Search";
-import SettingsIcon from "@mui/icons-material/Settings";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -95,19 +94,6 @@ const Topbar = ({ pride, robotUrl, robotConnected, robotState }) => {
           <DrinkIcon />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Typography sx={{ color: "white", fontSize: 14 }}>Bar</Typography>
-          </Box>
-        </Button>
-        <Button
-          sx={textBackgroundSx}
-          component={Link}
-          to="/settings"
-          color="inherit"
-        >
-          <SettingsIcon />
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Typography sx={{ color: "white", fontSize: 14 }}>
-              Settings
-            </Typography>
           </Box>
         </Button>
         {robotDotColor && (

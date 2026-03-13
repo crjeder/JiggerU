@@ -5,6 +5,9 @@
  * Usage:
  *   node scripts/dev-robot.js [--glass-present] [--dispense-duration-secs 5]
  *
+ * Loads liquids config from examples/mock-server/liquids.json by default.
+ * Override with: --liquids path/to/liquids.json
+ *
  * In Settings, set:
  *   Robot URL:   http://localhost:8001   ← CORS proxy
  *   Robot Token: changeme
@@ -14,7 +17,9 @@
  *   curl.exe -X POST http://localhost:8000/mock/control -d "{\"inject_error\":\"sensor_fault\"}"
  */
 
+const fs = require("fs");
 const http = require("http");
+const path = require("path");
 const { spawn } = require("child_process");
 
 const ROBOT_PORT = 8000; // Rust mock server
@@ -24,8 +29,11 @@ const CLIENT_DIR = __dirname + "/..";
 const isWin = process.platform === "win32";
 
 // Pass any extra args (--glass-present, --dispense-duration-secs N, etc.)
-// through to the mock server
+// through to the mock server. Default --liquids unless caller provides one.
 const extraArgs = process.argv.slice(2);
+const defaultMockArgs = extraArgs.includes("--liquids")
+  ? []
+  : ["--liquids", "examples/mock-server/liquids.json"];
 
 // ── CORS proxy ────────────────────────────────────────────────────────────
 // Sits on PROXY_PORT, forwards everything to ROBOT_PORT, and injects
@@ -116,6 +124,27 @@ function startProcess(label, cmd, args, cwd) {
   return child;
 }
 
+// ── Inject dev config ─────────────────────────────────────────────────────
+
+const CONFIG_PATH = path.join(CLIENT_DIR, "public", "config.json");
+const DEV_CONFIG = {
+  activeTheme: "speakeasy",
+  settings: {
+    browserMode: "card",
+    units: "cl",
+    lingo: false,
+    pride: false,
+    robot: {
+      url: `http://localhost:${PROXY_PORT}`,
+      token: "changeme",
+      ingredientAliases: {},
+    },
+  },
+};
+
+fs.writeFileSync(CONFIG_PATH, JSON.stringify(DEV_CONFIG, null, 2) + "\n");
+console.log(`[config] Wrote dev config to ${CONFIG_PATH}`);
+
 // ── Start everything ──────────────────────────────────────────────────────
 
 const proxy = startCorsProxy();
@@ -124,7 +153,7 @@ const cargoCmd = isWin ? "cargo.exe" : "cargo";
 const mockServer = startProcess(
   "robot",
   cargoCmd,
-  ["run", "--example", "mock-server", "--", ...extraArgs],
+  ["run", "--example", "mock-server", "--", ...defaultMockArgs, ...extraArgs],
   ROBOT_DIR,
 );
 

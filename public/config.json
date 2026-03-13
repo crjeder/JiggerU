@@ -1,0 +1,14 @@
+{
+  "activeTheme": "speakeasy",
+  "settings": {
+    "browserMode": "card",
+    "units": "cl",
+    "lingo": false,
+    "pride": false,
+    "robot": {
+      "url": "http://localhost:8001",
+      "token": "changeme",
+      "ingredientAliases": {}
+    }
+  }
+}
