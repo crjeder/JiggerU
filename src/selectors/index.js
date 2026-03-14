@@ -11,9 +11,14 @@ import {
 // rather than accessing state directly?
 const allCocktailsSelector = (state) => state.db.cocktails;
 export const allGlassesSelector = (state) => state.db.glasses;
-const barSelector = (state) => state.bar;
-const favouritesSelector = (state) => state.favourites;
-
+const barSelector = createSelector(
+  (state) => state.bar,
+  (state) => state.manualBar,
+  (bar, manualBar) => [
+    ...bar,
+    ...manualBar.map((i) => ({ ingredient: i, type: i })),
+  ],
+);
 const currentSlugFromUrlSelector = (_, props) =>
   get(props, "match.params.slug");
 
@@ -29,17 +34,33 @@ const currentSlugSelector = createSelector(
   (urlSlug, cocktailPropSlug) => urlSlug || cocktailPropSlug,
 );
 
-// isFavouriteSelector
-// Derives whether the current cocktail is a favourite
-export const isFavouriteSelector = createSelector(
-  favouritesSelector,
-  currentSlugSelector,
-  (favourites, cocktailSlug) => favourites.includes(cocktailSlug),
+// effectiveActiveFiltersSelector
+// Returns activeFilters with 'barOnly' injected when robot is connected,
+// without mutating stored filter state.
+export const effectiveActiveFiltersSelector = createSelector(
+  (state) => state.filterOptions.activeFilters,
+  (state) => state.robot && state.robot.connected,
+  (activeFilters, robotConnected) =>
+    robotConnected && !activeFilters.includes("barOnly")
+      ? [...activeFilters, "barOnly"]
+      : activeFilters,
 );
 
 // filtersSelector
-// Derives the currently applied filters
-const filtersSelector = (state) => filtersFromUserOptions(state);
+// Derives the currently applied filters using the effective active filters
+// (which may include robot-enforced barOnly).
+const filtersSelector = createSelector(
+  (state) => state,
+  effectiveActiveFiltersSelector,
+  (state, effectiveActiveFilters) =>
+    filtersFromUserOptions({
+      ...state,
+      filterOptions: {
+        ...state.filterOptions,
+        activeFilters: effectiveActiveFilters,
+      },
+    }),
+);
 
 export const currentCocktailSelector = createSelector(
   allCocktailsSelector,

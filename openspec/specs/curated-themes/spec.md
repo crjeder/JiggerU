@@ -1,6 +1,6 @@
 ### Requirement: Theme registry provides named visual themes
 
-The system SHALL maintain a registry of named themes, each defining a complete visual personality including palette, typography, shape, card dimensions, and layout density. The registry SHALL contain at least the themes: `classic`, `c64`, `negroni`, `blossom`.
+The system SHALL maintain a registry of named themes, each defining a complete visual personality including palette, typography, shape, card dimensions, and layout density. The registry SHALL contain at least the themes: `classic`, `c64`, `speakeasy`, `blossom`.
 
 #### Scenario: Valid theme name loads correctly
 
@@ -19,14 +19,30 @@ The system SHALL maintain a registry of named themes, each defining a complete v
 
 ---
 
-### Requirement: Admin configures active theme via inline script
+### Requirement: Speakeasy theme provides a mix button label
 
-The system SHALL read the active theme name from `window.__APP_CONFIG__.activeTheme`, set as an inline `<script>` in `public/index.html`. This value SHALL be read synchronously before React initialises, with no async fetch required.
+The system SHALL read `theme.custom.mixButtonLabel` for the Speakeasy theme and display it as the mix button text. The Speakeasy theme SHALL define this value as `"Shake one!"`.
+
+#### Scenario: Speakeasy theme shows correct mix button label
+
+- **WHEN** the active theme is `speakeasy`
+- **THEN** the mix button displays the text `"Shake one!"`
+
+---
+
+### Requirement: Admin configures active theme via config file
+
+The system SHALL read the active theme name from `window.__APP_CONFIG__.activeTheme`, where `window.__APP_CONFIG__` is loaded from `public/config.json` via a synchronous XHR in `public/index.html`. The inline `<script>` block that previously hard-coded `window.__APP_CONFIG__` SHALL be replaced by the synchronous config loader. This value SHALL be read synchronously before React initialises, with no async fetch required.
 
 #### Scenario: Admin switches theme without rebuild
 
-- **WHEN** an admin edits `activeTheme` in `public/index.html` and redeploys
+- **WHEN** an admin edits `activeTheme` in `public/config.json` and redeploys
 - **THEN** all users see the new theme on next page load, without a code rebuild
+
+#### Scenario: Config file absent falls back to classic
+
+- **WHEN** `public/config.json` is absent or fails to load
+- **THEN** `window.__APP_CONFIG__` is undefined and the app renders using the `classic` theme
 
 ---
 
@@ -75,3 +91,24 @@ The system SHALL NOT expose color scheme or light/dark mode controls to users in
 
 - **WHEN** the Redux store is initialised
 - **THEN** `state.settings` does not contain `color` or `theme` keys
+
+---
+
+### Requirement: Theme defines the mix button label
+
+Each theme SHALL declare `theme.custom.mixButtonLabel` as a string. Components that render the card mix button SHALL read this value via `useTheme()` and fall back to `"Mix it!"` when the field is absent. The label is purely presentational and SHALL NOT affect robot or dispense behaviour.
+
+#### Scenario: C64 theme shows "RUN"
+
+- **WHEN** the active theme is `c64`
+- **THEN** the mix button on each card displays the text `"RUN"`
+
+#### Scenario: Classic theme shows "Mix it!"
+
+- **WHEN** the active theme is `classic`
+- **THEN** the mix button on each card displays the text `"Mix it!"`
+
+#### Scenario: Theme without mixButtonLabel falls back to default
+
+- **WHEN** a theme's `custom` object does not include `mixButtonLabel`
+- **THEN** the mix button displays `"Mix it!"`

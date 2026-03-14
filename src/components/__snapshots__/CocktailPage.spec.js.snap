@@ -1,0 +1,175 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`does not explode when rendered 1`] = `
+[
+  <div
+    className="MuiBox-root css-7a48mu"
+    style={
+      {
+        "opacity": 0,
+        "visibility": "hidden",
+      }
+    }
+  />,
+  <div
+    className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-wl3uh0-MuiGrid-root"
+    >
+      <div
+        style={
+          {
+            "padding": 16,
+          }
+        }
+      >
+        <h1
+          className="MuiTypography-root MuiTypography-h1 css-1fpnh6q-MuiTypography-root"
+        >
+          Vesper
+        </h1>
+        <div
+          className="MuiBox-root css-11yuzuu"
+        >
+          <div
+            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-14qm1ic-MuiChip-root"
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+          >
+            <span
+              className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+            >
+              Before Dinner Cocktail
+            </span>
+          </div>
+          <div
+            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-14qm1ic-MuiChip-root"
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+          >
+            <span
+              className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+            >
+              Martini
+            </span>
+          </div>
+          <div
+            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-14qm1ic-MuiChip-root"
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+          >
+            <span
+              className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+            >
+              Lemon twist
+            </span>
+          </div>
+        </div>
+        <div
+          className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-i0bk1x-MuiPaper-root"
+        >
+          <ul
+            className="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
+          >
+            <li>
+              <span>
+                6 cl
+                 
+                <strong
+                  aria-label="40% abv"
+                  aria-labelledby={null}
+                  className=""
+                  data-mui-internal-clone-element={true}
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  style={
+                    {
+                      "cursor": "pointer",
+                    }
+                  }
+                >
+                  Gin
+                </strong>
+              </span>
+            </li>
+            <li>
+              <span>
+                1.5 cl
+                 
+                <strong
+                  aria-label="40% abv"
+                  aria-labelledby={null}
+                  className=""
+                  data-mui-internal-clone-element={true}
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  style={
+                    {
+                      "cursor": "pointer",
+                    }
+                  }
+                >
+                  Vodka
+                </strong>
+              </span>
+            </li>
+            <li>
+              <span>
+                0.75 cl
+                 
+                <strong
+                  aria-label="15% abv"
+                  aria-labelledby={null}
+                  className=""
+                  data-mui-internal-clone-element={true}
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  style={
+                    {
+                      "cursor": "pointer",
+                    }
+                  }
+                >
+                  Lillet Blonde
+                </strong>
+              </span>
+            </li>
+          </ul>
+          <br />
+          <p
+            className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            Shake and strain into a chilled cocktail glass.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-1k7sk4d-MuiGrid-root"
+    >
+      <div
+        className="MuiBox-root css-jfwar9"
+        style={
+          {
+            "opacity": 0,
+            "visibility": "hidden",
+          }
+        }
+      />
+    </div>
+  </div>,
+]
+`;

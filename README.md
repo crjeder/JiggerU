@@ -2,7 +2,9 @@
 
 [![GitHub license](https://img.shields.io/github/license/mikeyhogarth/cocktails.svg)](https://github.com/mikeyhogarth/cocktails/blob/master/LICENSE)
 
-![Theme collage — Classic, C64, Negroni, Blossom](/public/Screenshot.png?raw=true)
+![Theme collage — Classic, C64, Speakeasy, Blossom](/public/Screenshot.png?raw=true)
+
+# Overview
 
 This provides a user interface for browsing and filtering the [IBA cocktails list](https://en.wikipedia.org/wiki/List_of_IBA_official_cocktails) (and a couple of other popular drinks). Features include;
 
@@ -12,7 +14,7 @@ This provides a user interface for browsing and filtering the [IBA cocktails lis
 - Ability to "favourite" cocktails
 - Integration with [TheCocktailDB](https://www.thecocktaildb.com/) for enrichment/cocktail images
 - Persistence (local browser storage only)
-- **Curated visual themes** — Classic, C64, Negroni, and Blossom (admin-configurable, no rebuild required)
+- **Curated visual themes** — Classic, C64, Speakeasy, and Blossom (admin-configurable, no rebuild required)
 - See measurements in either parts, ml, cl or oz
 - Pro-mode! Have measurements replaced with 'bartender lingo' such as 'Jigger' and 'Pony'
 - Installable on smart devices (via PWA/Add To Home Screen)
@@ -22,6 +24,8 @@ This provides a user interface for browsing and filtering the [IBA cocktails lis
 This is a small pet-project and a _work in progress_. It is built entirely using functional components and react hooks.
 
 ## Credits
+
+It started as a fork of https://github.com/mikeyhogarth/cocktails now completely detached
 
 Cocktail list and ingredient data was originally seeded from https://github.com/teijo/iba-cocktails
 

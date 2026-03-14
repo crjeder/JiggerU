@@ -1,10 +1,10 @@
 import {
   allGlassesSelector,
-  isFavouriteSelector,
   currentCocktailSelector,
   filteredCocktailsSelector,
   makeableCocktailsSelector,
   allCategoriesSelector,
+  effectiveActiveFiltersSelector,
 } from "./index";
 
 const mockCocktails = [
@@ -58,7 +58,7 @@ function makeState(overrides = {}) {
       nameFilter: null,
     },
     bar: [],
-    favourites: [],
+    manualBar: [],
     settings: {
       theme: "light",
       color: "indigo",
@@ -80,32 +80,6 @@ describe("allGlassesSelector", () => {
   it("returns empty array when no glasses loaded", () => {
     const state = makeState({ db: { cocktails: [], glasses: [] } });
     expect(allGlassesSelector(state)).toEqual([]);
-  });
-});
-
-describe("isFavouriteSelector", () => {
-  it("returns true when cocktail slug is in favourites", () => {
-    const state = makeState({ favourites: ["negroni", "gimlet"] });
-    const props = { cocktail: { slug: "negroni" } };
-    expect(isFavouriteSelector(state, props)).toBe(true);
-  });
-
-  it("returns false when cocktail slug is not in favourites", () => {
-    const state = makeState({ favourites: ["gimlet"] });
-    const props = { cocktail: { slug: "negroni" } };
-    expect(isFavouriteSelector(state, props)).toBe(false);
-  });
-
-  it("returns false when favourites list is empty", () => {
-    const state = makeState({ favourites: [] });
-    const props = { cocktail: { slug: "negroni" } };
-    expect(isFavouriteSelector(state, props)).toBe(false);
-  });
-
-  it("resolves slug from URL match params when present", () => {
-    const state = makeState({ favourites: ["daiquiri"] });
-    const props = { match: { params: { slug: "daiquiri" } } };
-    expect(isFavouriteSelector(state, props)).toBe(true);
   });
 });
 
@@ -210,6 +184,100 @@ describe("makeableCocktailsSelector", () => {
       [item.type, item.ingredient].filter(Boolean),
     );
     expect(ingredients).not.toContain("Momentum Gin");
+  });
+
+  it("includes manual bar ingredients in makeable computation", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      manualBar: ["Sugar syrup"],
+    });
+    const result = makeableCocktailsSelector(state);
+    // Daiquiri needs White rum, Lime juice, Sugar syrup — not makeable (no rum)
+    // Gimlet needs Gin, Lime juice — makeable
+    expect(result).toHaveLength(1);
+    expect(result[0].name).toBe("Gimlet");
+  });
+
+  it("makes cocktail available when missing ingredient is in manualBar", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "White rum", type: "White rum" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      manualBar: ["Sugar syrup"],
+    });
+    const result = makeableCocktailsSelector(state);
+    expect(result.map((c) => c.name)).toContain("Daiquiri");
+  });
+
+  it("returns empty when bar and manualBar are both empty", () => {
+    const state = makeState({ bar: [], manualBar: [] });
+    expect(makeableCocktailsSelector(state)).toEqual([]);
+  });
+});
+
+describe("effectiveActiveFiltersSelector", () => {
+  it("returns stored activeFilters when robot is not connected", () => {
+    const state = makeState({ robot: { connected: false } });
+    expect(effectiveActiveFiltersSelector(state)).toEqual([]);
+  });
+
+  it("returns stored activeFilters unchanged when robot is absent from state", () => {
+    const state = makeState();
+    expect(effectiveActiveFiltersSelector(state)).toEqual([]);
+  });
+
+  it("injects barOnly when robot is connected and barOnly not in activeFilters", () => {
+    const state = makeState({ robot: { connected: true } });
+    expect(effectiveActiveFiltersSelector(state)).toEqual(["barOnly"]);
+  });
+
+  it("does not duplicate barOnly when robot is connected and barOnly already present", () => {
+    const state = makeState({
+      filterOptions: {
+        activeFilters: ["barOnly"],
+        activeDialog: null,
+        ingredients: [],
+        ingredientsRule: "mustInclude",
+        barOnly: false,
+        categories: [],
+        glasses: [],
+        nameFilter: null,
+      },
+      robot: { connected: true },
+    });
+    expect(effectiveActiveFiltersSelector(state)).toEqual(["barOnly"]);
+  });
+
+  it("enforces barOnly filter on cocktail list when robot is connected", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      robot: { connected: true },
+    });
+    const result = filteredCocktailsSelector(state);
+    expect(result.map((c) => c.name)).toEqual(["Gimlet"]);
+  });
+
+  it("lifts barOnly enforcement when robot disconnects", () => {
+    const state = makeState({
+      bar: [
+        { ingredient: "Gin", type: "Gin" },
+        { ingredient: "Lime juice", type: "Lime juice" },
+      ],
+      robot: { connected: false },
+    });
+    const result = filteredCocktailsSelector(state);
+    expect(result.map((c) => c.name)).toEqual([
+      "Daiquiri",
+      "Gimlet",
+      "Negroni",
+    ]);
   });
 });
 

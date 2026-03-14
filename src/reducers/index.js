@@ -21,7 +21,7 @@ const defaultState = {
     glasses: [],
   },
   bar: [],
-  favourites: [],
+  manualBar: [],
   settings: {
     browserMode: "card",
     units: "cl",
@@ -44,17 +44,18 @@ const defaultState = {
 
 const persistedState = loadPersistedState();
 
+const configSettings = (window.__APP_CONFIG__ || {}).settings || {};
+
 const initialState = produce(
   { ...defaultState, ...persistedState },
   (draft) => {
-    // Merge settings deeply so robot sub-object is preserved
+    // Settings are seeded from config.json (via window.__APP_CONFIG__), not localStorage
     draft.settings = {
       ...defaultState.settings,
-      ...draft.settings,
-      ...(persistedState ? persistedState.settings : null),
+      ...configSettings,
       robot: {
         ...defaultState.settings.robot,
-        ...(draft.settings && draft.settings.robot ? draft.settings.robot : {}),
+        ...(configSettings.robot || {}),
       },
     };
 
@@ -77,9 +78,6 @@ export default (state = initialState, action) =>
         break;
       case actionTypes.LOAD_GLASSES:
         draft.db.glasses = action.payload;
-        break;
-      case actionTypes.UPDATE_FAVOURITES:
-        draft.favourites = action.payload;
         break;
       case actionTypes.UPDATE_FILTER:
         draft.filterOptions = { ...draft.filterOptions, ...action.payload };
@@ -149,6 +147,9 @@ export default (state = initialState, action) =>
       case actionTypes.ROBOT_BAR_SYNCED:
         draft.bar = action.payload.barEntries;
         draft.robot.unresolvedLiquids = action.payload.unresolvedLiquids;
+        break;
+      case actionTypes.MANUAL_INGREDIENTS_LOADED:
+        draft.manualBar = action.payload;
         break;
       default:
     }

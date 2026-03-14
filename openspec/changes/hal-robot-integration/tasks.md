@@ -63,7 +63,7 @@
 ## 9. End-to-End Verification
 
 - [x] 9.1 Run full test suite (`npm test`); update any failing snapshots intentionally with `-- -u`
-- [ ] 9.2 Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow
+- [x] 9.2 Manual smoke test: configure robot URL in Settings, verify bar sync and type assignment flow
 - [ ] 9.3 Manual smoke test: dispense a cocktail end-to-end (pre-mix → robot progress → post-mix)
-- [ ] 9.4 Verify `barOnly` filter shows only cocktails the robot can make after sync
-- [ ] 9.5 Verify app with no robot URL configured shows no robot UI anywhere
+- [x] 9.4 Verify `barOnly` filter shows only cocktails the robot can make after sync
+- [x] 9.5 Verify app with no robot URL configured shows no robot UI anywhere

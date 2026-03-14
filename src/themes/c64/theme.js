@@ -74,5 +74,6 @@ export default createTheme({
   },
   custom: {
     cardWidth: 640,
+    mixButtonLabel: "RUN",
   },
 });

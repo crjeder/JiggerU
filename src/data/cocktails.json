@@ -1449,5 +1449,30 @@
     ],
     "garnish": "Twist of lemon and a cherry",
     "preparation": "Stir with crushed ice and strain. Alternatively you could use half Blue Curaçao and half Triple Sec."
+  },
+  {
+    "iba": false,
+    "name": "Gin Basil Smash",
+    "colors": "#6D9600",
+    "glass": "old-fashioned",
+    "category": "All Day Cocktail",
+    "ingredients": [
+      {
+        "unit": "cl",
+        "amount": 6,
+        "ingredient": "Gin",
+        "label": "Momentum Holy Basil Gin"
+      },
+      { "ingredient": "Basil", "amount": "10-15", "label": "Basil leaves" },
+      { "unit": "cl", "amount": 2, "ingredient": "Lemon juice" },
+      {
+        "unit": "cl",
+        "amount": 2,
+        "ingredient": "Syrup",
+        "label": "Simple syrup"
+      }
+    ],
+    "garnish": "Fresh basil",
+    "preparation": "Muddle basil leaves and simple syrup in a shaker. Add lemon juice, gin, and ice cubes. Shake vigorously. Double-strain into an old-fashioned glass over ice. Garnish with fresh basil."
   }
 ]

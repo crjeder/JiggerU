@@ -41,7 +41,7 @@ export function mustInclude(cocktail, { ingredients }) {
 export function canInclude(cocktail, { ingredients }) {
   const cocktailIngredients = getIngredientKeys(cocktail);
   if (ingredients.length === 0) return true;
-  return cocktailIngredients.some(i => ingredients.includes(i));
+  return cocktailIngredients.some((i) => ingredients.includes(i));
 }
 
 // cocktail will be returned if it contains NONE of the ingredients
@@ -56,8 +56,4 @@ export function inGlass(cocktail, { glasses }) {
 
 export function inCategory(cocktail, { categories }) {
   return categories.length === 0 || categories.includes(cocktail.category);
-}
-
-export function isFavourite(cocktail, { favourites }) {
-  return favourites.includes(cocktail.slug);
 }

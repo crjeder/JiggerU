@@ -52,14 +52,6 @@ describe("simple action creators", () => {
     });
   });
 
-  it("updateFavourites returns correct action", () => {
-    const payload = ["negroni", "gimlet"];
-    expect(actions.updateFavourites(payload)).toEqual({
-      type: actionTypes.UPDATE_FAVOURITES,
-      payload,
-    });
-  });
-
   it("updateSettings returns correct action", () => {
     const payload = { units: "oz" };
     expect(actions.updateSettings(payload)).toEqual({

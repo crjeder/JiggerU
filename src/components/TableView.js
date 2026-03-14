@@ -1,7 +1,6 @@
 import React from "react";
 import capitalize from "lodash/capitalize";
 import ConditionalHidden from "./ConditionalHidden";
-import CocktailActions from "./CocktailActions";
 import {
   TableRow,
   TableHead,
@@ -31,7 +30,6 @@ const TableView = ({ displayedCocktails }) => {
                 <TableCell>{capitalize(column.name)}</TableCell>
               </ConditionalHidden>
             ))}
-            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,9 +48,6 @@ const TableView = ({ displayedCocktails }) => {
                   </ConditionalHidden>
                 );
               })}
-              <TableCell align="right">
-                <CocktailActions cocktail={cocktail} hideLabelOnXS={true} />
-              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -24,7 +24,9 @@
       "Bash(node -e \"const rscripts = require\\(''./node_modules/react-scripts/scripts/utils/createJestConfig.js''\\); const config = rscripts\\(''D:/JiggerU/.worktrees/upgrade-mui-v4-to-v5''\\); console.log\\(JSON.stringify\\({roots: config.roots, testMatch: config.testMatch}, null, 2\\)\\);\")",
       "Bash(gh pr:*)",
       "Bash(where gh)",
-      "Bash(winget list GitHub.cli)"
+      "Bash(winget list GitHub.cli)",
+      "mcp__playwright__browser_console_messages",
+      "Bash(npm test:*)"
     ]
   }
 }

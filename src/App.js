@@ -1,17 +1,18 @@
 import React from "react";
 import useRobotConnection from "./hooks/useRobotConnection";
 import useRobotBar from "./hooks/useRobotBar";
+import useManualIngredients from "./hooks/useManualIngredients";
 import Theme from "./theme";
 import CocktailBrowser from "./components/CocktailBrowser";
 import CocktailPage from "./components/CocktailPage";
 import Bar from "./components/Bar";
-import Settings from "./components/Settings";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Topbar from "./components/Topbar";
 
 function App() {
   useRobotConnection();
   useRobotBar();
+  useManualIngredients();
   return (
     <Theme>
       <Router>
@@ -21,7 +22,6 @@ function App() {
           <Route path="/cocktails" element={<CocktailBrowser />} />
           <Route path="/cocktails/:slug" element={<CocktailPage />} />
           <Route path="/my-bar" element={<Bar />} />
-          <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
     </Theme>

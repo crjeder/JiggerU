@@ -9,11 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Label-first ingredient matching in dispense resolution: when a recipe ingredient has a `label` (brand hint), the robot prefers the matching bar slot over a generic type match, falling back silently if the brand isn't available
+- "Mix it!" button at the bottom of each cocktail card, opening the dispense workflow directly from the browse view; button text is theme-configurable (`theme.custom.mixButtonLabel`), e.g. c64 shows "RUN"
+- Robot-enforced bar-only filter: when a CocktailBot HAL robot is connected, the "Makeable from Bar" filter is automatically active and filter controls are locked (Add Filter button hidden, barOnly chip not dismissible)
 - CHANGELOG.md following Keep a Changelog format
 - TODO.md following todo.md best practices
 - CLAUDE.md project guide for AI-assisted development
 - Unit tests for all Redux action creators in `src/actions.spec.js` (23 tests)
 - Unit tests for all Redux selectors in `src/selectors/selectors.spec.js` (18 tests)
+- Gin Basil Smash recipe (with Momentum Holy Basil Gin) to cocktail data
+- Basil to ingredient list
+
+### Removed
+
+- Favourites feature: Redux state, action type, action creator, reducer, selectors, and localStorage persistence — the feature was never surfaced in any filter or view
+- `CocktailActions` component (contained the heart toggle and "Learn More" button)
+- "Learn More" button from cocktail cards and table view — duplicated card-click navigation
+- "Actions" column from table view
+- `favouritesOnly` filter option
 
 ### Changed
 

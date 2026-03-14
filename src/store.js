@@ -20,7 +20,7 @@ const store = createStore(appReducer, middlewares);
 if (supportsPersistence()) {
   store.subscribe(
     throttle(() => {
-      persistCurrentState(store.getState(), ["bar", "settings", "favourites"]);
+      persistCurrentState(store.getState(), ["bar"]);
     }),
   );
 }

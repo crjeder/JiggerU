@@ -7,6 +7,10 @@
     "abv": 0,
     "taste": "sweet"
   },
+  "Basil": {
+    "abv": 0,
+    "taste": null
+  },
   "Angostura bitters": {
     "abv": 44,
     "taste": "bitter"

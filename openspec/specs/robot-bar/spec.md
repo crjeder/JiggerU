@@ -1,11 +1,16 @@
 ### Requirement: Bar is populated exclusively by robot sync
 
-The system SHALL populate the bar state only from the CocktailBot HAL robot's reported liquids. Manual addition or removal of individual bar items SHALL NOT be supported.
+The `state.bar` Redux slice SHALL be populated only from the CocktailBot HAL robot's reported liquids. Manual addition or removal of individual bar items in `state.bar` SHALL NOT be supported. Non-robot ingredients available at the bar SHALL be declared separately in `state.manualBar` (see manual-bar-ingredients capability). The effective bar used for filtering is the union of both slices, computed by the bar selector.
 
 #### Scenario: Robot syncs bar
 
 - **WHEN** the robot connects and bar sync completes
-- **THEN** the bar state is replaced entirely with the robot's reported liquids
+- **THEN** `state.bar` is replaced entirely with the robot's reported liquids
+
+#### Scenario: Manual bar ingredients are not affected by robot sync
+
+- **WHEN** the robot connects and bar sync completes
+- **THEN** `state.manualBar` is not modified
 
 #### Scenario: No manual bar editing
 
@@ -80,14 +85,20 @@ The Settings unrecognised-liquid wizard SHALL pre-populate the type dropdown wit
 
 ### Requirement: Dispense workflow uses bar presence as dispensability signal
 
-The dispense workflow SHALL treat an ingredient as robot-dispensable if and only if it is present in the bar state. The `source` field SHALL NOT be used as a signal.
+The dispense workflow SHALL treat an ingredient as robot-dispensable if and only if it is present in the bar state. The `source` field SHALL NOT be used as a signal. When resolving which specific bar entry to use, the workflow SHALL prefer a label match over a type match (see label-first-ingredient-matching capability).
 
 #### Scenario: Ingredient in bar is treated as dispensable
 
-- **WHEN** a cocktail ingredient matches a bar entry by type or by name
+- **WHEN** a cocktail ingredient matches a bar entry by label, type, or by name
 - **THEN** the dispense workflow includes it as a robot step
 
 #### Scenario: Ingredient not in bar is treated as a manual step
 
 - **WHEN** a cocktail ingredient does not match any bar entry
 - **THEN** the dispense workflow lists it as a manual pre-mix step
+
+#### Scenario: Label match takes priority over type match
+
+- **WHEN** a cocktail ingredient has a `label` matching a specific bar entry
+- **AND** other bar entries of the same type also exist
+- **THEN** the labeled bar entry is selected for dispensing
