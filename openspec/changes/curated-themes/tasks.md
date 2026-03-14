@@ -36,7 +36,7 @@
 
 ## 7. Manual Verification
 
-- [ ] 7.1 Test each theme by temporarily changing `activeTheme` in `index.html` and confirming palette, font, and card width render correctly
-- [ ] 7.2 Test C64 theme on a narrow viewport — cards should fill width without horizontal scroll
-- [ ] 7.3 Confirm Settings page no longer shows color or light/dark controls
+- [x] 7.1 Test each theme by temporarily changing `activeTheme` in `index.html` and confirming palette, font, and card width render correctly
+- [x] 7.2 Test C64 theme on a narrow viewport — cards should fill width without horizontal scroll
+- [x] 7.3 Confirm Settings page no longer shows color or light/dark controls
 - [ ] 7.4 Confirm PWA offline load works with locally served fonts

@@ -27,7 +27,7 @@
 - [x] 4.1 Remove `husky.hooks` block from `package.json`
 - [x] 4.2 Run `npx husky init` to create `.husky/` directory
 - [x] 4.3 Create `.husky/pre-commit` script with `npx pretty-quick --staged`
-- [ ] 4.4 Test that a git commit triggers the pre-commit hook
+- [x] 4.4 Test that a git commit triggers the pre-commit hook
 
 ## 5. Verify build and tests
 
