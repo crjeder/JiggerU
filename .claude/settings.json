@@ -25,7 +25,8 @@
       "Bash(gh pr:*)",
       "Bash(where gh)",
       "Bash(winget list GitHub.cli)",
-      "mcp__playwright__browser_console_messages"
+      "mcp__playwright__browser_console_messages",
+      "Bash(npm test:*)"
     ]
   }
 }
