@@ -73,12 +73,16 @@ components:
   logic: [FiltersDialogs, CocktailFilter, IngredientPicker, IngredientDetail]
   hooks: [useEnrichCocktail, useScroll, useScrollTop]
 
+schema: spec-driven
+
 rules:
-  - "Functional components only"
-  - "Snapshots: npm test -- -u"
-  - "Tests: co-located *.spec.js"
-  - "Lockfiles: Only commit on package.json change"
-  - "Changelog: keepachangelog.com/en/1.1.0"
+  specs:
+    - Functional components only
+    - "Tests: co-located *.spec.js"
+    - "Snapshots: update with npm test -- -u"
+  tasks:
+    - "Lockfiles: only commit on package.json change"
+    - "Changelog: keepachangelog.com/en/1.1.0"
 
 scripts:
   dev: npm start

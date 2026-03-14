@@ -1,6 +1,16 @@
 import React from "react";
 import SvgIcon from "@mui/material/SvgIcon";
-import { ReactComponent as Martini } from "../images/glasses/Martini.svg";
+import Martini from "../images/glasses/Martini.svg?react";
+import OldFashioned from "../images/glasses/OldFashioned.svg?react";
+import Collins from "../images/glasses/Collins.svg?react";
+import Highball from "../images/glasses/Highball.svg?react";
+import ChampagneFlute from "../images/glasses/ChampagneFlute.svg?react";
+import ChampagneTulip from "../images/glasses/ChampagneTulip.svg?react";
+import Margarita from "../images/glasses/Margarita.svg?react";
+import Hurricane from "../images/glasses/Hurricane.svg?react";
+import Shot from "../images/glasses/Shot.svg?react";
+import HotDrink from "../images/glasses/HotDrink.svg?react";
+import WhiteWine from "../images/glasses/WhiteWine.svg?react";
 
 // Glass SVGs
 // Note that currently not all of these are completed, these are just placeholders
@@ -12,16 +22,6 @@ import { ReactComponent as Martini } from "../images/glasses/Martini.svg";
 // * SVG elements should be scaled for a 24x24px viewport.
 // * The first child should be a 'path' element.
 //
-import { ReactComponent as OldFashioned } from "../images/glasses/OldFashioned.svg";
-import { ReactComponent as Collins } from "../images/glasses/Collins.svg";
-import { ReactComponent as Highball } from "../images/glasses/Highball.svg";
-import { ReactComponent as ChampagneFlute } from "../images/glasses/ChampagneFlute.svg";
-import { ReactComponent as ChampagneTulip } from "../images/glasses/ChampagneTulip.svg";
-import { ReactComponent as Margarita } from "../images/glasses/Margarita.svg";
-import { ReactComponent as Hurricane } from "../images/glasses/Hurricane.svg";
-import { ReactComponent as Shot } from "../images/glasses/Shot.svg";
-import { ReactComponent as HotDrink } from "../images/glasses/HotDrink.svg";
-import { ReactComponent as WhiteWine } from "../images/glasses/WhiteWine.svg";
 
 const glassSvgLookup = {
   martini: Martini,

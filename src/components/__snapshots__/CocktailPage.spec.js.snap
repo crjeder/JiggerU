@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`does not explode when rendered 1`] = `
-Array [
+[
   <div
     className="MuiBox-root css-7a48mu"
     style={
-      Object {
+      {
         "opacity": 0,
         "visibility": "hidden",
       }
@@ -19,7 +19,7 @@ Array [
     >
       <div
         style={
-          Object {
+          {
             "padding": 16,
           }
         }
@@ -88,7 +88,7 @@ Array [
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   style={
-                    Object {
+                    {
                       "cursor": "pointer",
                     }
                   }
@@ -113,7 +113,7 @@ Array [
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   style={
-                    Object {
+                    {
                       "cursor": "pointer",
                     }
                   }
@@ -138,7 +138,7 @@ Array [
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   style={
-                    Object {
+                    {
                       "cursor": "pointer",
                     }
                   }
@@ -163,7 +163,7 @@ Array [
       <div
         className="MuiBox-root css-jfwar9"
         style={
-          Object {
+          {
             "opacity": 0,
             "visibility": "hidden",
           }
