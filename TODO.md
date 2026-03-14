@@ -20,7 +20,7 @@ following good practice from https://github.com/todomd/todo.md
 
 ## Backlog
 
-- [ ] Migrate from CRA (`react-scripts`) to Vite — fixes Node 24 deprecation warnings from CRA's bundled tooling #refactor
+- [x] Migrate from CRA (`react-scripts`) to Vite — fixes Node 24 deprecation warnings from CRA's bundled tooling #refactor
 - [ ] Add "shuffle" / random cocktail button #feature
 - [ ] Improve accessibility (ARIA labels, keyboard navigation) #a11y
 - [ ] Add offline fallback page for PWA #pwa
