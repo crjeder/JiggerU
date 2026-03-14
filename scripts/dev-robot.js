@@ -24,7 +24,7 @@ const { spawn } = require("child_process");
 
 const ROBOT_PORT = 8000; // Rust mock server
 const PROXY_PORT = 8001; // CORS proxy (use this as Robot URL)
-const ROBOT_DIR = "D:/CocktailBotHAL";
+const ROBOT_DIR = "D:/Code/CocktailBotHAL";
 const CLIENT_DIR = __dirname + "/..";
 const isWin = process.platform === "win32";
 
@@ -33,7 +33,7 @@ const isWin = process.platform === "win32";
 const extraArgs = process.argv.slice(2);
 const defaultMockArgs = extraArgs.includes("--liquids")
   ? []
-  : ["--liquids", "examples/mock-server/liquids.json"];
+  : ["--liquids", "D:/Code/CocktailBotHAL/examples/mock-server/liquids.json"];
 
 // ── CORS proxy ────────────────────────────────────────────────────────────
 // Sits on PROXY_PORT, forwards everything to ROBOT_PORT, and injects

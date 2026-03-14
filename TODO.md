@@ -24,5 +24,6 @@ following good practice from https://github.com/todomd/todo.md
 - [ ] Add "shuffle" / random cocktail button #feature
 - [ ] Improve accessibility (ARIA labels, keyboard navigation) #a11y
 - [ ] Add offline fallback page for PWA #pwa
+- [ ] Cache thecocktaildb.com enrichment data (image URLs, IBA category, variants) in LocalStorage so cocktail details work offline #pwa #feature
 - [x] Ambiguity resolution — when multiple bar items share the same type and recipe uses a generic ingredient name, determine which physical bottle the robot pours #robot
-- [ ] Per-cocktail brand override — allow configuring "treat Momentum Gin as generic Gin" for a specific cocktail #robot
+- [x] Per-cocktail brand override — allow configuring "treat Momentum Gin as generic Gin" for a specific cocktail #robot
