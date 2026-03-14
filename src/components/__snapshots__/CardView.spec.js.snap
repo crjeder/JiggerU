@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`does not explode when rendered 1`] = `
 <div
@@ -35,7 +35,7 @@ exports[`does not explode when rendered 1`] = `
             aria-label="Recipe"
             className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-17o22dy-MuiAvatar-root"
             style={
-              Object {
+              {
                 "background": "linear-gradient(#D88317)",
                 "backgroundColor": "#D88317",
               }
@@ -47,9 +47,9 @@ exports[`does not explode when rendered 1`] = `
               focusable="false"
               viewBox="0 0 24 24"
             >
-              <svg>
-                Martini.svg
-              </svg>
+              <path
+                d="m 21,7.5 v -2 H 3 v 2 l 8,9 v 5 H 6 v 2 h 12 v -2 h -5 v -5 z m -13.57,2 -1.77,-2 h 12.69 l -1.78,2 z"
+              />
             </svg>
           </div>
         </div>
@@ -61,7 +61,7 @@ exports[`does not explode when rendered 1`] = `
           >
             <h1
               style={
-                Object {
+                {
                   "fontSize": 20,
                   "marginBottom": 0,
                   "marginTop": 0,
@@ -76,7 +76,7 @@ exports[`does not explode when rendered 1`] = `
           >
             <span
               style={
-                Object {
+                {
                   "fontSize": 14,
                   "fontStyle": "italic",
                 }
@@ -92,7 +92,7 @@ exports[`does not explode when rendered 1`] = `
       >
         <ul
           style={
-            Object {
+            {
               "paddingLeft": 16,
             }
           }
@@ -116,7 +116,7 @@ exports[`does not explode when rendered 1`] = `
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   style={
-                    Object {
+                    {
                       "cursor": "pointer",
                     }
                   }
@@ -145,7 +145,7 @@ exports[`does not explode when rendered 1`] = `
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   style={
-                    Object {
+                    {
                       "cursor": "pointer",
                     }
                   }
@@ -174,7 +174,7 @@ exports[`does not explode when rendered 1`] = `
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   style={
-                    Object {
+                    {
                       "cursor": "pointer",
                     }
                   }
@@ -195,9 +195,9 @@ exports[`does not explode when rendered 1`] = `
             focusable="false"
             viewBox="0 0 24 24"
           >
-            <svg>
-              Martini.svg
-            </svg>
+            <path
+              d="m 21,7.5 v -2 H 3 v 2 l 8,9 v 5 H 6 v 2 h 12 v -2 h -5 v -5 z m -13.57,2 -1.77,-2 h 12.69 l -1.78,2 z"
+            />
           </svg>
            
           Martini

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <style>
+      /* Classic: Roboto via system/CDN fallback */
+      @font-face {
+        font-family: "Press Start 2P";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/PressStart2P-Regular.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Playfair Display";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/PlayfairDisplay-Italic.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Quicksand";
+        font-style: normal;
+        font-weight: 400 500;
+        font-display: swap;
+        src: url("/fonts/Quicksand-Regular.woff2") format("woff2");
+      }
+    </style>
+
+    <title>Cocktail Browser</title>
+
+    <!-- App configuration: edit public/config.json to change theme and settings.
+         Available themes: classic | c64 | speakeasy | blossom -->
+    <script>
+      (function () {
+        try {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "/config.json", false);
+          xhr.send();
+          if (xhr.status === 200) {
+            window.__APP_CONFIG__ = JSON.parse(xhr.responseText);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
