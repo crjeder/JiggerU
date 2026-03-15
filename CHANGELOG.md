@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Centralized `createLogger(namespace)` utility in `src/logger.js` with namespaced output, four log levels (`debug`/`info`/`warn`/`error`), and automatic suppression of `debug`/`info` in production builds
 - Label-first ingredient matching in dispense resolution: when a recipe ingredient has a `label` (brand hint), the robot prefers the matching bar slot over a generic type match, falling back silently if the brand isn't available
 - "Mix it!" button at the bottom of each cocktail card, opening the dispense workflow directly from the browse view; button text is theme-configurable (`theme.custom.mixButtonLabel`), e.g. c64 shows "RUN"
 - Robot-enforced bar-only filter: when a CocktailBot HAL robot is connected, the "Makeable from Bar" filter is automatically active and filter controls are locked (Add Filter button hidden, barOnly chip not dismissible)

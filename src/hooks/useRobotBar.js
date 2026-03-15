@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { robotConfigLoaded, robotBarSynced } from "../actions";
+import { createLogger } from "../logger";
+
+const logger = createLogger("useRobotBar");
 
 function resolveType(liquidName, aliases) {
   const nameLower = liquidName.toLowerCase();
@@ -49,7 +52,7 @@ function useRobotBar() {
         dispatch(robotBarSynced(barEntries, unresolvedLiquids));
       })
       .catch((err) => {
-        console.warn("[useRobotBar] Failed to fetch robot config:", err);
+        logger.warn("Failed to fetch robot config:", err);
       });
   }, [connected, robotUrl, token, aliases, dispatch]);
 }

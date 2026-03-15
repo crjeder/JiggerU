@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { manualIngredientsLoaded } from "../actions";
+import { createLogger } from "../logger";
+
+const logger = createLogger("useManualIngredients");
 
 function useManualIngredients() {
   const dispatch = useDispatch();
@@ -18,7 +21,7 @@ function useManualIngredients() {
         }
       })
       .catch((err) => {
-        console.warn("[useManualIngredients] Failed to load:", err);
+        logger.warn("Failed to load:", err);
       });
   }, [dispatch]);
 }
