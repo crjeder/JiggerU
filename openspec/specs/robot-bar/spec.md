@@ -55,7 +55,7 @@ The makeable filter SHALL consider a cocktail ingredient satisfied if any bar it
 
 ### Requirement: Bar page shows read-only robot inventory
 
-The Bar page SHALL display the list of robot-synced bar items and the existing stats (MakeableCocktails, CocktailGauge, PopularIngredients). It SHALL NOT include any manual ingredient management UI.
+The Bar page SHALL display the list of robot-synced bar items and the existing stats (MakeableCocktails, RobotLiquidsList, PopularIngredients). It SHALL NOT include any manual ingredient management UI.
 
 #### Scenario: Bar page with robot connected and bar populated
 
