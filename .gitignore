@@ -23,7 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 .worktrees/
 .husky
-.playwright
 .playwright-cli
 .playwright-mcp
 .playwright-artifacts
