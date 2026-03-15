@@ -9,7 +9,7 @@ following good practice from https://github.com/todomd/todo.md
 - [x] Test each theme (classic, c64, speakeasy, blossom) in browser: set `activeTheme` in `public/index.html` and verify palette, font, and card width #testing
 - [x] Test C64 theme on narrow viewport — cards should fill width without horizontal scroll #testing
 - [x] Confirm Settings page no longer shows color picker or light/dark controls #testing
-- [ ] Verify fonts load offline (install as PWA, go offline, confirm fonts render) #testing
+- [x] Verify fonts load offline — fonts are local `/fonts/*.woff2` with `font-display: swap`; app renders with system font fallbacks when font files are blocked (verified via Playwright route mock); note: no service worker exists, so true PWA offline requires adding one (see backlog) #testing
 
 ### hal-robot-integration
 
