@@ -48,7 +48,8 @@
       "Bash(rm initial.yaml settings.yaml bar.yaml no-robot.yaml browse.yaml filter-menu.yaml cat-dialog.yaml sparkling-snap.yaml afterclear.yaml cleared.yaml after-reset.yaml menu2.yaml menu3.yaml menu4.yaml iba.yaml)",
       "Bash(rm -rf .playwright-cli)",
       "Bash(playwright-cli --help)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(openspec status:*)"
     ]
   }
 }
