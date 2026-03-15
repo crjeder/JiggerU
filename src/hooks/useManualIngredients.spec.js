@@ -97,7 +97,8 @@ describe("useManualIngredients", () => {
     );
     expect(loaded).toBeUndefined();
     expect(console.warn).toHaveBeenCalledWith(
-      "[useManualIngredients] Failed to load:",
+      "[useManualIngredients]",
+      "Failed to load:",
       expect.any(Error),
     );
   });
