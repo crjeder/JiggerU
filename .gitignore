@@ -26,3 +26,6 @@ yarn-error.log*
 .playwright-cli
 .playwright-mcp
 .playwright-artifacts
+
+# misc tools
+c:/Users/*
