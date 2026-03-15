@@ -26,7 +26,19 @@
       "Bash(where gh)",
       "Bash(winget list GitHub.cli)",
       "mcp__playwright__browser_console_messages",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Read(//d//**)",
+      "Read(//d/Code/CocktailBotHAL/examples/mock-server/**)",
+      "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_wait_for",
+      "Bash(curl -s http://localhost:8000/v1/config -H \"Authorization: Bearer changeme\")",
+      "Bash(curl -s http://localhost:8001/v1/config -H \"Authorization: Bearer changeme\")",
+      "Bash(curl -s --max-time 3 \"http://localhost:8001/v1/events?token=changeme\")",
+      "mcp__playwright__browser_snapshot",
+      "Bash(node -e \"const d = require\\(''./src/data/ingredientAliases.json''\\); Object.keys\\(d\\).filter\\(k => k.toLowerCase\\(\\).includes\\(''grenadine''\\) || k.toLowerCase\\(\\).includes\\(''tonic''\\)\\).forEach\\(k => console.log\\(k, JSON.stringify\\(d[k]\\)\\)\\)\")",
+      "Bash(node -e \"const d = require\\(''./src/data/cocktails.json''\\); const seen = new Set\\(\\); d.forEach\\(c => c.ingredients.forEach\\(i => { if\\(i.ingredient && \\(i.ingredient.toLowerCase\\(\\).includes\\(''grenadine''\\) || i.ingredient.toLowerCase\\(\\).includes\\(''tonic''\\)\\)\\) seen.add\\(i.ingredient\\); }\\)\\); console.log\\([...seen]\\)\")",
+      "Bash(node -e \"const d = require\\(''./src/data/cocktails.json''\\); const seen = new Set\\(\\); d.forEach\\(c => c.ingredients.forEach\\(i => { if\\(i.ingredient\\) seen.add\\(i.ingredient\\); }\\)\\); [...seen].filter\\(s => s.toLowerCase\\(\\).includes\\(''grenadine''\\) || s.toLowerCase\\(\\).includes\\(''tonic''\\)\\).forEach\\(s => console.log\\(s\\)\\)\")",
+      "Bash(node -e \"const d = require\\(''''./src/data/cocktails.json''''\\); const seen = new Set\\(\\); d.forEach\\(c => c.ingredients.forEach\\(i => { if\\(i.ingredient\\) seen.add\\(i.ingredient\\); }\\)\\); [...seen].sort\\(\\).forEach\\(s => console.log\\(s\\)\\)\")"
     ]
   }
 }
