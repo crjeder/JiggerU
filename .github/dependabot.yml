@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    groups:
+      mui:
+        patterns:
+          - "@mui/*"
+          - "@emotion/*"
+      react:
+        patterns:
+          - "react"
+          - "react-*"
+      redux:
+        patterns:
+          - "redux"
+          - "redux-*"
+          - "react-redux"
+          - "reselect"
+      testing:
+        patterns:
+          - "@testing-library/*"
+          - "vitest"
+          - "@vitest/*"
+      build-tools:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "husky"
+          - "prettier"
+          - "eslint"
+          - "eslint-*"
