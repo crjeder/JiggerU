@@ -8,7 +8,16 @@
     "robot": {
       "url": "http://localhost:8001",
       "token": "changeme",
-      "ingredientAliases": {}
+      "ingredientAliases": {
+        "Gin": ["Gin"],
+        "Tonic Water": ["Tonic Water"],
+        "Lime Juice": ["Lime Juice", "Lime juice"],
+        "Vodka": ["Vodka"],
+        "Syrup": ["Syrup", "Sugar syrup"],
+        "Tequila": ["Tequila"],
+        "Orange Juice": ["Orange Juice"],
+        "Grenadine Syrup": ["Grenadine Syrup", "Grenadine"]
+      }
     }
   }
 }
