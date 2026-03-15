@@ -11,11 +11,11 @@
       "ingredientAliases": {
         "Gin": ["Gin"],
         "Tonic Water": ["Tonic Water"],
-        "Lime Juice": ["Lime Juice", "Lime juice"],
+        "Lime juice": ["Lime Juice", "Lime juice"],
         "Vodka": ["Vodka"],
         "Syrup": ["Syrup", "Sugar syrup"],
         "Tequila": ["Tequila"],
-        "Orange Juice": ["Orange Juice"],
+        "Orange juice": ["Orange Juice", "Orange juice"],
         "Grenadine Syrup": ["Grenadine Syrup", "Grenadine"]
       }
     }
