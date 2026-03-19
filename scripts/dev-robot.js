@@ -24,7 +24,7 @@ const { spawn } = require("child_process");
 
 const ROBOT_PORT = 8000; // Rust mock server
 const PROXY_PORT = 8001; // CORS proxy (use this as Robot URL)
-const ROBOT_DIR = "D:/CocktailBotHAL";
+const ROBOT_DIR = "D:/Code/CocktailBotHAL";
 const CLIENT_DIR = __dirname + "/..";
 const isWin = process.platform === "win32";
 
@@ -137,7 +137,16 @@ const DEV_CONFIG = {
     robot: {
       url: `http://localhost:${PROXY_PORT}`,
       token: "changeme",
-      ingredientAliases: {},
+      ingredientAliases: {
+        Gin: ["Gin"],
+        "Tonic Water": ["Tonic Water"],
+        "Lime juice": ["Lime Juice", "Lime juice"],
+        Vodka: ["Vodka"],
+        Syrup: ["Syrup", "Sugar syrup"],
+        Tequila: ["Tequila"],
+        "Orange juice": ["Orange Juice", "Orange juice"],
+        "Grenadine Syrup": ["Grenadine Syrup", "Grenadine"],
+      },
     },
   },
 };

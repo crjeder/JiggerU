@@ -29,3 +29,4 @@ yarn-error.log*
 
 # misc tools
 c:/Users/*
+.claude/
