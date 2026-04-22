@@ -5,10 +5,15 @@ exports[`does not explode when rendered 1`] = `
   className="MuiBox-root css-7m4n47"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-p37t3g-MuiPaper-root-MuiCard-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-va2u5t-MuiPaper-root-MuiCard-root"
+    style={
+      {
+        "--Paper-shadow": "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+      }
+    }
   >
     <a
-      className="MuiButtonBase-root MuiCardActionArea-root css-1dk9tco-MuiButtonBase-root-MuiCardActionArea-root"
+      className="MuiButtonBase-root MuiCardActionArea-root css-105sr4z-MuiButtonBase-root-MuiCardActionArea-root"
       href="/cocktails/vesper"
       onBlur={[Function]}
       onClick={[Function]}
@@ -26,14 +31,14 @@ exports[`does not explode when rendered 1`] = `
       tabIndex={0}
     >
       <div
-        className="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+        className="MuiCardHeader-root css-149tc0y-MuiCardHeader-root"
       >
         <div
-          className="MuiCardHeader-avatar css-1ssile9-MuiCardHeader-avatar"
+          className="MuiCardHeader-avatar css-1r9wl67-MuiCardHeader-avatar"
         >
           <div
             aria-label="Recipe"
-            className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-17o22dy-MuiAvatar-root"
+            className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-18k2bs-MuiAvatar-root"
             style={
               {
                 "background": "linear-gradient(#D88317)",
@@ -43,7 +48,7 @@ exports[`does not explode when rendered 1`] = `
           >
             <svg
               aria-hidden={true}
-              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -54,10 +59,11 @@ exports[`does not explode when rendered 1`] = `
           </div>
         </div>
         <div
-          className="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+          className="MuiCardHeader-content css-16o2p3x-MuiCardHeader-content"
         >
           <span
-            className="MuiTypography-root MuiTypography-body2 MuiCardHeader-title css-et1ao3-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body2 MuiCardHeader-title css-7ctihp-MuiTypography-root"
+            style={{}}
           >
             <h1
               style={
@@ -72,7 +78,8 @@ exports[`does not explode when rendered 1`] = `
             </h1>
           </span>
           <span
-            className="MuiTypography-root MuiTypography-body2 MuiCardHeader-subheader css-83ijpv-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body2 MuiCardHeader-subheader css-1a1whku-MuiTypography-root"
+            style={{}}
           >
             <span
               style={
@@ -88,7 +95,7 @@ exports[`does not explode when rendered 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        className="MuiCardContent-root css-1lt5qva-MuiCardContent-root"
       >
         <ul
           style={
@@ -99,7 +106,8 @@ exports[`does not explode when rendered 1`] = `
         >
           <li>
             <p
-              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+              style={{}}
             >
               <span>
                 6 cl
@@ -128,7 +136,8 @@ exports[`does not explode when rendered 1`] = `
           </li>
           <li>
             <p
-              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+              style={{}}
             >
               <span>
                 1.5 cl
@@ -157,7 +166,8 @@ exports[`does not explode when rendered 1`] = `
           </li>
           <li>
             <p
-              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              className="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+              style={{}}
             >
               <span>
                 0.75 cl
@@ -187,11 +197,12 @@ exports[`does not explode when rendered 1`] = `
         </ul>
         <br />
         <p
-          className="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-1ro85z9-MuiTypography-root"
+          style={{}}
         >
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -203,11 +214,12 @@ exports[`does not explode when rendered 1`] = `
           Martini
         </p>
         <p
-          className="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-body1 css-1ro85z9-MuiTypography-root"
+          style={{}}
         >
           <svg
             aria-hidden={true}
-            className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
             data-testid="RedoIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -221,10 +233,7 @@ exports[`does not explode when rendered 1`] = `
         </p>
       </div>
       <span
-        className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-      />
-      <span
-        className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        className="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
       />
     </a>
   </div>

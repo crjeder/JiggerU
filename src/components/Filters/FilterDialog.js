@@ -10,7 +10,7 @@ import {
 
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { updateFilter, closeFilterDialog } from "../../actions";
+import { closeFilterDialog } from "../../actions";
 import CloseIcon from "@mui/icons-material/Close";
 import { dialogFor, labelFor } from "../../filterConfig";
 
@@ -62,7 +62,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateFilter: bindActionCreators(updateFilter, dispatch),
   closeFilterDialog: bindActionCreators(closeFilterDialog, dispatch),
 });
 

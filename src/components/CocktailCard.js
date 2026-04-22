@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { useTheme } from "@mui/material/styles";
 import { allGlassesSelector } from "../selectors";
+import useCanDispense from "../hooks/useCanDispense";
 import CocktailAvatar from "./CocktailAvatar";
 import {
   Card,
@@ -24,27 +25,7 @@ import DispenseWorkflow from "./CocktailPage/DispenseWorkflow";
 const CocktailCard = ({ cocktail, allGlasses }) => {
   const theme = useTheme();
   const [showDispense, setShowDispense] = useState(false);
-
-  const robotUrl = useSelector(
-    (state) => state.settings.robot && state.settings.robot.url,
-  );
-  const robotConnected = useSelector((state) => state.robot.connected);
-  const robotState = useSelector((state) => state.robot.robotState);
-  const bar = useSelector((state) => state.bar);
-
-  const robotIdle = robotConnected && robotState && robotState.state === "idle";
-
-  const hasDispensable =
-    cocktail &&
-    cocktail.ingredients.some((ing) =>
-      bar.some(
-        (item) =>
-          item &&
-          (ing.ingredient === item.type || ing.ingredient === item.ingredient),
-      ),
-    );
-
-  const canDispense = !!robotUrl && robotIdle && hasDispensable;
+  const { canDispense } = useCanDispense(cocktail);
 
   const mixButtonLabel = theme.custom?.mixButtonLabel ?? "Mix it!";
 
