@@ -12,10 +12,10 @@ exports[`does not explode when rendered 1`] = `
     }
   />,
   <div
-    className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+    className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-d64g0g-MuiGrid-root"
   >
     <div
-      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-wl3uh0-MuiGrid-root"
+      className="MuiGrid-root MuiGrid-direction-xs-row css-npu4zu-MuiGrid-root"
     >
       <div
         style={
@@ -25,7 +25,8 @@ exports[`does not explode when rendered 1`] = `
         }
       >
         <h1
-          className="MuiTypography-root MuiTypography-h1 css-1fpnh6q-MuiTypography-root"
+          className="MuiTypography-root MuiTypography-h1 css-f5nxol-MuiTypography-root"
+          style={{}}
         >
           Vesper
         </h1>
@@ -33,44 +34,53 @@ exports[`does not explode when rendered 1`] = `
           className="MuiBox-root css-11yuzuu"
         >
           <div
-            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-14qm1ic-MuiChip-root"
+            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-z5gqih-MuiChip-root"
+            onClick={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
           >
             <span
-              className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              className="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
             >
               Before Dinner Cocktail
             </span>
           </div>
           <div
-            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-14qm1ic-MuiChip-root"
+            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-z5gqih-MuiChip-root"
+            onClick={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
           >
             <span
-              className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              className="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
             >
               Martini
             </span>
           </div>
           <div
-            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-14qm1ic-MuiChip-root"
+            className="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-filledSecondary css-z5gqih-MuiChip-root"
+            onClick={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
           >
             <span
-              className="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+              className="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
             >
               Lemon twist
             </span>
           </div>
         </div>
         <div
-          className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-i0bk1x-MuiPaper-root"
+          className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1fdopfm-MuiPaper-root"
+          style={
+            {
+              "--Paper-shadow": "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+            }
+          }
         >
           <ul
-            className="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-vjrxpc-MuiTypography-root"
+            style={{}}
           >
             <li>
               <span>
@@ -150,7 +160,8 @@ exports[`does not explode when rendered 1`] = `
           </ul>
           <br />
           <p
-            className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+            className="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+            style={{}}
           >
             Shake and strain into a chilled cocktail glass.
           </p>
@@ -158,7 +169,7 @@ exports[`does not explode when rendered 1`] = `
       </div>
     </div>
     <div
-      className="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-1k7sk4d-MuiGrid-root"
+      className="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
     >
       <div
         className="MuiBox-root css-jfwar9"

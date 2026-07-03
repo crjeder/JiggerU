@@ -29,7 +29,7 @@
 - **State:** Logic flows: `actionTypes` -> `actions` -> `reducers` -> `selectors`.
 - **Git:** No `package-lock.json` changes unless `package.json` was modified.
 - **Formatting:** Prettier is mandatory (via Husky). Do not `--no-verify`.
-- **Larning:** Update CLAUDE.md to avoid making the same mistake again.
+- **Learning:** Update CLAUDE.md to avoid making the same mistake again.
 
 ## Key Architecture
 
